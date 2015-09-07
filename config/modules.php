@@ -23,9 +23,6 @@ return [
             'class' => 'app\modules\category\Module',
         ],
         
-        'classified' => [
-            'class' => 'app\modules\classified\Module',
-        ],
         'job' => [
             'class' => 'app\modules\job\Module',
         ],
