@@ -29,9 +29,6 @@ return [
         'job' => [
             'class' => 'app\modules\job\Module',
         ],
-        'location' =>  [
-            'class' => 'app\modules\location\Module',
-        ],
         'datecontrol' =>  [
             'class' => '\kartik\datecontrol\Module'
         ],
