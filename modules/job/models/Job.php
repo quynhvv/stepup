@@ -277,7 +277,7 @@ class Job extends BaseJob
         return $status;
     }
     
-    public function getCategoryOptions(){
+    public static function getCategoryOptions(){
         return ArrayHelper::map(Category::find()->where(['module' => 'job', 'status' => '1'])->andWhere(['lft' => ['$gt' => 1]])->asArray()->all(), '_id', 'name');
     }
     
