@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Recruiter Registration - StepUp Careers</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/vendors/pushy/css/pushy.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/vendors/font-elegant/style.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/css/styles.css" type="text/css" media="all"/>
+    <script type="text/javascript" src="assets/vendors/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery/jquery.easing.1.3.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="assets/vendors/html5/html5shiv.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/html5/html5shiv-printshiv.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/html5/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="recruiter-registration-page logged_out">
+<div class="wrapper">
+    <div class="page" id="container">
+        <!-- TOP TOOLBAR -->
+        <div id="top-toolbar" class="top-toolbar-container toolbar-dark">
+            <div class="top-toolbar">
+                <span class="visible-xs top-toolbar-trigger">
+                    <i class="icon_close_alt2 fa-2x"></i>
+                </span>
+                <div class="main-top-toolbar">
+                    <div class="container">
+                        <div class="main-top-toolbar-inner">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <div class="block block-login">
+                                        <div class="block-content">
+                                            <form method="post" action="#" id="loginform" name="loginform">
+                                                <div class="form-group">
+                                                    <label for="user_login">Username</label>
+                                                    <input type="email" class="form-control" id="user_login" placeholder="Username">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="user_pass">Password</label>
+                                                    <input type="password" class="form-control" id="user_pass" placeholder="Password">
+                                                </div>
+                                                <button type="submit" class="button button-primary" id="user_submit">Log In</button>
+                                            </form>
+                                            <div style="display: none;">
+                                                <h4 class="welcome">Welcome admin</h4>
+                                                <div class="media author">
+                                                    <div class="media-left text-center">
+                                                        <a href="#">
+                                                            <img width="64" height="64" class="media-object" src="#" alt="avatar">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="media-heading">Logged in as <strong>Administrator</strong></p>
+                                                        <ul class="list-inline list-separator">
+                                                            <li><a href="#">Dashboard</a></li>
+                                                            <li><a href="#">Profile</a></li>
+                                                            <li><a href="#">Logout</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <div class="block block-text">
+                                        <div class="block-content">
+                                            <p class="text-big">We reply on all questions within</p>
+                                            <span class="text-special three-dots dots-bottom">24 h</span>
+                                            <p class="text-center">
+                                                <span class="text-gray">Email and Skype support for our clients</span><br/>
+                                                <b><i class="icon_clock_alt"></i> Mon - Fri 8:00am - 6:00pm <span class="css-tooltip" data-tooltip="we are located in Asia">(GMT +8)</span></b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <div class="block block-text block-contact">
+                                        <div class="block-content">
+                                            <h5><i class="icon_mail_alt"></i> Our address:</h5>
+                                            <p>
+                                                <strong>Stepup Careers</strong><br>
+                                                Room 747, 7/F Star House,<br>
+                                                3 Salisbury Road, TST, Hong Kong</p>
+                                            <h5><i class="icon_phone"></i> Have any questions?</h5>
+                                            <p><a href="mailto:info@stepupcareers.com">info@stepupcareers.com</a></p>
+                                            <h5><i class="icon_comment_alt"></i> Call us:</h5>
+                                            <p><a href="#">+852 9161 8423</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <div class="block block-text">
+                                        <div class="block-content">
+                                            <h6>Version 0.6 - Jul 17, 2014</h6>
+                                            <ul class="list-disc">
+                                                <li>Added: 3 New Header Styles</li>
+                                                <li>Added: Secondary Header Menu for Stack Header Style</li>
+                                                <li>Fixed: DB code cleanup</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="top-toolbar-toggle top-toolbar-trigger">
+                    <i class="arrow_carrot-down"></i>
+                </span>
+            </div>
+        </div>
+        <!-- # TOP TOOLBAR -->
+
+        <!-- HEADER -->
+        <header id="header" class="header-container header-style-image">
+            <div class="main-header">
+                <div class="container">
+                    <div class="main-header-inner">
+                        <div class="logo">
+                            <h1>
+                                <a href="index.html">
+                                    <img src="images/logo/logo.png" class="thumbnail-img" alt="logo"/>
+                                </a>
+                            </h1>
+                        </div>
+                        <div class="main-navigation">
+                            <span class="visible-sm visible-xs toggle-main-navigation menu-btn" id="toggle-main-menu">
+                                <i class="fa fa-bars"></i>
+                            </span>
+                            <nav class="main-menu">
+                                <ul class="menu-main hidden-sm hidden-xs">
+                                    <li>
+                                        <a href="index.html">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="about.html">About</a>
+                                    </li>
+                                    <li>
+                                        <a href="blog.html">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- # HEADER -->
+
+        <!-- BREADCRUMB -->
+        <div id="breadcrumb" class="breadcrumb-container">
+            <div class="container">
+                <div class="breadcrumb-inner">
+                    <div class="page-title">
+                        <h1 class="title">Recruiter Registration</h1>
+                    </div>
+                    <div class="main-breadcrumb">
+                        <ul class="breadcrumb">
+                            <li><a href="index.html">Home</a></li>
+                            <li><strong>Recruiter Registration</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- # BREADCRUMB -->
+
+        <!-- MAIN -->
+        <main id="main" class="main-container">
+            <!-- SECTION 1 -->
+            <div class="section section-1">
+                <div class="container">
+                    <div class="section-title section-title-style-1">
+                        <h2 class="title">Recruiter Registration Form (it only takes a minute)</h2>
+                        <h5 class="subtitle">
+                            This page is for Recruiters only.<br/>
+                            For jobseekers wishing to login. <a title="Login" href="#">Login</a>
+                        </h5>
+                    </div>
+                    <form id="recruiter_registration" enctype="multipart/form-data" action="#" method="post" class="form-horizontal" name="recruiter_registration">
+                        <p class="required"><em>*</em> indicates a required field</p>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> I am a:</label>
+                            <div class="col-sm-6">
+                                <label class="radio-inline">
+                                    <input type="radio" name="recruiter_registration_type" value="agent"> Recruiter
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="recruiter_registration_type" value="company"> Hiring Manager
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Name:</label>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <input type="text" class="form-control" name="first_name" placeholder="First Name">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Company Name:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="company_name" placeholder="Company Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Position:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="position" placeholder="Position">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Office Location:</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" name="office_location">
+                                    <option value="">---</option>
+                                    <option value="us">US</option>
+                                    <option value="uk">UK</option>
+                                    <option value="europe">Europe</option>
+                                    <option value="japan">Japan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> City Name:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="city_name" placeholder="City Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Corporate Site:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="corporate_site" placeholder="Corporate Site">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Email:</label>
+                            <div class="col-sm-6">
+                                <p>Please enter corporate Site like as http://www.stepupcareers.com/.</p>
+                                <input type="email" class="form-control" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Password:</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control" name="password" placeholder="Must be 8-20 characters in length.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Password(Reconfirm):</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control" name="re_password" placeholder="Re-enter your password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Telephone:</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control" name="re_password" placeholder="(Ex: 65-6666-7777) with country code, please.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Industry Coverage: <br/>(select up to 3)</label>
+                            <div class="col-sm-6">
+                                <select multiple="multiple" name="jobs_industry" class="form-control">
+                                    <option value="">---</option>
+                                    <option value="1">Business Services</option>
+                                    <option value="2">Consumer Goods, Food, Clothing</option>
+                                    <option value="3">Electronics, Semiconductor, Automotive</option>
+                                    <option value="4">Energy, Utilities, Minerals</option>
+                                    <option value="5">Engineering, Construction, Design</option>
+                                    <option value="6">Financial Services</option>
+                                    <option value="7">IT, Internet, Telecom Systems</option>
+                                    <option value="8">Management Consulting Services</option>
+                                    <option value="9">Manufacturing &ndash; Other</option>
+                                    <option value="10">Media, PR, Publishing</option>
+                                    <option value="11">Medicine, Healthcare, Bio, Chemical</option>
+                                    <option value="12">NPO, Government, Military</option>
+                                    <option value="13">Real Estate, Property Management</option>
+                                    <option value="14">Services -Other</option>
+                                </select>
+                                <p>Please Use CTR to select multiple options.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Professional Summary:</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><em class="required">*</em> Upload Photo:</label>
+                            <div class="col-sm-6">
+                                <input type="file" name="photo" accept="image/*">
+                                <p>File must be in JPEG format and under 1MB in size.</p>
+                                <p>Best shown in following size: 96 x 96 pixels.</p>
+                            </div>
+                        </div>
+                        <div class="checkbox policy_check">
+                            <label>
+                                <input type="checkbox" name="accept_policy_checkbox">
+                                I have read, understand, and I accept the <a target="_blank" href="#">terms of use</a> and <a target="_blank" href="#">privacy policy</a>.
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button type="submit" class="button button-primary">Sign up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- # SECTION 1 -->
+        </main>
+        <!-- # MAIN -->
+
+        <!-- FOOTER -->
+        <footer id="footer" class="footer-container">
+            <div class="main-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="block block-text">
+                                <div class="block-content">
+                                    <p>
+                                        <a href="index.html">
+                                            <img src="images/logo/logo_footer1.png" class="thumbnail-img" alt="footer logo"/>
+                                        </a>
+                                    </p>
+                                    <p class="text-big">We love who we are and we are very proud to be the part of your business</p>
+                                    <p>Stepup Careers is a leading jobs, employment and recruitment website, providing job vacancies, interview skills and tips.</p>
+                                    <div class="block block-social">
+                                        <div class="block-content">
+                                            <ul class="list-inline">
+                                                <li><a href="#" class="btn-social facebook"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#" class="btn-social google-plus"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="#" class="btn-social twitter"><i class="fa fa-twitter"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="block block-recent-comment">
+                                <div class="block-content">
+                                    <ul>
+                                        <li>
+                                            <span class="date_label">July 22, 2014</span>
+                                            <p>
+                                                <i class="fa fa-user"></i>
+                                                <strong>admin</strong> commented on <a title="Announce news here" href="post.html">Announce news here.</a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <span class="date_label">July 22, 2014</span>
+                                            <p>
+                                                <i class="fa fa-user"></i>
+                                                <strong>admin</strong> commented on <a title="First post" href="post.html">First post</a>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="block block-recent-post">
+                                <div class="block-content">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <div class="post-item">
+                                                    <span class="photo-number">1</span>
+                                                    <h6 class="post-title">Announce news here.</h6>
+                                                    <span class="date"><i class="icon_clock_alt"></i>July 22, 2014</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="post-item">
+                                                    <span class="photo-number">1</span>
+                                                    <h6 class="post-title">First post</h6>
+                                                    <span class="date"><i class="icon_clock_alt"></i>July 22, 2014</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="post-item">
+                                                    <span class="photo-number">0</span>
+                                                    <h6 class="post-title">Hello world !</h6>
+                                                    <span class="date"><i class="icon_clock_alt"></i>July 22, 2014</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="block block-list">
+                                <div class="block-content">
+                                    <ul class="list-icon">
+                                        <li class="icon-idea"><a href="#">Privacy Policy</a></li>
+                                        <li class="icon-star"><a href="#">About Step Up</a></li>
+                                        <li class="icon-star"><a href="#">Contact Us</a></li>
+                                        <li class="icon-check"><a href="#">StepUp Careers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <address class="copyright">
+                                &copy; 2015 StepUp Careers. All Rights Reserved. <a href="index.html" rel="nofollow" target="_blank">StepUp Careers</a>
+                            </address>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
+                            <div class="block block-social">
+                                <div class="block-content">
+                                    <ul class="list-inline">
+                                        <li><a href="#" class="link-social"><i class="fa fa-skype"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-pinterest"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <span class="button scroll-to-top"><i class="arrow_carrot-up"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- # FOOTER -->
+    </div>
+    <!-- MOBILE MENU -->
+    <nav class="pushy pushy-left">
+        <ul class="mobile-menu">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="blog.html">Blog</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="site-overlay"></div>
+    <!-- # MOBILE MENU -->
+</div>
+
+<script type="text/javascript" src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/sticky-nav.js"></script>
+<script type="text/javascript" src="assets/js/scroll-top.js"></script>
+<script type="text/javascript" src="assets/vendors/pushy/js/pushy.min.js"></script>
+<script type="text/javascript" src="assets/js/theme.js"></script>
+</body>
+</html>

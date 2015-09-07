@@ -1,0 +1,28 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+.dropdown-menu {
+  left: auto;
+}
+#page-wrapper {
+  min-height: inherit;
+}
+.dd .btn-group {
+  padding: 5px 10px;
+}
+.tab-content {
+  padding-top: 20px;
+}
+.ibox .nav-tabs > li.active > a {
+  border-bottom: 1px solid #fff;
+}
+.kv-container-from,
+.kv-container-to {
+  padding: 0;
+  border: 0;
+}

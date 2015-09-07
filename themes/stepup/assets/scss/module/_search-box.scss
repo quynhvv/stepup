@@ -1,0 +1,14 @@
+.box-job-search {
+  .box-title {
+    @extend %title-box;
+  }
+  input[type="text"], input[type="password"], input[type="email"], input[type="tel"], textarea, select {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  table {
+    th, td {
+      vertical-align: middle !important;
+    }
+  }
+}

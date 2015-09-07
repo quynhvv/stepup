@@ -1,0 +1,109 @@
+// =============================================
+// Global
+// =============================================
+
+blockquote {
+  background: url("../images/textline.png") repeat-y scroll;
+  display: block;
+  font-size: 17px;
+  height: auto;
+  line-height: 31px;
+  margin: 0 0 35px 25px;
+  position: relative;
+  top: 15px;
+  &:after {
+    background-image: url("../images/blockquote.png");
+    content: "";
+    height: 40px;
+    left: -25px;
+    position: absolute;
+    top: -15px;
+    width: 55px;
+  }
+}
+
+.special-hover-link-1 {
+  color: #656b6f;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 15px 0;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+  .col-sidebar .block & {
+    min-width: 195px;
+    text-align: center;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    &:after {
+      @include opacity(1);
+      top: 0;
+    }
+    &:after,
+    &:before {
+      background-color: #e60000;
+      @include transform("scale(1)");
+    }
+  }
+  &:before,
+  &:after {
+    background-color: rgba(0, 0, 0, 0.1);
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    @include transform("scale(0.85)");
+    @include transition("transform 0.3s ease 0s");
+    width: 100%;
+  }
+  &:after {
+    @include opacity(0);
+    @include transition("top 0.3s ease 0s, opacity 0.3s ease 0s, transform 0.3s ease 0s");
+  }
+}
+
+.i-bg {
+  background-image: url("../images/i.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  &.icn-ranking-top10 {
+    background-position: 0 -710px;
+    height: 39px;
+    width: 25px;
+  }
+  &.icn-ranking-top50 {
+    background-position: 0 -760px;
+    height: 39px;
+    width: 25px;
+  }
+  &.i-notext {
+    overflow: hidden;
+    text-indent: -9999px;
+  }
+}
+
+
+// =============================================
+// Scroll to top
+// =============================================
+
+.scroll-to-top {
+  display: inline-block;
+  font-size: 2em;
+  padding: 0 !important;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  width: 44px;
+  &.button {
+    overflow: visible;
+  }
+  > i {
+    margin-left: -1px;
+  }
+}

@@ -1,0 +1,27 @@
+th.align-left {
+  font-size: 24px;
+  text-align: left;
+  span, a {
+    font-size: 14px;
+    padding-left: 25px;
+  }
+}
+span.question {
+  background-color: #89a4cc;
+  border-radius: 8px;
+  color: White;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  height: 16px;
+  line-height: 16px;
+  position: relative;
+  text-align: center;
+  width: 16px;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #3d6199;
+  }
+}

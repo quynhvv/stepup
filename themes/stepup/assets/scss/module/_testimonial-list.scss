@@ -1,0 +1,145 @@
+.testimonial-list {
+  margin-bottom: 40px;
+  #slider-thumbs {
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 3;
+    &:before {
+      background-color: $primary_color;
+      content: "";
+      display: block;
+      height: 100%;
+      left: -100%;
+      position: absolute;
+      top: 0;
+      width: 3000px;
+      z-index: 2;
+    }
+  }
+  #carousel-bounding-box {
+    padding-left: 80px;
+    padding-right: 80px;
+    position: relative;
+    .button {
+      top: 1em;
+      position: absolute;
+      &.button-prev {
+        left: -70px;
+      }
+      &.button-next {
+        right: -70px;
+      }
+    }
+  }
+  .button {
+    background-color: transparent;
+    font-size: 2em;
+    padding: 0;
+    height: 44px;
+    line-height: 44px;
+    width: 44px;
+  }
+  .thumbs-list {
+    @include clearfix;
+    text-align: center;
+    > li {
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: -6px;
+      position: relative;
+      z-index: 5;
+      > a {
+        display: block;
+        position: relative;
+        &:after {
+          background-color: $primary_color;
+          content: "";
+          display: block;
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          @include transition("all 0.3s ease-in-out 0s");
+          @include opacity(0.4);
+          visibility: visible;
+          width: 100%;
+        }
+        &:before {
+          @include transition("all 0.3s ease-in-out 0s");
+        }
+        &:hover,
+        &:active,
+        &:focus,
+        &.selected {
+          &:after {
+            @include opacity(0);
+            visibility: hidden;
+          }
+        }
+        &.selected {
+          &:before {
+            background-color: $primary_color;
+            bottom: -6px;
+            content: "";
+            display: block;
+            height: 6px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  blockquote {
+    border-left: none;
+    font-family: $font_highlight;
+    padding: 0;
+  }
+  .testimonial-item {
+    .testimonial-content {
+      background: rgba(0, 0, 0, 0.02);
+      margin-bottom: 20px;
+      overflow: hidden;
+      padding: 30px 40px 10px;
+    }
+    .info {
+      margin-top: 10px;
+      text-align: center;
+      .author {
+        margin-bottom: 2px;
+        margin-top: 30px;
+      }
+      .company {
+        color: $gray_color;
+      }
+    }
+  }
+}
+@media all and (max-width: 480px) {
+  .testimonial-list {
+    #carousel-bounding-box {
+      padding-left: 15px;
+      padding-right: 15px;
+      .button {
+        float: left;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        position: relative !important;
+        top: auto !important;
+        &.button-prev {
+          left: auto;
+        }
+        &.button-next {
+          margin-left: 10px;
+          right: auto;
+        }
+      }
+    }
+    .testimonial-item {
+      .testimonial-content {
+        padding: 15px 10px 10px;
+      }
+    }
+  }
+}

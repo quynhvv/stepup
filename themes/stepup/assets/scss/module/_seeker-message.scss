@@ -1,0 +1,18 @@
+.section-job-seeker-messages {
+  .col-sidebar {
+    .nav {
+      border: 1px solid $border_color;
+    }
+    .nav-pills {
+      > li {
+        & + li {
+          border-top: 1px solid $border_color;
+          margin-top: 0;
+        }
+        > a {
+          @include border-radius("0");
+        }
+      }
+    }
+  }
+}

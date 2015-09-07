@@ -1,0 +1,107 @@
+.three-dots {
+  position: relative;
+  &:before {
+    bottom: 100%;
+    color: $primary_color;
+    content: "•";
+    font-size: 18px;
+    left: 50%;
+    line-height: 1;
+    pointer-events: none;
+    position: absolute;
+    @include text-shadow("15px 0 #FF0000, -15px 0 #FF0000") ;
+    @include transform(translateX(-50%));
+    @include transition("text-shadow 0.3s ease 0s, color 0.3s ease 0s");
+  }
+  &.dots-bottom {
+    &:before {
+      bottom: auto;
+      top: 100%;
+    }
+  }
+}
+.css-tooltip {
+  border-bottom: 1px dotted;
+  cursor: help;
+  position: relative;
+  &:after {
+    background-color: $tooltip_bg;
+    background-image: url("../images/stripes_10_w.png");
+    @include border-radius("5px");
+    bottom: 110%;
+    color: $tooltip_color;
+    content: attr(data-tooltip);
+    font-size: 13px;
+    left: 50%;
+    line-height: 18px;
+    padding: 5px 15px;
+    position: absolute;
+    text-align: center;
+    @include opacity(0);
+    visibility: hidden;
+    @include transform(translateX(-50%));
+    @include transition("all 350ms ease-in-out 0s");
+    width: 140px;
+    z-index: 98;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    &:after {
+      @include opacity(1);
+      visibility: visible;
+    }
+  }
+}
+%title-box {
+  @include clearfix;
+  background-color: #f6eee5;
+  border-left: 1px solid #e75e10;
+  border-right: 1px solid #e8e0d5;
+  border-top: 1px solid #e8e0d5;
+  .title {
+    color: #333;
+    float: left;
+    font-size: 15px;
+    margin-bottom: 0;
+    padding: 10px 0 7px 20px;
+    text-transform: uppercase;
+  }
+}
+hr {
+  background-color: $hr_bg;
+  border: none;
+  color: $hr_color;
+  clear: both;
+  display: block;
+  height: 1px;
+  margin: 0 auto 15px;
+  outline: none;
+  width: 100%;
+  &.primary-color {
+    background-color: $primary_color;
+    color: $primary_color;
+  }
+}
+.hr-zigzag {
+  clear: both;
+  display: block;
+  min-height: 1px;
+  position: relative;
+  margin: 0 auto 15px;
+  outline: none;
+  text-align: center;
+  width: 100%;
+  > i {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 25px;
+    margin: 0 -0.37em;
+  }
+  &.primary-color {
+    > i {
+      color: $primary_color;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+.footer-container {
+  background-color: $footer_bg;
+  color: $footer_text_color;
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  a {
+    color: $footer_link_color;
+    $link_footer_transition : "all 0.3s ease-in-out 0s";
+    @include transition($link_footer_transition);
+    &:hover,
+    &:active,
+    &:focus {
+      color: $footer_link_hover_color;
+    }
+  }
+  h1,h2,h3,h4,h5,h6 {
+    color: $footer_title_color;
+    > a {
+      color: inherit;
+    }
+  }
+  .block {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    .block {
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+  }
+  .btn-social {
+    background-color: $footer_btn_social_bg;
+    background-image: url("../images/stripes_3_b.png");
+    border: 1px solid $footer_btn_social_border_color;
+    @include box-shadow("0 0 5px 0 rgba(0, 0, 0, 0.08) inset");
+    color: $footer_btn_social_color;
+    display: inline-block;
+    font-size: 15px;
+    height: 43px;
+    line-height: 43px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    @include transition("all 350ms ease-in-out 0s");
+    width: 43px;
+    &:before {
+      display: block;
+      font-family: fontawesome;
+      font-size: 15px;
+      height: 43px;
+      left: 0;
+      line-height: 43px;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      @include transition("all 350ms ease-in-out 0s");
+      @include transform(translateY(100%));
+      width: 43px;
+      z-index: 2;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      &:before {
+        @include transform(translateY(0));
+      }
+    }
+    &.facebook {
+      &:before {
+        background-color: $footer_facebook_bg;
+        color: $footer_facebook_color;
+        content: $fa_var_facebook;
+      }
+    }
+    &.google-plus {
+      &:before {
+        background-color: $footer_google_plus_bg;
+        color: $footer_google_plus_color;
+        content: $fa_var_google_plus;
+      }
+    }
+    &.twitter {
+      &:before {
+        background-color: $footer_twitter_bg;
+        color: $footer_twitter_color;
+        content: $fa_var_twitter;
+      }
+    }
+  }
+  .link-social {
+    color: $footer_link_social_color;
+    font-size: 15px;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $footer_link_social_hover_color;
+    }
+  }
+  .block-recent-post {
+    .post-item {
+      .post-title {
+        border-bottom-color: $footer_border_color;
+      }
+    }
+  }
+  .list-icon {
+    > li {
+      position: relative;
+      &:before {
+        background-color: $footer_border_color;
+        bottom: -11px;
+        content: "";
+        height: 1px;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        width: 70px;
+      }
+    }
+  }
+}
+.main-footer {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.footer-copyright {
+  border-top: 1px solid $footer_border_color;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  .copyright {
+    padding-top: 15px;
+  }
+  .block-social {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+@media all and (max-width: 768px) {
+  .footer-copyright {
+    .col-xs-12 {
+      text-align: center !important;
+    }
+  }
+}
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .main-footer {
+    .col-sm-6 {
+      &:nth-child(2n+1) {
+        clear: left;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.header-container {
+  background-color: $header_bg;
+  &.header-style-image {
+    background: url("../images/bg_subheader1.jpg") no-repeat top left $header_bg;
+    background-size: cover;
+    background-attachment: scroll;
+    min-height: 250px;
+  }
+  .main-header-inner {
+    background-color: $header_bg;
+    @include clearfix;
+  }
+  .logo {
+    float: left;
+    h1 {
+      font-size: inherit;
+      margin: 0;
+    }
+    a {
+      display: block;
+      padding: 15px 30px 15px 20px;
+      img {
+        padding-bottom: 1em;
+        padding-top: 1em;
+      }
+    }
+  }
+  a {
+    color: $header_link_color;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $header_link_hover_color;
+      text-decoration: none;
+    }
+  }
+  .logo,
+  .main-navigation {
+    display: inline-block;
+  }
+}

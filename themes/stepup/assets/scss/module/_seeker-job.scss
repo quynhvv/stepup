@@ -1,0 +1,47 @@
+#nav-job {
+  @extend %title-box;
+  border-bottom: 1px solid #e8e0d5;
+  margin-bottom: 10px;
+  > li {
+    font-size: 1.154em;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    text-transform: none;
+    @include transition("all 350ms ease-in-out 0s");
+    &:hover,
+    &:active
+    &:focus {
+      background-color: #fff;
+      > a {
+        background-color: #fff;
+      }
+    }
+    > a {
+      display: block;
+      padding-bottom: 15px;
+      padding-top: 15px;
+      @include transition("all 350ms ease-in-out 0s");
+    }
+  }
+  &.nav-tabs.nav-justified {
+    > li {
+      &.active {
+        background-color: $component_bg;
+        color: $component_color;
+        > a {
+          background-color: $component_bg;
+          color: $component_color;
+        }
+      }
+      > a {
+        @include border-radius("0");
+        border: none;
+      }
+    }
+  }
+}
+.candidate-history-links {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}

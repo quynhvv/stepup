@@ -1,0 +1,163 @@
+// =============================================
+// Typography
+// =============================================
+
+$font_heading : Arial,Arial,Tahoma,sans-serif;
+$font_text : Arial,Arial,Tahoma,sans-serif;
+$font_highlight : Patua One, Arial, Tahoma, sans-serif;
+$font_base : 13px;
+
+$primary_color : #FF0000;
+$gray_color : #a8a8a8;
+$dark_color : #444444;
+
+$color_h1 : #444444;
+$color_h2 : #444444;
+$color_h3 : #444444;
+$color_h4 : #444444;
+$color_h5 : #444444;
+$color_h6 : #444444;
+$color_text : #626262;
+$link_color : #FF0000;
+$link_hover_color : #e60000;
+
+$border_color : rgba(0, 0, 0, 0.05);
+
+$color_danger : #a94442;
+$color_success : #3c763d;
+$color_info : #31708f;
+$color_warning : #8a6d3b;
+
+// =============================================
+// Layout
+// =============================================
+
+$page_bg : #fcfcfc;
+
+$hr_bg : rgba(0, 0, 0, 0.08);
+$hr_color : rgba(0, 0, 0, 0.08);
+
+$background_gray: #F9F9F9;
+$background_dark_gray: #EFEFEF;
+$background_dark: #cccccc;
+
+// =============================================
+// Button
+// =============================================
+
+$button_default_bg: #f7f7f7;
+$button_defaut_color: #444444;
+$button_hover_bg_default: rgba(0, 0, 0, 0.05);
+$button_hover_color_defaut: $button_defaut_color;
+
+$button_primary_bg: #FF0000;
+$button_primary_color: #FFFFFF;
+$button_primary_hover_bg: rgba(0, 0, 0, 0.05);
+$button_primary_hover_color: #FFFFFF;
+
+$button_secondary_bg: #2e96db;
+$button_secondary_color: #FFFFFF;
+$button_secondary_hover_bg: rgba(0, 0, 0, 0.05);
+$button_secondary_hover_color: #FFFFFF;
+
+// =============================================
+// Form
+// =============================================
+
+$input_box_shadow : "0 0 2px 2px rgba(0, 0, 0, 0.02) inset";
+$input_bg : #ffffff;
+$input_text_color : #626262;
+$input_border_color : rgba(0, 0, 0, 0.08);
+$input_focus_bg : #e9f5fc;
+$input_focus_text_color : #1982c2;
+$input_focus_border_color : #d5e5ee;
+
+// =============================================
+// Table
+// =============================================
+
+$table_th : #444444;
+
+// =============================================
+// Header
+// =============================================
+
+$header_bg : #fff;
+$header_link_color : #444444;
+$header_link_hover_color : $primary_color;
+$header_border_color : rgba(0, 0, 0, 0.05);
+
+$main_nav_link_color : $header_link_color;
+$main_nav_link_active_color : $header_link_hover_color;
+$main_nav_list_bg : #f2f2f2;
+$main_nv_list_box_shadow : "2px 2px 2px 0 rgba(0, 0, 0, 0.03)";
+$main_nav_children_link_bg : #f2f2f2;
+$main_nav_children_link_color : #5f5f5f;
+$main_nav_children_link_hover_bg : rgba(0, 0, 0, 0.06);
+$main_nav_children_link_hover_color : #2e2e2e;
+
+// =============================================
+// Breadcrumb
+// =============================================
+
+$breadcrumb_bg : #f7f7f7;
+$breadcrumb_title_color : #888888;
+$breadcrumb_link_color : rgba(0, 0, 0, 0.3);
+$breadcrumb_link_hover_color : rgba(0, 0, 0, 0.3);
+$breadcrumb_text_color : $breadcrumb_link_color;
+$breadcrumb_caret_color : rgba(0, 0, 0, 0.3);
+
+// =============================================
+// Component
+// =============================================
+
+$component_bg: $primary_color;
+$component_color: #fff;
+
+$tooltip_bg : #444444;
+$tooltip_color : #FFFFFF;
+
+$banner_title_color_on_image: #fff;
+
+$toolbar_dark_bg: #000000;
+$toolbar_dark_text_color: #cccccc;
+$toolbar_dark_gray_color: #9C9C9C;
+$toolbar_dark_title_color: #ffffff;
+$toolbar_dark_link_color: #ff0000;
+$toolbar_dark_link_hover_color: $toolbar_dark_link_color;
+$toolbar_dark_trigger_bg: #000000;
+$toolbar_dark_trigger_color: #ffffff;
+$toolbar_dark_trigger_hover_bg: $toolbar_dark_trigger_bg;
+$toolbar_dark_trigger_hover_color: $toolbar_dark_trigger_color;
+
+$pricing_box_bg : #fff;
+$pricing_box_border_color : rgba(0, 0, 0, 0.08);
+$pricing_box_text_color : inherit;
+$pricing_box_highlight_bg : $primary_color;
+$pricing_box_highlight_border_color : $pricing_box_highlight_bg;
+$pricing_box_highlight_text_color : #ffffff;
+
+// =============================================
+// Footer
+// =============================================
+
+$footer_bg : #000000;
+$footer_text_color : #CCCCCC;
+$footer_title_color : #ffffff;
+$footer_border_color : rgba(255, 255, 255, 0.1);
+$footer_link_color : #FF0000;
+$footer_link_hover_color : #FF0000;
+$footer_btn_social_bg : rgb(255, 255, 255);
+$footer_btn_social_border_color : rgba(0, 0, 0, 0.08);
+$footer_btn_social_color : #444444;
+$footer_link_social_color : rgba(255, 255, 255, 0.3);
+$footer_link_social_hover_color : rgba(255, 255, 255, 1);
+$footer_facebook_bg : #3A589B;
+$footer_facebook_color : #fff;
+$fa_var_facebook: "\f09a";
+$footer_google_plus_bg : #D6492F;
+$footer_google_plus_color : #fff;
+$fa_var_google_plus: "\f0d5";
+$footer_twitter_bg : #32CCFE;
+$footer_twitter_color : #fff;
+$fa_var_twitter: "\f099";

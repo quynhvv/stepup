@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Home - StepUp Careers</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/vendors/pushy/css/pushy.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/vendors/font-elegant/style.css" type="text/css"/>
+    <link rel="stylesheet" href="assets/css/styles.css" type="text/css" media="all"/>
+    <script type="text/javascript" src="assets/vendors/jquery/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery/jquery.easing.1.3.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="assets/vendors/html5/html5shiv.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/html5/html5shiv-printshiv.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/html5/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="logged_in home-page">
+<div class="wrapper">
+    <div class="page" id="container">
+        <!-- TOP TOOLBAR -->
+        <div id="top-toolbar" class="top-toolbar-container toolbar-dark">
+            <div class="top-toolbar">
+                <span class="visible-xs top-toolbar-trigger">
+                    <i class="icon_close_alt2 fa-2x"></i>
+                </span>
+                <div class="main-top-toolbar">
+                    <div class="container">
+                        <div class="main-top-toolbar-inner">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <div class="block block-login">
+                                        <div class="block-content">
+                                            <h4 class="welcome">Welcome admin</h4>
+                                            <div class="media author">
+                                                <div class="media-left text-center">
+                                                    <a href="#">
+                                                        <img width="64" height="64" class="media-object" src="#" alt="avatar">
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <p class="media-heading">Logged in as <strong>Administrator</strong></p>
+                                                    <ul class="list-inline list-separator">
+                                                        <li><a href="#">Dashboard</a></li>
+                                                        <li><a href="#">Profile</a></li>
+                                                        <li><a href="#">Logout</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div style="display: none;">
+                                                <form method="post" action="#" id="loginform" name="loginform">
+                                                    <div class="form-group">
+                                                        <label for="user_login">Username</label>
+                                                        <input type="email" class="form-control" id="user_login" placeholder="Username">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="user_pass">Password</label>
+                                                        <input type="password" class="form-control" id="user_pass" placeholder="Password">
+                                                    </div>
+                                                    <button type="submit" class="button button-primary" id="user_submit">Log In</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <div class="block block-text">
+                                        <div class="block-content">
+                                            <p class="text-big">We reply on all questions within</p>
+                                            <span class="text-special three-dots dots-bottom">24 h</span>
+                                            <p class="text-center">
+                                                <span class="text-gray">Email and Skype support for our clients</span><br/>
+                                                <b><i class="icon_clock_alt"></i> Mon - Fri 8:00am - 6:00pm <span class="css-tooltip" data-tooltip="we are located in Asia">(GMT +8)</span></b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <div class="block block-text block-contact">
+                                        <div class="block-content">
+                                            <h5><i class="icon_mail_alt"></i> Our address:</h5>
+                                            <p>
+                                                <strong>Stepup Careers</strong><br>
+                                                Room 747, 7/F Star House,<br>
+                                                3 Salisbury Road, TST, Hong Kong</p>
+                                            <h5><i class="icon_phone"></i> Have any questions?</h5>
+                                            <p><a href="mailto:info@stepupcareers.com">info@stepupcareers.com</a></p>
+                                            <h5><i class="icon_comment_alt"></i> Call us:</h5>
+                                            <p><a href="#">+852 9161 8423</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <div class="block block-text">
+                                        <div class="block-content">
+                                            <h6>Version 0.6 - Jul 17, 2014</h6>
+                                            <ul class="list-disc">
+                                                <li>Added: 3 New Header Styles</li>
+                                                <li>Added: Secondary Header Menu for Stack Header Style</li>
+                                                <li>Fixed: DB code cleanup</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="top-toolbar-toggle top-toolbar-trigger">
+                    <i class="arrow_carrot-down"></i>
+                </span>
+            </div>
+        </div>
+        <!-- # TOP TOOLBAR -->
+
+        <!-- HEADER -->
+        <header id="header" class="header-container header-style-image">
+            <div class="main-header">
+                <div class="container">
+                    <div class="main-header-inner">
+                        <div class="logo">
+                            <h1>
+                                <a href="index.html">
+                                    <img src="images/logo/logo.png" class="thumbnail-img" alt="logo"/>
+                                </a>
+                            </h1>
+                        </div>
+                        <div class="main-navigation">
+                            <span class="visible-sm visible-xs toggle-main-navigation menu-btn" id="toggle-main-menu">
+                                <i class="fa fa-bars"></i>
+                            </span>
+                            <nav class="main-menu">
+                                <ul class="menu-main hidden-sm hidden-xs">
+                                    <li class="active">
+                                        <a href="index.html">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="about.html">About</a>
+                                    </li>
+                                    <li>
+                                        <a href="blog.html">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- # HEADER -->
+
+        <!-- MAIN -->
+        <main id="main" class="main-container">
+            <!-- SECTION 1 -->
+            <div class="section section-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="block block-banner banner-hover-style-1 banner-hover-dark-overlay">
+                                <div class="block-content">
+                                    <a href="#" class="overlay">
+                                        <img src="images/banner/left_v2.jpg" class="thumbnail-img" alt="banner image"/>
+                                    </a>
+                                    <div class="content-banner">
+                                        <h4 class="subtitle">Job seeker</h4>
+                                        <h2 class="title">Looking for<br><span class="text-uppercase">career</span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="block block-banner banner-hover-style-1 banner-hover-dark-overlay">
+                                <div class="block-content">
+                                    <a href="#" class="overlay">
+                                        <img src="images/banner/middle_v2.jpg" class="thumbnail-img" alt="banner image"/>
+                                    </a>
+                                    <div class="content-banner">
+                                        <h4 class="subtitle">Recruitment Agency</h4>
+                                        <h2 class="title">Looking for<br><span class="text-uppercase">talent</span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="block block-banner banner-hover-style-1 banner-hover-dark-overlay">
+                                <div class="block-content">
+                                    <a href="#" class="overlay">
+                                        <img src="images/banner/right_v2.jpg" class="thumbnail-img" alt="banner image"/>
+                                    </a>
+                                    <div class="content-banner">
+                                        <h4 class="subtitle">Employer</h4>
+                                        <h2 class="title">Looking for<br><span class="text-uppercase">staff</span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-heading heading-has-triangle-2sides">
+                        <h2 class="heading-title">One step ahead of your competition</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- # SECTION 1 -->
+
+            <!-- SECTION 2 -->
+            <div class="section section-2">
+                <div class="container">
+                    <div class="section-inner background-dark-gray">
+                        <!-- TESTIMONIAL LIST -->
+                        <div class="testimonial-list">
+                            <!-- thumb navigation carousel items -->
+                            <div class="col-md-12" id="slider-thumbs">
+                                <ul class="thumbs-list">
+                                    <li>
+                                        <a id="carousel-selector-0" class="selected">
+                                            <img src="images/testimonial/our_team_31.jpg" class="img-responsive" alt="testimonial thumbnail"/>
+                                        </a>
+                                    </li><li>
+                                        <a id="carousel-selector-1">
+                                            <img src="images/testimonial/our_team_22.jpg" class="img-responsive" alt="testimonial thumbnail"/>
+                                        </a>
+                                    </li><li>
+                                        <a id="carousel-selector-2">
+                                            <img src="images/testimonial/our_team_61.jpg" class="img-responsive" alt="testimonial thumbnail"/>
+                                        </a>
+                                    </li><li>
+                                        <a id="carousel-selector-3">
+                                            <img src="images/testimonial/our_team_41.jpg" class="img-responsive" alt="testimonial thumbnail"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- main slider carousel -->
+                            <div class="row">
+                                <div class="col-md-12" id="slider">
+                                    <div class="col-md-12" id="carousel-bounding-box">
+                                        <div id="testimonialcarousel" class="carousel slide">
+                                            <!-- main slider carousel items -->
+                                            <div class="carousel-inner">
+                                                <div class="active item" data-slide-number="0">
+                                                    <div class="testimonial-item">
+                                                        <div class="testimonial-content">
+                                                            <blockquote>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna.</blockquote>
+                                                        </div>
+                                                        <div class="info">
+                                                            <h5 class="author three-dots">Tom Johnson</h5>
+                                                            <p class="text-gray">On Stage Studio</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item" data-slide-number="1">
+                                                    <div class="testimonial-item">
+                                                        <div class="testimonial-content">
+                                                            <blockquote>Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi.</blockquote>
+                                                        </div>
+                                                        <div class="info">
+                                                            <h5 class="author three-dots">Joan Avina</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item" data-slide-number="2">
+                                                    <div class="testimonial-item">
+                                                        <div class="testimonial-content">
+                                                            <blockquote>Ut et iaculis ante, vel scelerisque tortor. Nulla dignissim, tellus sed aliquam ullamcorper, erat sem feugiat est, vitae dictum mi enim nec lectus.</blockquote>
+                                                        </div>
+                                                        <div class="info">
+                                                            <h5 class="author three-dots">John Doe</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item" data-slide-number="3">
+                                                    <div class="testimonial-item">
+                                                        <div class="testimonial-content">
+                                                            <blockquote>Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices posuere cubilia.</blockquote>
+                                                        </div>
+                                                        <div class="info">
+                                                            <h5 class="author three-dots">Gordon Dale</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- main slider carousel nav controls -->
+                                            <a class="button button-prev" href="#testimonialcarousel" data-slide="prev"><i class="arrow_carrot-left"></i></a>
+                                            <a class="button button-next" href="#testimonialcarousel" data-slide="next"><i class="arrow_carrot-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- # TESTIMONIAL LIST -->
+
+                        <!-- CLIENT LIST -->
+                        <div class="client-list">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-sm-3 col-lg-2">
+                                    <div class="client-item">
+                                        <a href="#">
+                                            <img src="images/client/client_1.png" class="thumbnail-img" alt="client thumbnail image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-3 col-lg-2">
+                                    <div class="client-item">
+                                        <a href="#">
+                                            <img src="images/client/client_2.png" class="thumbnail-img" alt="client thumbnail image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-3 col-lg-2">
+                                    <div class="client-item">
+                                        <a href="#">
+                                            <img src="images/client/client_3.png" class="thumbnail-img" alt="client thumbnail image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-3 col-lg-2">
+                                    <div class="client-item">
+                                        <a href="#">
+                                            <img src="images/client/client_4.png" class="thumbnail-img" alt="client thumbnail image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-3 col-lg-2">
+                                    <div class="client-item">
+                                        <a href="#">
+                                            <img src="images/client/client_5.png" class="thumbnail-img" alt="client thumbnail image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-3 col-lg-2">
+                                    <div class="client-item">
+                                        <a href="#">
+                                            <img src="images/client/client_6.png" class="thumbnail-img" alt="client thumbnail image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-3 col-lg-2">
+                                    <div class="client-item">
+                                        <a href="#">
+                                            <img src="images/client/client_7.png" class="thumbnail-img" alt="client thumbnail image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-3 col-lg-2">
+                                    <div class="client-item">
+                                        <a href="#">
+                                            <img src="images/client/client_8.png" class="thumbnail-img" alt="client thumbnail image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 col-sm-3 col-lg-2">
+                                    <div class="client-item">
+                                        <a href="#">
+                                            <img src="images/client/client_9.png" class="thumbnail-img" alt="client thumbnail image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- # CLIENT LIST -->
+                    </div>
+                </div>
+            </div>
+            <!-- # SECTION 2 -->
+        </main>
+        <!-- # MAIN -->
+
+        <!-- FOOTER -->
+        <footer id="footer" class="footer-container">
+            <div class="main-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="block block-text">
+                                <div class="block-content">
+                                    <p>
+                                        <a href="index.html">
+                                            <img src="images/logo/logo_footer1.png" class="thumbnail-img" alt="footer logo"/>
+                                        </a>
+                                    </p>
+                                    <p class="text-big">We love who we are and we are very proud to be the part of your business</p>
+                                    <p>Stepup Careers is a leading jobs, employment and recruitment website, providing job vacancies, interview skills and tips.</p>
+                                    <div class="block block-social">
+                                        <div class="block-content">
+                                            <ul class="list-inline">
+                                                <li><a href="#" class="btn-social facebook"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#" class="btn-social google-plus"><i class="fa fa-google-plus"></i></a></li>
+                                                <li><a href="#" class="btn-social twitter"><i class="fa fa-twitter"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="block block-recent-comment">
+                                <div class="block-content">
+                                    <ul>
+                                        <li>
+                                            <span class="date_label">July 22, 2014</span>
+                                            <p>
+                                                <i class="fa fa-user"></i>
+                                                <strong>admin</strong> commented on <a title="Announce news here" href="post.html">Announce news here.</a>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <span class="date_label">July 22, 2014</span>
+                                            <p>
+                                                <i class="fa fa-user"></i>
+                                                <strong>admin</strong> commented on <a title="First post" href="post.html">First post</a>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="block block-recent-post">
+                                <div class="block-content">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <div class="post-item">
+                                                    <span class="photo-number">1</span>
+                                                    <h6 class="post-title">Announce news here.</h6>
+                                                    <span class="date"><i class="icon_clock_alt"></i>July 22, 2014</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="post-item">
+                                                    <span class="photo-number">1</span>
+                                                    <h6 class="post-title">First post</h6>
+                                                    <span class="date"><i class="icon_clock_alt"></i>July 22, 2014</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="post-item">
+                                                    <span class="photo-number">0</span>
+                                                    <h6 class="post-title">Hello world !</h6>
+                                                    <span class="date"><i class="icon_clock_alt"></i>July 22, 2014</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="block block-list">
+                                <div class="block-content">
+                                    <ul class="list-icon">
+                                        <li class="icon-idea"><a href="#">Privacy Policy</a></li>
+                                        <li class="icon-star"><a href="#">About Step Up</a></li>
+                                        <li class="icon-star"><a href="#">Contact Us</a></li>
+                                        <li class="icon-check"><a href="#">StepUp Careers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <address class="copyright">
+                                &copy; 2015 StepUp Careers. All Rights Reserved. <a href="index.html" rel="nofollow" target="_blank">StepUp Careers</a>
+                            </address>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
+                            <div class="block block-social">
+                                <div class="block-content">
+                                    <ul class="list-inline">
+                                        <li><a href="#" class="link-social"><i class="fa fa-skype"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#" class="link-social"><i class="fa fa-pinterest"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <span class="button scroll-to-top"><i class="arrow_carrot-up"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- # FOOTER -->
+    </div>
+    <!-- MOBILE MENU -->
+    <nav class="pushy pushy-left">
+        <ul class="mobile-menu">
+            <li class="active">
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="about.html">About</a>
+            </li>
+            <li>
+                <a href="blog.html">Blog</a>
+            </li>
+            <li>
+                <a href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="site-overlay"></div>
+    <!-- # MOBILE MENU -->
+</div>
+
+<script type="text/javascript" src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/sticky-nav.js"></script>
+<script type="text/javascript" src="assets/js/scroll-top.js"></script>
+<script type="text/javascript" src="assets/vendors/pushy/js/pushy.min.js"></script>
+<script type="text/javascript" src="assets/js/testimonial-carousel.js"></script>
+<script type="text/javascript" src="assets/js/theme.js"></script>
+</body>
+</html>

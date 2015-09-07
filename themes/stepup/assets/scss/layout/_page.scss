@@ -1,0 +1,30 @@
+.page {
+  background-color: $page_bg;
+  position: relative;
+  @include box-shadow("0 0 15px rgba(0, 0, 0, 0.06)");
+}
+@media all and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+.main-container {
+  margin-top: 30px;
+  padding-top: 30px;
+}
+.section-1 {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  .block-banner {
+    margin-bottom: 40px;
+  }
+}
+.section-2 {
+  @include clearfix;
+  overflow: hidden;
+  .section-inner {
+    padding-bottom: 0;
+    padding-top: 40px;
+  }
+}

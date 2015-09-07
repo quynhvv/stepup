@@ -1,0 +1,65 @@
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], textarea, select {
+  background-color: $input_bg;
+  @include border-radius("0 !important");
+  @include box-shadow($input_box_shadow);
+  border: 1px solid $input_border_color;
+  @include box-sizing("border-box");
+  color: $input_text_color;
+  display: block;
+  font-size: 13px;
+  margin: 0 0 20px;
+  max-width: 100%;
+  outline: medium none;
+  padding: 10px;
+  @include transition("all 350ms ease-in-out 0s");
+  width: 230px;
+  &:focus {
+    background-color: $input_focus_bg;
+    border-color: $input_focus_border_color;
+    @include box-shadow("none !important");
+    color: $input_focus_text_color;
+  }
+  &.full-width {
+    width: 100%;
+  }
+  &.form-control {
+    height: 36px;
+    width: 230px;
+    &.full-width {
+      width: 100%;
+    }
+  }
+}
+.form-control {
+  height: 36px;
+}
+select[multiple],
+select[size] {
+  &.form-control {
+    height: auto;
+  }
+}
+p.required {
+  color: $color_danger;
+}
+em.required {
+  color: $color_danger;
+}
+.form-horizontal {
+  .control-label {
+    font-weight: 400;
+    text-align: left;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea, select {
+    width: 100%;
+  }
+}
+.policy_check {
+  margin-bottom: 10px !important;
+}
+.css-auto-height {
+  height: auto !important;
+}

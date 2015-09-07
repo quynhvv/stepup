@@ -1,0 +1,122 @@
+.top-toolbar-container {
+  background-color: $header_bg;
+  display: block;
+  left: 0;
+  position: fixed;
+  top: 0;
+  @include transform(translateY(-100%));
+  @include transition("all 350ms ease-in-out 0s");
+  width: 100%;
+  z-index: 99;
+  &.active {
+    @include transform(translateY(0));
+    .arrow_carrot-down {
+      &:before {
+        content: "\32";
+      }
+    }
+  }
+  .block {
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+  .block-contact {
+    p {
+      margin-left: 26px;
+      margin-bottom: 1em;
+    }
+    h5 {
+      margin-bottom: 5px;
+      > i {
+        margin-right: 3px;
+      }
+    }
+  }
+}
+.top-toolbar {
+  display: block;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  position: relative;
+  width: 100%;
+  .top-toolbar-trigger {
+    cursor: pointer;
+  }
+  .top-toolbar-toggle {
+    border-style: solid;
+    border-width: 0 88px 45px 0;
+    border-color: transparent;
+    border-right-color: currentColor;
+    bottom: -42px;
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 0;
+    width: 0;
+    z-index: 20;
+    > i {
+      display: block;
+      font-size: 29px;
+      height: 44px;
+      line-height: 28px;
+      position: absolute;
+      right: -76px;
+      text-align: center;
+      top: 0;
+      width: 26px;
+    }
+  }
+}
+.toolbar-dark {
+  &.top-toolbar-container {
+    background-color: $toolbar_dark_bg;
+    color: $toolbar_dark_text_color;
+  }
+  .top-toolbar {
+    .top-toolbar-toggle {
+      border-right-color: $toolbar_dark_trigger_bg;
+      color: $toolbar_dark_trigger_color;
+      > i {
+        color: $toolbar_dark_trigger_color;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        border-right-color: $toolbar_dark_trigger_hover_bg;
+        color: $toolbar_dark_trigger_hover_color;
+        > i {
+          color: $toolbar_dark_trigger_hover_color;
+        }
+      }
+    }
+    h1,h2,h3,h4,h5,h6 {
+      color: $toolbar_dark_title_color;
+    }
+    .text-gray {
+      color: $toolbar_dark_gray_color;
+    }
+  }
+}
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .top-toolbar {
+    .col-sm-6 {
+      &:nth-child(2n+1) {
+        clear: left;
+      }
+    }
+  }
+}
+@media all and (max-width: 767px) {
+  .top-toolbar-trigger {
+    &.visible-xs {
+      right: 15px;
+      position: absolute;
+      top: 15px;
+      z-index: 2;
+    }
+  }
+  .main-top-toolbar-inner {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+}

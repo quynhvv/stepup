@@ -1,0 +1,35 @@
+.main-action {
+  .msgchange {
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 8px;
+    position: relative;
+    text-align: center;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $component_bg;
+      color: $component_color;
+      text-decoration: none;
+    }
+  }
+  .actiontoggle {
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 5px 8px;
+    position: relative;
+    text-decoration: underline;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+#move_msg_form {
+  .table > thead > tr > th {
+    border-bottom: none;
+  }
+}

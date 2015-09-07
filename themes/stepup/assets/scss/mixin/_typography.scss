@@ -1,0 +1,75 @@
+// =============================================
+// Mixin - Typography
+// =============================================
+
+@mixin h1 {
+  margin: 0;
+  margin-bottom: 0.7em;
+  color: $color_h1;
+  font-family: $font_heading;
+  font-size: 36px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 36px;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin h2 {
+  margin: 0;
+  margin-bottom: 0.5em;
+  color: $color_h2;
+  font-family: $font_heading;
+  font-size: 30px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 30px;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  color: $color_h3;
+  font-family: $font_heading;
+  font-size: 25px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 27px;
+  text-rendering: optimizeSpeed;
+}
+
+@mixin h4 {
+  margin: 0;
+  margin-bottom: 10px;
+  color: $color_h4;
+  font-family: $font_heading;
+  font-size: 21px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 25px;
+  text-rendering: optimizeSpeed;
+}
+
+@mixin h5 {
+  margin: 0;
+  margin-bottom: 10px;
+  color: $color_h5;
+  font-family: $font_heading;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 20px;
+  text-rendering: optimizeSpeed;
+}
+
+@mixin h6 {
+  margin: 0;
+  margin-bottom: 5px;
+  color: $color_h6;
+  font-family: $font_heading;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 20px;
+  text-rendering: optimizeSpeed;
+}

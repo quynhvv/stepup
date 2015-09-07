@@ -1,0 +1,83 @@
+@import url(http://fonts.googleapis.com/css?family=Patua+One);
+
+::-moz-selection {
+  background: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+::selection {
+  background: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+@-o-viewport {
+  width: device-width;
+}
+
+@viewport {
+  width: device-width;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  color: $color_text;
+  font-family: $font_text;
+  font-size: $font_base;
+  line-height: 21px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a, button {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a {
+  color: $link_color;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $link_hover_color;
+  }
+}
+a, a:visited, a:focus {
+  outline: none;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, .h1 { @include h1; }
+
+h2, .h2 { @include h2; }
+
+h3, .h3 { @include h3; }
+
+h4, .h4 { @include h4; }
+
+h5, .h5 { @include h5; }
+
+h6, .h6 { @include h6; }
+
+blockquote {
+  font-family: $font_highlight;
+}
+.font-weight-normal {
+  font-weight: normal !important;
+}

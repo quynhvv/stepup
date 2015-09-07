@@ -1,0 +1,15 @@
+/*Custom*/
+.jobs-posted .ibox-title .summary{padding: 10px;}
+.jobs-posted .panel-title{font-weight: bold;font-size: 24px;padding:10px;background: #f7f7f7 none repeat scroll 0 0;border-bottom: 1px solid #ccc;}
+.jobs-posted .panel-title .status-label{font-size: 14px;padding-left: 20px;}
+.jobs-posted .panel-title ul.status{display: inline-block}
+.jobs-posted .panel-title ul.status li{font-size: 14px;padding-left: 15px;display: inline-block;}
+.jobs-posted .form-control{width: auto !important;}
+
+.ui-datepicker {z-index:3 !important;}
+.ui-datepicker-month,
+.ui-datepicker-year {float:left; padding:5px !important}
+
+.help-block{float: left;}
+.help-block.help-block-error{float:left !important;}
+

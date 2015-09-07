@@ -1,0 +1,14 @@
+.col-sidebar {
+  .block {
+    @include clearfix;
+    & + .block {
+      margin-top: 30px;
+    }
+  }
+  .block-recent-job {
+    margin-top: 10px;
+    .block-title {
+      @extend %title-box;
+    }
+  }
+}

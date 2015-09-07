@@ -1,0 +1,134 @@
+a.button, .button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+  background-color: $button_default_bg;
+  background-image: url("../images/box_shadow_button.png");
+  background-repeat: repeat-x;
+  @include backface-visibility("hidden");
+  border: none;
+  @include border-radius("5px");
+  @include box-shadow("0 0 0 1px rgba(0, 0, 0, 0.03) inset");
+  color: $button_defaut_color;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 6px 12px;
+  position: relative;
+  text-align: center;
+  @include transform(translateZ(0));
+  @include transition("all 300ms ease-in-out 0s");
+  vertical-align: middle;
+  white-space: nowrap;
+  z-index: 2;
+  &.button-lg {
+    padding: 11px 22px;
+  }
+  &.button-long {
+    min-width: 16em;
+    max-width: 100%;
+  }
+  &:after {
+    background-color: $button_hover_bg_default;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include transform(scaleX(0));
+    @include transform-origin("0 50% 0");
+    @include transition("all 300ms ease-in-out 0s");
+    z-index: -1;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: $button_hover_color_defaut;
+    outline: none !important;
+    &:after {
+      @include transform(scaleX(1));
+    }
+  }
+  &.button-primary {
+    background-color: $button_primary_bg;
+    color: $button_primary_color;
+    &:after {
+      background-color: $button_primary_hover_bg;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      color: $button_primary_hover_color;
+    }
+  }
+  &.button-secondary {
+    background-color: $button_secondary_bg;
+    color: $button_secondary_color;
+    &:after {
+      background-color: $button_secondary_hover_bg;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      color: $button_secondary_hover_color;
+    }
+  }
+  &.button-upgrade {
+    background-image: url("../images/upgradeIcon.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 7px center;
+    padding-left: 40px;
+  }
+  &.button-icon {
+    padding: 0;
+    &.button-lg {
+      padding: 0;
+      > i,
+      > .icon,
+      > span {
+        padding: 10px 16px;
+      }
+      > span {
+        min-width: 16em;
+      }
+    }
+    > i,
+    > .icon {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      float: left;
+      line-height: inherit;
+      padding: 6px 12px;
+      position: relative;
+      z-index: inherit;
+    }
+    > span {
+      display: block;
+      float: left;
+      min-width: 13em;
+      padding: 6px 12px;
+    }
+    &.icon-left {
+      > i,
+      > .icon {
+        float: left;
+      }
+    }
+    &.icon-right {
+      > i,
+      > .icon {
+        float: right;
+      }
+    }
+  }
+}
+button[type="submit"] {
+  padding: 10px 20px;
+}
+a.button {
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}

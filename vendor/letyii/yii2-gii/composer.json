@@ -1,0 +1,17 @@
+{
+    "name": "letyii/yii2-gii",
+    "description": "Gii for LetYii CMS",
+    "homepage": "https://github.com/letyii/yii2-gii",
+    "keywords": ["yii2","gii"],
+    "license": "MIT",
+    "minimum-stability": "beta",
+    "require": {
+        "php": ">=5.4",
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "letyii\\gii\\": ""
+        }
+    }
+}
