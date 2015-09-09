@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
 
+<!--
 <?php
 $form = ActiveForm::begin([
     'id' => 'formDefault',
@@ -19,6 +20,7 @@ $form = ActiveForm::begin([
     ],
 ]);
 ?>
+-->
 
 <div class="employment-history">
     <div class="row">
@@ -35,24 +37,22 @@ $form = ActiveForm::begin([
     <div class="form-group">
         <?= Html::label(Yii::t('job', 'Period of Employment'), null, ['class' => 'control-label col-sm-3']) ?>
         <div class="col-sm-2">
-            <?= Html::activeDropDownList($employment, "[$index]belong_month_from", $model->getEducationMonthOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Month:')]) ?>
-            <?= Html::error($employment, "[$index]belong_month_from") ?>
+            <?= $form->field($employment, "[$index]belong_month_from", ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationMonthOptions(), ['prompt' => Yii::t('job', 'Month:')])->label(false) ?>
         </div>
         <div class="col-sm-2">
-            <?= Html::activeDropDownList($employment, "[$index]belong_year_from", $model->getEducationYearOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Year:')]) ?>
-            <?= Html::error($employment, "[$index]belong_year_from") ?>
+            <?= $form->field($employment, "[$index]belong_year_from", ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationYearOptions(), ['prompt' => Yii::t('job', 'Year:')])->label(false) ?>
         </div>
         <div class="col-sm-1" style="text-align:center">-</div>
         <div class="col-sm-2">
-            <?= Html::activeDropDownList($employment, "[$index]belong_month_to", $model->getEducationMonthOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Month:')]) ?>
-            <?= Html::error($employment, "[$index]belong_month_to") ?>
+            <?= $form->field($employment, "[$index]belong_month_to", ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationMonthOptions(), ['prompt' => Yii::t('job', 'Month:')])->label(false) ?>                                                                
         </div>
         <div class="col-sm-2">
-            <?= Html::activeDropDownList($employment, "[$index]belong_month_to", $model->getEducationYearOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Year:')]) ?>
-            <?= Html::error($employment, "[$index]belong_month_to") ?>
+            <?= $form->field($employment, "[$index]belong_year_to", ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationYearOptions(), ['prompt' => Yii::t('job', 'Year:')])->label(false) ?>
         </div>
     </div>
 
     <?= $form->field($employment, "[$index]description")->textarea(['style' => 'height:100px']); ?>
 </div>
+<!--
 </form>
+-->

@@ -1,5 +1,6 @@
 <?php
 use app\components\ActiveForm;
+use app\helpers\LetHelper;
 use kartik\select2\Select2;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -53,29 +54,47 @@ use yii\helpers\Url;
 
                                             <div class="form-group">
                                                 <?= Html::label(Yii::t('job', 'Contact number'), null, ['class' => 'control-label col-sm-3']) ?>
-                                                <div class="col-sm-5">
-                                                    <?= Html::activeDropDownList($model, 'phone_country', $model->getCountryCodeOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Country Code')]) ?>
-                                                    <?= Html::error($model, 'phone_country') ?>
+                                                <div class="col-sm-5">                                                    
+                                                    <?= $form->field($model, 'phone_country', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getCountryCodeOptions(), ['prompt' => Yii::t('job', 'Country Code')])->label(false) ?>
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <?= Html::activeTextInput($model, 'phone_number', ['class' => 'form-control', 'placeholder' => Yii::t('job', '999-999-999')]) ?>
-                                                    <?= Html::error($model, 'phone_number') ?>
+                                                    <?= $form->field($model, 'phone_number', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->textInput(['placeholder' => Yii::t('job', '999-999-999')])->label(false) ?>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <?= Html::label(Yii::t('job', 'Social Media'), null, ['class' => 'control-label col-sm-3']) ?>
                                                 <div class="col-sm-9">
-                                                    <?= Html::activeTextInput($model, 'social_linkedin', ['class' => 'form-control', 'placeholder' => Yii::t('job', 'Please input your LinkedIn Profile URL')]) ?>
-                                                    <?= Html::error($model, 'social_linkedin') ?>
-
-                                                    <?= Html::activeTextInput($model, 'social_facebook', ['class' => 'form-control', 'placeholder' => Yii::t('job', 'Please input your Facebook Profile URL')]) ?>
-                                                    <?= Html::error($model, 'social_facebook') ?>
-
-                                                    <?= Html::activeTextInput($model, 'social_twitter', ['class' => 'form-control', 'placeholder' => Yii::t('job', 'Please input your Twitter Profile URL')]) ?>
-                                                    <?= Html::error($model, 'social_twitter') ?>
+                                                    <?= $form->field($model, 'social_linkedin', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->textInput(['placeholder' => Yii::t('job', 'Please input your LinkedIn Profile URL')])->label(false) ?>
+                                                    
+                                                    <?= $form->field($model, 'social_facebook', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->textInput(['placeholder' => Yii::t('job', 'Please input your Facebook Profile URL')])->label(false) ?>
+                                                    
+                                                    <?= $form->field($model, 'social_twitter', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->textInput(['placeholder' => Yii::t('job', 'Please input your Twitter Profile URL')])->label(false) ?>
                                                 </div>
                                             </div>
+
+                                            <?php
+                                            $imageConfig = [
+                                                'options' => ['accept' => 'uploads/*'],
+                                                'pluginOptions' => [
+                                                    'previewFileType' => 'image',
+                                                    'showCaption' => FALSE,
+                                                    'showRemove' => TRUE,
+                                                    'showUpload' => FALSE,
+                                                    'browseClass' => 'btn btn-primary btn-block',
+                                                    'browseIcon' => '<i class="glyphicon glyphicon-camera"></i> ',
+                                                    'browseLabel' => 'Select Photo',
+                                                    'removeClass' => 'btn btn-danger',
+                                                    'removeLabel' => "Delete",
+                                                    'removeIcon' => '<i class="glyphicon glyphicon-trash"></i>',
+                                                    'allowedFileExtensions' => ['jpg', 'gif', 'png', 'jpeg'],
+                                                ],
+                                            ];
+                                            if (!empty($modelUser->image))
+                                                $imageConfig['pluginOptions']['initialPreview'] = [Html::img(LetHelper::getFileUploaded($modelUser->image), ['class' => 'file-preview-image'])];
+
+                                            echo $form->field($modelUser, 'image')->widget(\kartik\widgets\FileInput::classname(), $imageConfig);
+                                            ?>
                                         </fieldset>
 
                                         <fieldset>
@@ -125,21 +144,17 @@ use yii\helpers\Url;
                                                         <div class="form-group">
                                                             <?= Html::label(Yii::t('job', 'Period of Employment'), null, ['class' => 'control-label col-sm-3']) ?>
                                                             <div class="col-sm-2">
-                                                                <?= Html::activeDropDownList($employment, "[$index]belong_month_from", $model->getEducationMonthOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Month:')]) ?>
-                                                                <?= Html::error($employment, "[$index]belong_month_from") ?>
+                                                                <?= $form->field($employment, "[$index]belong_month_from", ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationMonthOptions(), ['prompt' => Yii::t('job', 'Month:')])->label(false) ?>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <?= Html::activeDropDownList($employment, "[$index]belong_year_from", $model->getEducationYearOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Year:')]) ?>
-                                                                <?= Html::error($employment, "[$index]belong_year_from") ?>
+                                                                <?= $form->field($employment, "[$index]belong_year_from", ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationYearOptions(), ['prompt' => Yii::t('job', 'Year:')])->label(false) ?>
                                                             </div>
                                                             <div class="col-sm-1" style="text-align:center">-</div>
                                                             <div class="col-sm-2">
-                                                                <?= Html::activeDropDownList($employment, "[$index]belong_month_to", $model->getEducationMonthOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Month:')]) ?>
-                                                                <?= Html::error($employment, "[$index]belong_month_to") ?>
+                                                                <?= $form->field($employment, "[$index]belong_month_to", ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationMonthOptions(), ['prompt' => Yii::t('job', 'Month:')])->label(false) ?>                                                                
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <?= Html::activeDropDownList($employment, "[$index]belong_year_to", $model->getEducationYearOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Year:')]) ?>
-                                                                <?= Html::error($employment, "[$index]belong_year_to") ?>
+                                                                <?= $form->field($employment, "[$index]belong_year_to", ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationYearOptions(), ['prompt' => Yii::t('job', 'Year:')])->label(false) ?>
                                                             </div>
                                                         </div>
                                                         <?= $form->field($employment, "[$index]description")->textarea(['style' => 'height:100px']); ?>
@@ -154,21 +169,17 @@ use yii\helpers\Url;
                                                     <div class="form-group">
                                                         <?= Html::label(Yii::t('job', 'Period of Employment'), null, ['class' => 'control-label col-sm-3']) ?>
                                                         <div class="col-sm-2">
-                                                            <?= Html::activeDropDownList($employments, "belong_month_from", $model->getEducationMonthOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Month:')]) ?>
-                                                            <?= Html::error($employments, "belong_month_from") ?>
+                                                            <?= $form->field($employments, 'belong_month_from', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationMonthOptions(), ['prompt' => Yii::t('job', 'Month:')])->label(false) ?>
                                                         </div>
                                                         <div class="col-sm-2">
-                                                            <?= Html::activeDropDownList($employments, "belong_year_from", $model->getEducationYearOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Year:')]) ?>
-                                                            <?= Html::error($employments, "belong_year_from") ?>
+                                                            <?= $form->field($employments, 'belong_year_from', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationYearOptions(), ['prompt' => Yii::t('job', 'Year:')])->label(false) ?>
                                                         </div>
                                                         <div class="col-sm-1" style="text-align:center">-</div>
                                                         <div class="col-sm-2">
-                                                            <?= Html::activeDropDownList($employments, "belong_month_to", $model->getEducationMonthOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Month:')]) ?>
-                                                            <?= Html::error($employments, "belong_month_to") ?>
+                                                            <?= $form->field($employments, 'belong_month_to', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationMonthOptions(), ['prompt' => Yii::t('job', 'Month:')])->label(false) ?>                                                            
                                                         </div>
                                                         <div class="col-sm-2">
-                                                            <?= Html::activeDropDownList($employments, "belong_year_to", $model->getEducationYearOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Year:')]) ?>
-                                                            <?= Html::error($employments, "belong_year_to") ?>
+                                                            <?= $form->field($employments, 'belong_year_to', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationYearOptions(), ['prompt' => Yii::t('job', 'Year:')])->label(false) ?>
                                                         </div>
                                                     </div>
 
@@ -195,46 +206,41 @@ use yii\helpers\Url;
                                             <div class="form-group">
                                                 <?= Html::label(Yii::t('job', 'Graduation Date'), null, ['class' => 'control-label col-sm-3']) ?>
                                                 <div class="col-sm-3">
-                                                    <?= Html::activeDropDownList($model, 'education_month', $model->getEducationMonthOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Month:')]) ?>
-                                                    <?= Html::error($model, 'education_month') ?>
+                                                    <?= $form->field($model, 'education_month', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationMonthOptions(), ['prompt' => Yii::t('job', 'Month:')])->label(false) ?>
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <?= Html::activeDropDownList($model, 'education_year', $model->getEducationYearOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Year:')]) ?>
-                                                    <?= Html::error($model, 'education_year') ?>
+                                                    <?= $form->field($model, 'education_year', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getEducationYearOptions(), ['prompt' => Yii::t('job', 'Year:')])->label(false) ?>
                                                 </div>
                                             </div>
                                         </fieldset>
 
                                         <fieldset>
                                             <legend><?= Yii::t('job', 'Optional Info.') ?></legend>
-                                            <!-- language_ability:getLanguageLevelOptions() -->
-<!--                                            UserJobSeekerResume[social_linkedin]-->
-
                                             <div class="form-group">
                                                 <?= Html::label(Yii::t('job', 'Language Ability'), null, ['class' => 'control-label col-sm-3']) ?>
                                                 <div class="col-sm-9">
                                                     <div class="row">
                                                         <div class="col-sm-3">
-                                                            <?= Html::activeDropDownList($model, 'language_ability[0][language]', $model->getLanguageOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Language')]) ?>
+                                                            <?= $form->field($model, 'language_ability[0][language]', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getLanguageOptions(), ['prompt' => Yii::t('job', 'Language')])->label(false) ?>
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            <?= Html::activeDropDownList($model, 'language_ability[0][level]', $model->getLanguageLevelOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Level')]) ?>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <?= Html::activeDropDownList($model, 'language_ability[1][language]', $model->getLanguageOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Language')]) ?>
-                                                        </div>
-                                                        <div class="col-sm-3">
-                                                            <?= Html::activeDropDownList($model, 'language_ability[1][level]', $model->getLanguageLevelOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Level')]) ?>
+                                                            <?= $form->field($model, 'language_ability[0][level]', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getLanguageLevelOptions(), ['prompt' => Yii::t('job', 'Level')])->label(false) ?>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-sm-3">
-                                                            <?= Html::activeDropDownList($model, 'language_ability[2][language]', $model->getLanguageOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Language')]) ?>
+                                                            <?= $form->field($model, 'language_ability[1][language]', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getLanguageOptions(), ['prompt' => Yii::t('job', 'Language')])->label(false) ?>
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            <?= Html::activeDropDownList($model, 'language_ability[2][level]', $model->getLanguageLevelOptions(), ['class' => 'form-control', 'prompt' => Yii::t('job', 'Level')]) ?>
+                                                            <?= $form->field($model, 'language_ability[1][level]', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getLanguageLevelOptions(), ['prompt' => Yii::t('job', 'Level')])->label(false) ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-3">
+                                                            <?= $form->field($model, 'language_ability[2][language]', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getLanguageOptions(), ['prompt' => Yii::t('job', 'Language')])->label(false) ?>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <?= $form->field($model, 'language_ability[2][level]', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getLanguageLevelOptions(), ['prompt' => Yii::t('job', 'Level')])->label(false) ?>
                                                         </div>
                                                     </div>
                                                 </div>

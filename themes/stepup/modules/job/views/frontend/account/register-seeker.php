@@ -1,5 +1,6 @@
 <?php
 use app\components\ActiveForm;
+use app\helpers\LetHelper;
 use kartik\datecontrol\DateControl;
 use kartik\widgets\FileInput;
 use yii\helpers\Html;

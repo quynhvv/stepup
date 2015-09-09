@@ -9,6 +9,7 @@ use yii\web\NotFoundHttpException;
 
 use app\components\FrontendController;
 use app\modules\job\models\Job;
+use app\modules\job\models\User;
 use app\modules\job\models\UserJob;
 use app\modules\job\models\UserJobSeekerResume;
 use app\modules\job\models\UserJobSeekerEmployment;
@@ -81,6 +82,12 @@ class SeekerController extends FrontendController
     }
 
     public function actionResume() {
+        // Xu ly avatar
+        $modelUser = User::findOne(Yii::$app->user->id);
+        if ($modelUser == null) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
         $modelUserJob = UserJob::findOne(Yii::$app->user->id);
         if ($modelUserJob == null) {
             throw new NotFoundHttpException('The requested page does not exist.');
@@ -100,8 +107,9 @@ class SeekerController extends FrontendController
             $employments->seeker_id = $model->_id;
         }
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $modelUser->load(Yii::$app->request->post())) {
             $modelValidate = $model->validate();
+            $modelUserValidate = $modelUser->validate();
 
             if (!is_array($employments)) {
                 $employments->load(Yii::$app->request->post());
@@ -110,7 +118,7 @@ class SeekerController extends FrontendController
                 $employmentsValidate = Model::loadMultiple($employments, Yii::$app->request->post()) && Model::validateMultiple($employments);
             }
 
-            if ($employmentsValidate && $modelValidate && $model->save(false)) {
+            if ($employmentsValidate && $modelValidate && $modelUserValidate && $model->save(false) && $modelUser->save(false)) {
                 $modelUserJob->seeker_nationality = $model->nationality;
                 $modelUserJob->seeker_salary = $model->salary;
                 $modelUserJob->save();
@@ -139,6 +147,7 @@ class SeekerController extends FrontendController
 
         $this->render('resume', [
             'model' => $model,
+            'modelUser' => $modelUser,
             'employments' => $employments
         ]);
     }
@@ -156,7 +165,7 @@ class SeekerController extends FrontendController
         if ($employment->save()) {
             return [
                 'status' => 'success',
-                'content' => $this->renderAjax('resume-employment', ['model' => $model, 'employment' => $employment, 'index' => $model->_id])
+                'content' => $this->renderAjax('resume-employment', ['model' => $model, 'employment' => $employment, 'index' => $employment->_id])
             ];
         }
 
