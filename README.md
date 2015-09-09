@@ -1,2 +1,2 @@
-# StepupCareers Site base from Yii2 FrameWork.
+# Stepup Careers Site base from Yii2 FrameWork.
 

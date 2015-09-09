@@ -209,7 +209,14 @@ class UserJob extends BaseUserJob
     public static function getDashboardUrl() {
         $role = self::getRole();
         return (in_array($role, self::$roleAllows))
-            ? Url::to(["/job/{$role}/dashboard"])
+            ? Url::to(["/job/{$role}/index"])
+            : Url::to(['/account/default/dashboard']);
+    }
+    
+    public static function getProfileUrl() {
+        $role = self::getRole();
+        return (in_array($role, self::$roleAllows))
+            ? Url::to(["/job/{$role}/view-profile"])
             : Url::to(['/account/default/dashboard']);
     }
 }

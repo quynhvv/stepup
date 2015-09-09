@@ -185,6 +185,11 @@ class SeekerController extends FrontendController
 
         $this->render('information', ['model' => $model]);
     }
+    
+    public function actionViewProfile()
+    {
+        return $this->redirect(['/job/seeker/information']);
+    }
 
     public function actionDashboard() {
         Yii::$app->view->title = Yii::t($this->module->id, 'Dashboard');
@@ -199,6 +204,5 @@ class SeekerController extends FrontendController
 
         $this->render('pricing');
     }
-
 
 }

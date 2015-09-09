@@ -40,6 +40,7 @@ class Setting extends BaseSetting
             $model->type = 'text';
             $model->key = $key;
             $model->value = '';
+            $model->save();
         }
         
         $attributes = array_keys($model->getAttributes());

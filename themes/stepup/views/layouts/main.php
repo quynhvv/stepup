@@ -70,7 +70,7 @@ use kartik\widgets\ActiveForm;
                                                     <p class="media-heading">Logged in as <strong><?= Html::encode(Yii::$app->user->identity->email) ?></strong></p>
                                                     <ul class="list-inline list-separator">
                                                         <li><a href="<?= \app\modules\job\models\UserJob::getDashboardUrl() ?>">Dashboard</a></li>
-                                                        <li><a href="<?= Url::to(['/job/account/profile']) ?>">Profile</a></li>
+                                                        <li><a href="<?= \app\modules\job\models\UserJob::getProfileUrl() ?>">Profile</a></li>
                                                         <li><a href="<?= Url::to(['/account/default/logout']) ?>">Logout</a></li>
                                                     </ul>
                                                 </div>

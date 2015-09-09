@@ -59,6 +59,18 @@ $config = [
 //            'cachePath' => '@app/uploads/cache',
 //            'cacheUrl' => __DIR__ . '/../letyii/letyii/uploads/cache',
 //        ],
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'clientId' => '205949952886967',
+                    'clientSecret' => 'bfc0c11ada1ab56ec57f459ce3d06b63',
+                    'title' => 'Facebook Sign In',
+                    'viewOptions' => ['popupWidth' => "800", 'popupHeight' => "500",]
+                ],
+            ],
+        ],
         'view' => [
             'theme' => [
                 'pathMap' => [
