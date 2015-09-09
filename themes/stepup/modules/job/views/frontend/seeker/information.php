@@ -21,9 +21,9 @@ use yii\helpers\Url;
                                 <li role="presentation">
                                     <a role="button" href="#"><?= Yii::t('job' ,'2: Free Format Resume') ?></a>
                                 </li>
-                                <li role="presentation">
+<!--                                <li role="presentation">
                                     <a role="button" href="#"><?= Yii::t('job' ,'3: Job preferences') ?></a>
-                                </li>
+                                </li>-->
                             </ul>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active">

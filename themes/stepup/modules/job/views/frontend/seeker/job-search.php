@@ -1,6 +1,7 @@
 <?php
 use app\components\ActiveForm;
 use yii\helpers\Html;
+use app\helpers\ArrayHelper;
  ?>
 <!-- MAIN -->
 <main id="main" class="main-container">
@@ -63,7 +64,7 @@ use yii\helpers\Html;
                                             <?php foreach ($dataProvider->getModels() as $model) : ?>
                                             <tr>
                                                 <td><?= Html::a(Html::encode($model->title), ['job-detail', 'id' => (string) $model->_id]) ?></td>
-                                                <td><?= Html::encode($model->annual_salary_from . ' to ' . $model->annual_salary_to) ?></td>
+                                                <td><?= Html::encode(ArrayHelper::getValue(\app\modules\job\models\JobSalary::getOptions(), ArrayHelper::getValue($model, 'annual_salary_from')). ' to ' . ArrayHelper::getValue(\app\modules\job\models\JobSalary::getOptions(), ArrayHelper::getValue($model, 'annual_salary_to'))) ?></td>
                                                 <td><?= Html::encode($model->company_name) ?></td>
                                                 <td><?= Yii::$app->formatter->asDate($model->updated_time->sec) ?></td>
                                                 <td><?= Html::a(Yii::t('job', 'View'), ['job-detail', 'id' => (string) $model->_id]) ?></td>

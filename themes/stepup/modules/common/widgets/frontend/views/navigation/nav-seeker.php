@@ -10,7 +10,7 @@ use yii\helpers\Url;
         <ul class="sub-menu">
             <li><a href="<?= Url::to(['/job/seeker/information']) ?>"><?= Yii::t('account', 'Basic Information') ?></a></li>
             <li><a href="#">Free Format Resume</a></li>
-            <li><a href="#">Job Prefrence</a></li>
+            <!--<li><a href="#">Job Prefrence</a></li>-->
         </ul>
     </li>
     <li class="menu-item-has-children">
@@ -26,7 +26,7 @@ use yii\helpers\Url;
     <li class="menu-item-has-children">
         <a href="#">Jobs</a>
         <ul class="sub-menu">
-            <li><a href="#">Job Search</a></li>
+            <li><a href="<?= Url::to(['/job/seeker/job-search']) ?>">Job Search</a></li>
             <li><a href="#">Job Rankings</a></li>
             <li><a href="#">Favorite jobs</a></li>
             <li><a href="#">Job view history</a></li>

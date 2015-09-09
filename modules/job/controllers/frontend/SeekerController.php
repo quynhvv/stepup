@@ -134,7 +134,7 @@ class SeekerController extends FrontendController
                 Yii::$app->getSession()->setFlash('flash', [
                     'type' => 'success',
                     'title' => Yii::t('common', 'Message'),
-                    'message' => Yii::t('common', 'Your data has been successfully saved'),
+                    'message' => Yii::t('common', 'Your information has been saved successfully.'),
                     'duration' => 10000
                 ]);
 
