@@ -5,6 +5,7 @@ namespace app\components;
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\helpers\LetHelper;
 
 class FieldGallery extends \kartik\widgets\FileInput {
 

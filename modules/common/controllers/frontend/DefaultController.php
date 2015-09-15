@@ -4,6 +4,7 @@ namespace app\modules\common\controllers\frontend;
 
 use Yii;
 use app\components\FrontendController;
+use app\modules\common\models\ContactForm;
 use app\modules\question\models\Question;
 use yii\data\ActiveDataProvider;
 
@@ -23,12 +24,31 @@ class DefaultController extends FrontendController
 //                ])
 //                ->orderBy('_id DESC')
 //                ->one();
-        
+
         return $this->render('index');
     }
-    
-    public function actionInfomation(){
+
+    public function actionInfomation()
+    {
         $this->layout = '//infomation';
         return $this->render('infomation');
+    }
+
+    public function actionContact()
+    {
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+            } else {
+                Yii::$app->session->setFlash('error', 'There was an error sending email.');
+            }
+
+            return $this->refresh();
+        } else {
+            return $this->render('contact', [
+                'model' => $model,
+            ]);
+        }
     }
 }

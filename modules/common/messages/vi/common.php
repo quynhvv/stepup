@@ -22,4 +22,8 @@ return [
     'Your changes have been saved!' => 'Thay đổi của bạn đã được lưu lại!',
     'Expand All' => 'Mở rộng',
     'Collapse All' => 'Thu gọn',
+
+    'All' => 'Tất cả',
+    'Read More' => 'Chi tiết',
+    'Recent Posts' => 'Bài viết mới',
 ];

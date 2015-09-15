@@ -22,4 +22,8 @@ return [
     'Your changes have been saved!' => 'Your changes have been saved!',
     'Expand All' => 'Expand All',
     'Collapse All' => 'Collapse All',
+
+    'All' => 'All',
+    'Read More' => 'Read More',
+    'Recent Posts' => 'Recent Posts',
 ];

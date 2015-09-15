@@ -10,6 +10,7 @@ use yii\helpers\Url;
 
 use app\modules\job\models\User;
 use app\modules\job\models\UserJob;
+use app\modules\job\models\UserJobSeekerResume;
 
 class AccountController extends FrontendController {
 
@@ -124,9 +125,14 @@ class AccountController extends FrontendController {
         $model->scenario = 'login';
 
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            // Function User::login() khong xu ly role nen lam them buoc nay de kiem tra role
             $modelJob = UserJob::find()->where(['_id' => Yii::$app->user->id, 'role' => $role])->one();
             if ($modelJob != null) {
+
+                // Kiem tra xem Seeker da co day du thong tin Resume chua?
+                if ($role == 'seeker' && ($modelUserJobSeekerResume = UserJobSeekerResume::findOne($modelJob->_id)) != null) {
+                    Yii::$app->session->set('jobAccountResume', 1);
+                }
+
                 Yii::$app->session->set('jobAccountRole', $modelJob->role);
                 return $this->redirect(["/job/{$modelJob->role}/index"]);
             }

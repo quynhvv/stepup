@@ -19,7 +19,7 @@ class SeekerController extends FrontendController
 
     public function beforeAction($action)
     {
-        // check logined & role
+        // check logined & role & resume
         UserJob::checkAccess('seeker');
 
         return parent::beforeAction($action);

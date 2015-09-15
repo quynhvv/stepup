@@ -4,12 +4,8 @@ namespace app\modules\common\controllers\backend;
 
 use Yii;
 use app\components\BackendController;
-use app\modules\product\models\Product;
-use app\helpers\ClientHelper;
-use app\helpers\StringHelper;
-use yii\helpers\Url;
-use yii\helpers\ArrayHelper;
-use app\components\FileHelper;
+use yii\filters\VerbFilter;
+use app\helpers\FileHelper;
 
 class UploadController extends BackendController {
 
@@ -38,7 +34,8 @@ class UploadController extends BackendController {
                     $file_id = uniqid();
                     $fileDir = Yii::$app->controller->module->id . '/' . date('Y/m/d/');
                     $fileName = $file_id . '.' . $ext;
-                    $folder = Yii::$app->params['uploadPath'] . Yii::$app->params['uploadDir'] . '/' . $fileDir;
+                    $folder = Yii::$app->params['uploadPath'] . '/' . Yii::$app->params['uploadDir'] . '/' . $fileDir;
+
                     FileHelper::createDirectory($folder);
                     $image->saveAs($folder . $fileName);
 
@@ -73,7 +70,7 @@ class UploadController extends BackendController {
             $gallery = explode(',', $model->gallery);
             $key = array_search($path, $gallery);
             
-            $path = Yii::$app->params['uploadPath'] . Yii::$app->params['uploadDir'] . '/' .$gallery[$key];
+            $path = Yii::$app->params['uploadPath'] . '/' . Yii::$app->params['uploadDir'] . '/' .$gallery[$key];
             // Check item have exits, if isset then delete
             if (isset($gallery[$key]) && file_exists($path)){
                 unset($gallery[$key]);

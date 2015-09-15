@@ -123,7 +123,7 @@ class Category extends BaseCategory
         return $this->url = Url::to([$alias]);
     }
     
-    public static function getCategory($module = '', $prefix = '') {
+    public static function getCategoryBACKUP($module = '', $prefix = '') {
         $categorys = array();
         if (empty($module) OR !in_array($module, self::getModules()))
             $data = self::find()->addOrderBy('lft')->all();
@@ -133,6 +133,34 @@ class Category extends BaseCategory
                 ->where(['module' => $module])
 //                ->andWhere('lft != 1')
                 ->addOrderBy('lft')->all();
+        }
+        foreach ($data as $category) {
+            $categorys[(string)$category->_id] = str_repeat($prefix, ($category->depth)) . $category->name;
+        }
+        return $categorys;
+    }
+
+    public static function getCategory($module = '', $prefix = '', $parent = null) {
+        $categorys = array();
+        if (empty($module) OR !in_array($module, self::getModules()))
+            $data = self::find()->addOrderBy('lft')->all();
+        else {
+            self::createRootIfNotExist($module);
+
+            $query = self::find();
+            $query->where(['module' => $module]);
+            $query->addOrderBy('lft');
+
+            if ($parent !== null) {
+                $query->andWhere(['_id' => $parent]);
+            }
+
+            $model = $query->one();
+            if ($model === null) {
+                return [];
+            }
+
+            $data = $model->children()->all();
         }
         foreach ($data as $category) {
             $categorys[(string)$category->_id] = str_repeat($prefix, ($category->depth)) . $category->name;

@@ -18,8 +18,8 @@ function addEmploymentInfo($obj) {
     var $formId = $('.employment-history').length;
 
     if ($formId > 10) {
-        alert("Can't add more than 11 'Employment Info'.");
-        return;
+        bootbox.alert("Can't add more than 11 'Employment Info'.");
+        return false;
     }
 
     $.ajax({
@@ -36,23 +36,28 @@ function addEmploymentInfo($obj) {
 
 function delEmploymentInfo($obj) {
     if ($('.employment-history').length == 1) {
-        alert('Can\'t delete');
-    } else if (confirm('Delete this employment information?')) {
-        $wrapper = $obj.parents('.employment-history');
-        $modelId = $wrapper.find('.employment-history-id').val();
-        if ($modelId == '') {
-            $wrapper.remove();
-        } else {
-            $.ajax({
-                url: $obj.attr('href'),
-                type: 'post',
-                dataType: 'json',
-                success: function (data) {
-                    if (data.status === 'success') {
-                        $wrapper.remove();
-                    }
-                }
-            });
-        }
+        bootbox.alert('Can\'t delete');
+        return false;
     }
+
+    bootbox.confirm('Delete this employment information?', function(result) {
+        if (result) {
+            $wrapper = $obj.parents('.employment-history');
+            $modelId = $wrapper.find('.employment-history-id').val();
+            if ($modelId == '') {
+                $wrapper.remove();
+            } else {
+                $.ajax({
+                    url: $obj.attr('href'),
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.status === 'success') {
+                            $wrapper.remove();
+                        }
+                    }
+                });
+            }
+        }
+    });
 }

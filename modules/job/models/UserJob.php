@@ -203,6 +203,8 @@ class UserJob extends BaseUserJob
         } else if (self::getRole() != $name) {
             header('Location: '.Url::to(['/job/account/logout', 'role' => $name]));
             //return Yii::$app->response->redirect(Url::to(['/job/account/logout', 'role' => $name]));
+        } else if (Yii::$app->controller->action->id != 'resume' && Yii::$app->session->get('jobAccountResume') != 1) {
+            header('Location: '.Url::to(['/job/seeker/resume']));
         }
     }
 

@@ -36,6 +36,7 @@ use kartik\widgets\ActiveForm;
     $this->registerJsFile($this->theme->baseUrl . '/assets/js/scroll-top.js', ['depends' => \yii\web\JqueryAsset::className()]);
     $this->registerJsFile($this->theme->baseUrl . '/assets/vendors/pushy/js/pushy.min.js', ['depends' => \yii\web\JqueryAsset::className()]);
     $this->registerJsFile($this->theme->baseUrl . '/assets/js/testimonial-carousel.js', ['depends' => \yii\web\JqueryAsset::className()]);
+    $this->registerJsFile($this->theme->baseUrl . '/assets/js/bootbox.min.js', ['depends' => \yii\web\JqueryAsset::className()]);
     $this->registerJsFile($this->theme->baseUrl . '/assets/js/theme.js', ['depends' => \yii\web\JqueryAsset::className()]);
     ?>
     <?php $this->head(); ?>
@@ -316,7 +317,7 @@ use kartik\widgets\ActiveForm;
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    <div class="row">
+                    <div class="row">                    
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <address class="copyright">
                                 &copy; 2015 StepUp Careers. All Rights Reserved. <a href="index.html" rel="nofollow" target="_blank">StepUp Careers</a>
