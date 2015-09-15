@@ -150,7 +150,7 @@ class Project extends BaseProject
         return $status;
     }
     
-    public function getCandidatesOptions(){
+    public static function getCandidatesOptions(){
         //will update this later
         $rs = array(
             '227' => 'C227',
