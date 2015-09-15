@@ -33,7 +33,6 @@
         msgFilePreviewError: 'Ocurrió un error mientras se leía el archivo "{name}".',
         msgInvalidFileType: 'Tipo de archivo no válido para "{name}". Sólo archivos "{types}" son permitidos.',
         msgInvalidFileExtension: 'Extensión de archivo no válido para "{name}". Sólo archivos "{extensions}" son permitidos.',
-        msgUploadAborted: 'La carga de archivos se ha cancelado',
         msgValidationError: 'Error al subir archivo',
         msgLoading: 'Subiendo archivo {index} de {files} &hellip;',
         msgProgress: 'Subiendo archivo {index} de {files} - {name} - {percent}% completado.',
@@ -45,12 +44,12 @@
         msgImageHeightLarge: 'La altura de la imagen "{name}" no puede exceder de {size} px.',
         dropZoneTitle: 'Arrastre y suelte aquí los archivos &hellip;',
         fileActionSettings: {
-            removeTitle: 'Eliminar archivo',
-            uploadTitle: 'Subir archivo',
-            indicatorNewTitle: 'No subido todavía',
-            indicatorSuccessTitle: 'Subido',
-            indicatorErrorTitle: 'Subir Error',
-            indicatorLoadingTitle: 'Subiendo ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

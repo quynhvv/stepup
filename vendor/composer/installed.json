@@ -486,12 +486,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/vakata/jstree.git",
-            "reference": "7a74f16f50e270ad902b4a4e9961510b3a81c9b2"
+            "reference": "5fee0134764ee0a0d4f5bd4d7445c77df20eb51d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vakata/jstree/zipball/7a74f16f50e270ad902b4a4e9961510b3a81c9b2",
-            "reference": "7a74f16f50e270ad902b4a4e9961510b3a81c9b2",
+            "url": "https://api.github.com/repos/vakata/jstree/zipball/5fee0134764ee0a0d4f5bd4d7445c77df20eb51d",
+            "reference": "5fee0134764ee0a0d4f5bd4d7445c77df20eb51d",
             "shasum": ""
         },
         "require": {
@@ -789,35 +789,44 @@
         ]
     },
     {
-        "name": "bower-asset/sweetalert",
+        "name": "letyii/yii2-imagecache",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/t4t5/sweetalert.git",
-            "reference": "249e728a8e66190c3b55363f097af1f300cb273c"
+            "url": "https://github.com/letyii/yii2-imagecache.git",
+            "reference": "077bce49f828f519d7b450174f0dc4b5f9bc8dd1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/t4t5/sweetalert/zipball/249e728a8e66190c3b55363f097af1f300cb273c",
-            "reference": "249e728a8e66190c3b55363f097af1f300cb273c",
+            "url": "https://api.github.com/repos/letyii/yii2-imagecache/zipball/077bce49f828f519d7b450174f0dc4b5f9bc8dd1",
+            "reference": "077bce49f828f519d7b450174f0dc4b5f9bc8dd1",
             "shasum": ""
         },
-        "type": "bower-asset-library",
-        "extra": {
-            "bower-asset-main": [
-                "dist/sweetalert.min.js",
-                "dist/sweetalert.css"
-            ]
+        "require": {
+            "php": ">=5.4",
+            "yiisoft/yii2": "*",
+            "yiisoft/yii2-imagine": "*"
         },
+        "time": "2015-05-12 08:43:17",
+        "type": "library",
         "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "letyii\\imagecache\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
-        "description": "A beautiful replacement for JavaScript's alert.",
+        "description": "Image cache for yii2",
+        "homepage": "https://github.com/letyii/yii2-imagecache",
         "keywords": [
-            "alert",
-            "modal"
+            "cache",
+            "image",
+            "thumbnail",
+            "yii2"
         ]
     },
     {
@@ -917,19 +926,19 @@
         "source": {
             "type": "git",
             "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-            "reference": "5ae12770c69b1b42f1be742ca16d97dc63371eb8"
+            "reference": "ad28c10c431e8a56b599a282fa417523961cb5b1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/5ae12770c69b1b42f1be742ca16d97dc63371eb8",
-            "reference": "5ae12770c69b1b42f1be742ca16d97dc63371eb8",
+            "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/ad28c10c431e8a56b599a282fa417523961cb5b1",
+            "reference": "ad28c10c431e8a56b599a282fa417523961cb5b1",
             "shasum": ""
         },
         "require": {
             "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
-            "yiisoft/yii2": ">=2.0.6"
+            "yiisoft/yii2": ">=2.0.x-dev"
         },
-        "time": "2015-08-27 12:55:38",
+        "time": "2015-07-28 06:21:46",
         "type": "yii2-extension",
         "extra": {
             "branch-alias": {
@@ -1364,6 +1373,49 @@
             "select2",
             "widget",
             "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/bootstrap-star-rating",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/bootstrap-star-rating.git",
+            "reference": "bd9c52db6ac71cb270620c1aee601d142ab2cc00"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/bd9c52db6ac71cb270620c1aee601d142ab2cc00",
+            "reference": "bd9c52db6ac71cb270620c1aee601d142ab2cc00",
+            "shasum": ""
+        },
+        "time": "2015-06-18 14:42:46",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "kartik\\plugins\\rating\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A simple yet powerful JQuery star rating plugin for Bootstrap.",
+        "homepage": "https://github.com/kartik-v/bootstrap-star-rating",
+        "keywords": [
+            "Rating",
+            "bootstrap",
+            "jquery",
+            "star"
         ]
     },
     {
@@ -2596,50 +2648,44 @@
         "installation-source": "dist"
     },
     {
-        "name": "letyii/yii2-diy",
+        "name": "components/flag-icon-css",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/letyii/yii2-diy.git",
-            "reference": "964f98c52976d7a2429c32864a9a93b635b6a4ef"
+            "url": "https://github.com/lipis/flag-icon-css.git",
+            "reference": "d2b8e0f671ffca87ed34a645bf0890a6d90f3ff6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/letyii/yii2-diy/zipball/964f98c52976d7a2429c32864a9a93b635b6a4ef",
-            "reference": "964f98c52976d7a2429c32864a9a93b635b6a4ef",
+            "url": "https://api.github.com/repos/lipis/flag-icon-css/zipball/d2b8e0f671ffca87ed34a645bf0890a6d90f3ff6",
+            "reference": "d2b8e0f671ffca87ed34a645bf0890a6d90f3ff6",
             "shasum": ""
         },
-        "require": {
-            "bower-asset/sweetalert": "*",
-            "kartik-v/yii2-date-range": "*",
-            "kartik-v/yii2-datecontrol": "dev-master",
-            "kartik-v/yii2-dynagrid": "*",
-            "letyii/yii2-tinymce": "*",
-            "php": ">=5.4",
-            "yiisoft/yii2": "*",
-            "yiisoft/yii2-jui": "*"
-        },
-        "time": "2015-07-22 10:00:38",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "letyii\\diy\\": ""
+        "time": "2015-06-13 09:36:17",
+        "type": "component",
+        "extra": {
+            "component": {
+                "name": "flag-icon-css",
+                "files": [
+                    "less/**",
+                    "css/**",
+                    "flags/**"
+                ]
             }
         },
+        "installation-source": "source",
         "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
-        "description": "Yii2 Module 'Do it yourself'",
-        "homepage": "https://github.com/letyii/yii2-diy",
-        "keywords": [
-            "design",
-            "diy",
-            "template",
-            "yii2"
-        ]
+        "authors": [
+            {
+                "name": "Panayiotis Lipiridis (Lipis)",
+                "email": "lipiridis@gmail.com"
+            }
+        ],
+        "description": "CSS for vector based country flags"
     },
     {
         "name": "kartik-v/yii2-icons",
@@ -2839,6 +2885,62 @@
         ]
     },
     {
+        "name": "kartik-v/yii2-export",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-export.git",
+            "reference": "6b35666681ab02d9f4fb06603cbc972bed37ba5f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-export/zipball/6b35666681ab02d9f4fb06603cbc972bed37ba5f",
+            "reference": "6b35666681ab02d9f4fb06603cbc972bed37ba5f",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-grid": "~3.0",
+            "phpoffice/phpexcel": "~1.8.0"
+        },
+        "time": "2015-07-19 08:17:17",
+        "type": "yii2-extension",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "kartik\\export\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "A library to export server/db data in various formats (e.g. excel, html, pdf, csv etc.)",
+        "homepage": "https://github.com/kartik-v/yii2-export",
+        "keywords": [
+            "OpenXML",
+            "csv",
+            "export",
+            "extension",
+            "html",
+            "json",
+            "pdf",
+            "spreadsheet",
+            "text",
+            "widget",
+            "xls",
+            "xlsx",
+            "yii2"
+        ]
+    },
+    {
         "name": "bower-asset/typeahead.js",
         "version": "v0.11.1",
         "version_normalized": "0.11.1.0",
@@ -2866,6 +2968,61 @@
             "bower-asset-main": "dist/typeahead.bundle.js"
         },
         "installation-source": "dist"
+    },
+    {
+        "name": "swiftmailer/swiftmailer",
+        "version": "5.x-dev",
+        "version_normalized": "5.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swiftmailer/swiftmailer.git",
+            "reference": "caf94ee2473ba6503e411ce3bcbd33b080f1d903"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/caf94ee2473ba6503e411ce3bcbd33b080f1d903",
+            "reference": "caf94ee2473ba6503e411ce3bcbd33b080f1d903",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.1,<0.9.4"
+        },
+        "time": "2015-07-15 23:24:06",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.4-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "lib/swift_required.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chris Corbyn"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Swiftmailer, free feature-rich PHP mailer",
+        "homepage": "http://swiftmailer.org",
+        "keywords": [
+            "email",
+            "mail",
+            "mailer"
+        ]
     },
     {
         "name": "yiisoft/yii2-swiftmailer",
@@ -2920,6 +3077,291 @@
         ]
     },
     {
+        "name": "yiisoft/yii2-mongodb",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-mongodb.git",
+            "reference": "a41a96bd00639ee01f70028fbdef635e5c306a47"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiisoft/yii2-mongodb/zipball/a41a96bd00639ee01f70028fbdef635e5c306a47",
+            "reference": "a41a96bd00639ee01f70028fbdef635e5c306a47",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mongo": ">=1.5.0",
+            "yiisoft/yii2": ">=2.0.x-dev"
+        },
+        "time": "2015-07-28 06:18:23",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "yii\\mongodb\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Paul Klimov",
+                "email": "klimov.paul@gmail.com"
+            }
+        ],
+        "description": "MongoDb extension for the Yii framework",
+        "keywords": [
+            "active-record",
+            "mongo",
+            "mongodb",
+            "yii2"
+        ]
+    },
+    {
+        "name": "bower-asset/sweetalert",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/t4t5/sweetalert.git",
+            "reference": "b39083c353abc331c84d1499e36f5b7734779b73"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/t4t5/sweetalert/zipball/b39083c353abc331c84d1499e36f5b7734779b73",
+            "reference": "b39083c353abc331c84d1499e36f5b7734779b73",
+            "shasum": ""
+        },
+        "require-dev": {
+            "bower-asset/jquery": "~2.1.4",
+            "bower-asset/qunit": "~1.18.0"
+        },
+        "type": "bower-asset-library",
+        "extra": {
+            "bower-asset-main": [
+                "dist/sweetalert.min.js",
+                "dist/sweetalert.css"
+            ]
+        },
+        "installation-source": "source",
+        "license": [
+            "MIT"
+        ],
+        "description": "A beautiful replacement for JavaScript's alert.",
+        "keywords": [
+            "alert",
+            "modal"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-datetimepicker",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-datetimepicker.git",
+            "reference": "1f182140d999ddff2a840c332ed15da73a2f8f1c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-datetimepicker/zipball/1f182140d999ddff2a840c332ed15da73a2f8f1c",
+            "reference": "1f182140d999ddff2a840c332ed15da73a2f8f1c",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "*"
+        },
+        "time": "2015-07-28 14:36:14",
+        "type": "yii2-extension",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "kartik\\datetime\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Enhanced Yii2 wrapper for the bootstrap datetimepicker plugin (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-datetimepicker",
+        "keywords": [
+            "datetime",
+            "extension",
+            "form",
+            "jquery",
+            "picker",
+            "plugin",
+            "select2",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "yiisoft/yii2-jui",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-jui.git",
+            "reference": "9e47f6644f77a508243b60eea90d8b09a04b2eca"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/9e47f6644f77a508243b60eea90d8b09a04b2eca",
+            "reference": "9e47f6644f77a508243b60eea90d8b09a04b2eca",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/jquery-ui": "1.11.*@stable",
+            "yiisoft/yii2": ">=2.0.4"
+        },
+        "time": "2015-07-28 06:24:00",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            },
+            "asset-installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "yii\\jui\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Qiang Xue",
+                "email": "qiang.xue@gmail.com"
+            }
+        ],
+        "description": "The Jquery UI extension for the Yii framework",
+        "keywords": [
+            "jQuery UI",
+            "yii2"
+        ]
+    },
+    {
+        "name": "letyii/yii2-diy",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/letyii/yii2-diy.git",
+            "reference": "964f98c52976d7a2429c32864a9a93b635b6a4ef"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/letyii/yii2-diy/zipball/964f98c52976d7a2429c32864a9a93b635b6a4ef",
+            "reference": "964f98c52976d7a2429c32864a9a93b635b6a4ef",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/sweetalert": "*",
+            "kartik-v/yii2-date-range": "*",
+            "kartik-v/yii2-datecontrol": "dev-master",
+            "kartik-v/yii2-dynagrid": "*",
+            "letyii/yii2-tinymce": "*",
+            "php": ">=5.4",
+            "yiisoft/yii2": "*",
+            "yiisoft/yii2-jui": "*"
+        },
+        "time": "2015-07-22 10:00:38",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "letyii\\diy\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Yii2 Module 'Do it yourself'",
+        "homepage": "https://github.com/letyii/yii2-diy",
+        "keywords": [
+            "design",
+            "diy",
+            "template",
+            "yii2"
+        ]
+    },
+    {
+        "name": "paypal/rest-api-sdk-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+            "reference": "63fbe50138ca29fd90009b8472136cb58ec64b55"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/63fbe50138ca29fd90009b8472136cb58ec64b55",
+            "reference": "63fbe50138ca29fd90009b8472136cb58ec64b55",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "3.7.*"
+        },
+        "time": "2015-07-21 17:06:46",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "PayPal": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache2"
+        ],
+        "authors": [
+            {
+                "name": "PayPal",
+                "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+            }
+        ],
+        "description": "PayPal's PHP SDK for REST APIs",
+        "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+        "keywords": [
+            "payments",
+            "paypal",
+            "rest",
+            "sdk"
+        ]
+    },
+    {
         "name": "yiisoft/yii2-codeception",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2963,6 +3405,56 @@
         "description": "The Codeception integration for the Yii framework",
         "keywords": [
             "codeception",
+            "yii2"
+        ]
+    },
+    {
+        "name": "yiisoft/yii2-redis",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-redis.git",
+            "reference": "9f36981134afde4aeb8fbc14122a71dd1fe745e3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiisoft/yii2-redis/zipball/9f36981134afde4aeb8fbc14122a71dd1fe745e3",
+            "reference": "9f36981134afde4aeb8fbc14122a71dd1fe745e3",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": ">=2.0.4"
+        },
+        "time": "2015-07-28 06:24:24",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "yii\\redis\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Carsten Brandt",
+                "email": "mail@cebe.cc"
+            }
+        ],
+        "description": "Redis Cache, Session and ActiveRecord for the Yii framework",
+        "keywords": [
+            "active-record",
+            "cache",
+            "redis",
+            "session",
             "yii2"
         ]
     },
@@ -3106,26 +3598,78 @@
         ]
     },
     {
-        "name": "kartik-v/bootstrap-star-rating",
+        "name": "tinymce/tinymce",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/kartik-v/bootstrap-star-rating.git",
-            "reference": "8d14b538ba6d3e5eaa160fbb203420e91cc779a8"
+            "url": "https://github.com/tinymce/tinymce-dist.git",
+            "reference": "1dac1eba2f84f52710b30c68ae2f571f739d01a2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/8d14b538ba6d3e5eaa160fbb203420e91cc779a8",
-            "reference": "8d14b538ba6d3e5eaa160fbb203420e91cc779a8",
+            "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/1dac1eba2f84f52710b30c68ae2f571f739d01a2",
+            "reference": "1dac1eba2f84f52710b30c68ae2f571f739d01a2",
             "shasum": ""
         },
-        "time": "2015-08-12 13:49:36",
-        "type": "library",
+        "time": "2015-07-30 06:56:12",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "tinymce.js",
+                    "plugins/*/plugin.js",
+                    "themes/*/theme.js"
+                ],
+                "files": [
+                    "tinymce.min.js",
+                    "plugins/*/plugin.min.js",
+                    "themes/*/theme.min.js",
+                    "skins/**"
+                ]
+            }
+        },
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1"
+        ],
+        "description": "Web based JavaScript HTML WYSIWYG editor control.",
+        "homepage": "http://www.tinymce.com",
+        "keywords": [
+            "editor",
+            "html",
+            "javascript",
+            "richtext",
+            "tinymce",
+            "wysiwyg"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-editable",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-editable.git",
+            "reference": "b6d5ecf5a8892fedbbeb6041462612b112eb599d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-editable/zipball/b6d5ecf5a8892fedbbeb6041462612b112eb599d",
+            "reference": "b6d5ecf5a8892fedbbeb6041462612b112eb599d",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "~1.7",
+            "kartik-v/yii2-popover-x": "~1.3"
+        },
+        "time": "2015-07-30 12:11:57",
+        "type": "yii2-extension",
         "installation-source": "source",
         "autoload": {
             "psr-4": {
-                "kartik\\plugins\\rating\\": ""
+                "kartik\\editable\\": ""
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -3139,13 +3683,271 @@
                 "homepage": "http://www.krajee.com/"
             }
         ],
-        "description": "A simple yet powerful JQuery star rating plugin for Bootstrap.",
-        "homepage": "https://github.com/kartik-v/bootstrap-star-rating",
+        "description": "An enhanced editable widget for Yii 2.0 that allows easy editing of displayed data with numerous configuration possibilities.",
+        "homepage": "https://github.com/kartik-v/yii2-editable",
         "keywords": [
-            "Rating",
             "bootstrap",
+            "editable",
+            "input",
             "jquery",
-            "star"
+            "popover",
+            "popover-x",
+            "widget"
+        ]
+    },
+    {
+        "name": "yiisoft/yii2-debug",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-debug.git",
+            "reference": "10b89bf195c552cc11206fb4812815e552a092f3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/10b89bf195c552cc11206fb4812815e552a092f3",
+            "reference": "10b89bf195c552cc11206fb4812815e552a092f3",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": ">=2.0.4",
+            "yiisoft/yii2-bootstrap": "*"
+        },
+        "time": "2015-07-30 07:07:01",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "yii\\debug\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Qiang Xue",
+                "email": "qiang.xue@gmail.com"
+            }
+        ],
+        "description": "The debugger extension for the Yii framework",
+        "keywords": [
+            "debug",
+            "debugger",
+            "yii2"
+        ]
+    },
+    {
+        "name": "fortawesome/font-awesome",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/FortAwesome/Font-Awesome.git",
+            "reference": "38c229650be0127f31eb89bd644223445ffe19e3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/38c229650be0127f31eb89bd644223445ffe19e3",
+            "reference": "38c229650be0127f31eb89bd644223445ffe19e3",
+            "shasum": ""
+        },
+        "require-dev": {
+            "jekyll": "1.0.2",
+            "lessc": "1.4.2"
+        },
+        "time": "2015-07-31 04:49:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "OFL-1.1",
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dave Gandy",
+                "email": "dave@fontawesome.io",
+                "homepage": "http://twitter.com/davegandy",
+                "role": "Developer"
+            }
+        ],
+        "description": "The iconic font and CSS framework",
+        "homepage": "http://fontawesome.io/",
+        "keywords": [
+            "FontAwesome",
+            "awesome",
+            "bootstrap",
+            "font",
+            "icon"
+        ]
+    },
+    {
+        "name": "yiisoft/yii2-gii",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-gii.git",
+            "reference": "552f9cb837b1ae0ab5e904aef7366ff191233a5a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/552f9cb837b1ae0ab5e904aef7366ff191233a5a",
+            "reference": "552f9cb837b1ae0ab5e904aef7366ff191233a5a",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/typeahead.js": "0.10.* | ~0.11.0",
+            "phpspec/php-diff": ">=1.0.2",
+            "yiisoft/yii2": ">=2.0.4",
+            "yiisoft/yii2-bootstrap": "~2.0"
+        },
+        "time": "2015-08-02 17:00:44",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            },
+            "asset-installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "yii\\gii\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Qiang Xue",
+                "email": "qiang.xue@gmail.com"
+            }
+        ],
+        "description": "The Gii extension for the Yii framework",
+        "keywords": [
+            "code generator",
+            "gii",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-datepicker",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-datepicker.git",
+            "reference": "1b6a83136dac1c29ac579b86236b11d0461d1395"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-datepicker/zipball/1b6a83136dac1c29ac579b86236b11d0461d1395",
+            "reference": "1b6a83136dac1c29ac579b86236b11d0461d1395",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "~1.7"
+        },
+        "time": "2015-08-03 07:57:21",
+        "type": "yii2-extension",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "kartik\\date\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Enhanced Yii2 wrapper for the bootstrap datepicker plugin (sub repo split from yii2-widgets).",
+        "homepage": "https://github.com/kartik-v/yii2-widget-datepicker",
+        "keywords": [
+            "date",
+            "extension",
+            "form",
+            "jquery",
+            "picker",
+            "plugin",
+            "select2",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/bootstrap-fileinput",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
+            "reference": "3634cae55d5cac2f314ea372a81846f1b7b7c687"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/3634cae55d5cac2f314ea372a81846f1b7b7c687",
+            "reference": "3634cae55d5cac2f314ea372a81846f1b7b7c687",
+            "shasum": ""
+        },
+        "time": "2015-08-03 09:33:36",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "kartik\\plugins\\fileinput\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "An enhanced HTML 5 file input for Bootstrap 3.x with features for file preview for many file types, multiple selection, ajax uploads, and more.",
+        "homepage": "https://github.com/kartik-v/bootstrap-fileinput",
+        "keywords": [
+            "ajax",
+            "bootstrap",
+            "delete",
+            "file",
+            "image",
+            "input",
+            "jquery",
+            "multiple",
+            "preview",
+            "progress",
+            "upload"
         ]
     },
     {
@@ -3206,233 +4008,25 @@
         ]
     },
     {
-        "name": "paypal/rest-api-sdk-php",
+        "name": "yiisoft/yii2-authclient",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
-            "reference": "fd6801cda18fc1ae29ef913370c1902679410dab"
+            "url": "https://github.com/yiisoft/yii2-authclient.git",
+            "reference": "58aebac6e677657772917c558bff17fc9bb0de29"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/fd6801cda18fc1ae29ef913370c1902679410dab",
-            "reference": "fd6801cda18fc1ae29ef913370c1902679410dab",
+            "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/58aebac6e677657772917c558bff17fc9bb0de29",
+            "reference": "58aebac6e677657772917c558bff17fc9bb0de29",
             "shasum": ""
         },
         "require": {
             "ext-curl": "*",
-            "ext-json": "*",
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "3.7.*"
-        },
-        "time": "2015-08-17 19:32:36",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "PayPal": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache2"
-        ],
-        "authors": [
-            {
-                "name": "PayPal",
-                "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
-            }
-        ],
-        "description": "PayPal's PHP SDK for REST APIs",
-        "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
-        "keywords": [
-            "payments",
-            "paypal",
-            "rest",
-            "sdk"
-        ]
-    },
-    {
-        "name": "kartik-v/yii2-export",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/kartik-v/yii2-export.git",
-            "reference": "69b9fabfac39a73709953993c554d5f9d6e50036"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/kartik-v/yii2-export/zipball/69b9fabfac39a73709953993c554d5f9d6e50036",
-            "reference": "69b9fabfac39a73709953993c554d5f9d6e50036",
-            "shasum": ""
-        },
-        "require": {
-            "kartik-v/yii2-grid": "~3.0",
-            "phpoffice/phpexcel": "~1.8.0"
-        },
-        "time": "2015-08-11 16:38:12",
-        "type": "yii2-extension",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "kartik\\export\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Kartik Visweswaran",
-                "email": "kartikv2@gmail.com",
-                "homepage": "http://www.krajee.com/"
-            }
-        ],
-        "description": "A library to export server/db data in various formats (e.g. excel, html, pdf, csv etc.)",
-        "homepage": "https://github.com/kartik-v/yii2-export",
-        "keywords": [
-            "OpenXML",
-            "csv",
-            "export",
-            "extension",
-            "html",
-            "json",
-            "pdf",
-            "spreadsheet",
-            "text",
-            "widget",
-            "xls",
-            "xlsx",
-            "yii2"
-        ]
-    },
-    {
-        "name": "kartik-v/yii2-widget-datetimepicker",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/kartik-v/yii2-widget-datetimepicker.git",
-            "reference": "6fff3dba1fbe706234e28ded9365b23d9c52c312"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/kartik-v/yii2-widget-datetimepicker/zipball/6fff3dba1fbe706234e28ded9365b23d9c52c312",
-            "reference": "6fff3dba1fbe706234e28ded9365b23d9c52c312",
-            "shasum": ""
-        },
-        "require": {
-            "kartik-v/yii2-krajee-base": "*"
-        },
-        "time": "2015-08-12 19:36:49",
-        "type": "yii2-extension",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "kartik\\datetime\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Kartik Visweswaran",
-                "email": "kartikv2@gmail.com",
-                "homepage": "http://www.krajee.com/"
-            }
-        ],
-        "description": "Enhanced Yii2 wrapper for the bootstrap datetimepicker plugin (sub repo split from yii2-widgets)",
-        "homepage": "https://github.com/kartik-v/yii2-widget-datetimepicker",
-        "keywords": [
-            "datetime",
-            "extension",
-            "form",
-            "jquery",
-            "picker",
-            "plugin",
-            "select2",
-            "widget",
-            "yii2"
-        ]
-    },
-    {
-        "name": "yiisoft/yii2-jui",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-jui.git",
-            "reference": "7b71a0389e5aa2bfa8a3ac605705a286908b14e8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/7b71a0389e5aa2bfa8a3ac605705a286908b14e8",
-            "reference": "7b71a0389e5aa2bfa8a3ac605705a286908b14e8",
-            "shasum": ""
-        },
-        "require": {
-            "bower-asset/jquery-ui": "1.11.*@stable",
             "yiisoft/yii2": ">=2.0.4"
         },
-        "time": "2015-08-06 19:32:06",
-        "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            },
-            "asset-installer-paths": {
-                "npm-asset-library": "vendor/npm",
-                "bower-asset-library": "vendor/bower"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "yii\\jui\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Qiang Xue",
-                "email": "qiang.xue@gmail.com"
-            }
-        ],
-        "description": "The Jquery UI extension for the Yii framework",
-        "keywords": [
-            "jQuery UI",
-            "yii2"
-        ]
-    },
-    {
-        "name": "yiisoft/yii2-redis",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-redis.git",
-            "reference": "234d6fdbe6bd53bdfa7b0b0d00ac61409de7b549"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-redis/zipball/234d6fdbe6bd53bdfa7b0b0d00ac61409de7b549",
-            "reference": "234d6fdbe6bd53bdfa7b0b0d00ac61409de7b549",
-            "shasum": ""
-        },
-        "require": {
-            "yiisoft/yii2": ">=2.0.4"
-        },
-        "time": "2015-08-11 07:17:07",
+        "time": "2015-08-04 14:49:05",
         "type": "yii2-extension",
         "extra": {
             "branch-alias": {
@@ -3442,7 +4036,7 @@
         "installation-source": "source",
         "autoload": {
             "psr-4": {
-                "yii\\redis\\": ""
+                "yii\\authclient\\": ""
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -3451,118 +4045,16 @@
         ],
         "authors": [
             {
-                "name": "Carsten Brandt",
-                "email": "mail@cebe.cc"
+                "name": "Paul Klimov",
+                "email": "klimov.paul@gmail.com"
             }
         ],
-        "description": "Redis Cache, Session and ActiveRecord for the Yii framework",
+        "description": "External authentication via OAuth and OpenID for the Yii framework",
         "keywords": [
-            "active-record",
-            "cache",
-            "redis",
-            "session",
+            "OpenId",
+            "auth",
+            "oauth",
             "yii2"
-        ]
-    },
-    {
-        "name": "kartik-v/yii2-widget-datepicker",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/kartik-v/yii2-widget-datepicker.git",
-            "reference": "f9ee0fda46ec4188d42b1187053c4536e03b1c5f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/kartik-v/yii2-widget-datepicker/zipball/f9ee0fda46ec4188d42b1187053c4536e03b1c5f",
-            "reference": "f9ee0fda46ec4188d42b1187053c4536e03b1c5f",
-            "shasum": ""
-        },
-        "require": {
-            "kartik-v/yii2-krajee-base": "~1.7"
-        },
-        "time": "2015-08-14 13:47:10",
-        "type": "yii2-extension",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "kartik\\date\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Kartik Visweswaran",
-                "email": "kartikv2@gmail.com",
-                "homepage": "http://www.krajee.com/"
-            }
-        ],
-        "description": "Enhanced Yii2 wrapper for the bootstrap datepicker plugin (sub repo split from yii2-widgets).",
-        "homepage": "https://github.com/kartik-v/yii2-widget-datepicker",
-        "keywords": [
-            "date",
-            "extension",
-            "form",
-            "jquery",
-            "picker",
-            "plugin",
-            "select2",
-            "widget",
-            "yii2"
-        ]
-    },
-    {
-        "name": "kartik-v/yii2-editable",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/kartik-v/yii2-editable.git",
-            "reference": "f9ecdf622d9477d217efef8522fbd2622de2fa20"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/kartik-v/yii2-editable/zipball/f9ecdf622d9477d217efef8522fbd2622de2fa20",
-            "reference": "f9ecdf622d9477d217efef8522fbd2622de2fa20",
-            "shasum": ""
-        },
-        "require": {
-            "kartik-v/yii2-krajee-base": "~1.7",
-            "kartik-v/yii2-popover-x": "~1.3"
-        },
-        "time": "2015-08-14 21:18:03",
-        "type": "yii2-extension",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "kartik\\editable\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Kartik Visweswaran",
-                "email": "kartikv2@gmail.com",
-                "homepage": "http://www.krajee.com/"
-            }
-        ],
-        "description": "An enhanced editable widget for Yii 2.0 that allows easy editing of displayed data with numerous configuration possibilities.",
-        "homepage": "https://github.com/kartik-v/yii2-editable",
-        "keywords": [
-            "bootstrap",
-            "editable",
-            "input",
-            "jquery",
-            "popover",
-            "popover-x",
-            "widget"
         ]
     },
     {
@@ -3572,12 +4064,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/PHPOffice/PHPExcel.git",
-            "reference": "6eae1393015beed089c59b3d571039359868e077"
+            "reference": "663d9422056de325f388f9775cf609bcd9764dd7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/6eae1393015beed089c59b3d571039359868e077",
-            "reference": "6eae1393015beed089c59b3d571039359868e077",
+            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/663d9422056de325f388f9775cf609bcd9764dd7",
+            "reference": "663d9422056de325f388f9775cf609bcd9764dd7",
             "shasum": ""
         },
         "require": {
@@ -3588,7 +4080,7 @@
         "require-dev": {
             "squizlabs/php_codesniffer": "2.*"
         },
-        "time": "2015-08-14 18:50:24",
+        "time": "2015-08-03 18:40:16",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -3628,352 +4120,18 @@
         ]
     },
     {
-        "name": "letyii/yii2-imagecache",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/letyii/yii2-imagecache.git",
-            "reference": "2be3c36ecd17afd14f9183839114513857f72ca5"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/letyii/yii2-imagecache/zipball/2be3c36ecd17afd14f9183839114513857f72ca5",
-            "reference": "2be3c36ecd17afd14f9183839114513857f72ca5",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4",
-            "yiisoft/yii2": "*",
-            "yiisoft/yii2-imagine": "*"
-        },
-        "time": "2015-09-01 02:45:08",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "letyii\\imagecache\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "description": "Image cache for yii2",
-        "homepage": "https://github.com/letyii/yii2-imagecache",
-        "keywords": [
-            "cache",
-            "image",
-            "thumbnail",
-            "yii2"
-        ]
-    },
-    {
-        "name": "components/flag-icon-css",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/lipis/flag-icon-css.git",
-            "reference": "f1494330c22a5c9526ea57087fbc2335264d7f19"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/lipis/flag-icon-css/zipball/f1494330c22a5c9526ea57087fbc2335264d7f19",
-            "reference": "f1494330c22a5c9526ea57087fbc2335264d7f19",
-            "shasum": ""
-        },
-        "time": "2015-08-31 01:07:13",
-        "type": "component",
-        "extra": {
-            "component": {
-                "name": "flag-icon-css",
-                "files": [
-                    "less/**",
-                    "css/**",
-                    "flags/**"
-                ]
-            }
-        },
-        "installation-source": "source",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Panayiotis Lipiridis (Lipis)",
-                "email": "lipiridis@gmail.com"
-            }
-        ],
-        "description": "CSS for vector based country flags"
-    },
-    {
-        "name": "swiftmailer/swiftmailer",
-        "version": "5.x-dev",
-        "version_normalized": "5.9999999.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swiftmailer/swiftmailer.git",
-            "reference": "a16e5a75aa8c3b97f224f42dbbad5b379ce14659"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/a16e5a75aa8c3b97f224f42dbbad5b379ce14659",
-            "reference": "a16e5a75aa8c3b97f224f42dbbad5b379ce14659",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "mockery/mockery": "~0.9.1,<0.9.4"
-        },
-        "time": "2015-08-30 17:08:54",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.4-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "files": [
-                "lib/swift_required.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Chris Corbyn"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Swiftmailer, free feature-rich PHP mailer",
-        "homepage": "http://swiftmailer.org",
-        "keywords": [
-            "email",
-            "mail",
-            "mailer"
-        ]
-    },
-    {
-        "name": "yiisoft/yii2-mongodb",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-mongodb.git",
-            "reference": "18163bdfb7a215cdea8817f66379da43ad733175"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-mongodb/zipball/18163bdfb7a215cdea8817f66379da43ad733175",
-            "reference": "18163bdfb7a215cdea8817f66379da43ad733175",
-            "shasum": ""
-        },
-        "require": {
-            "ext-mongo": ">=1.5.0",
-            "yiisoft/yii2": ">=2.0.x-dev"
-        },
-        "time": "2015-08-31 23:04:44",
-        "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "yii\\mongodb\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Paul Klimov",
-                "email": "klimov.paul@gmail.com"
-            }
-        ],
-        "description": "MongoDb extension for the Yii framework",
-        "keywords": [
-            "active-record",
-            "mongo",
-            "mongodb",
-            "yii2"
-        ]
-    },
-    {
-        "name": "yiisoft/yii2-authclient",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-authclient.git",
-            "reference": "e8c639af26be6ce38b0bbf5113882345fe25de3d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/e8c639af26be6ce38b0bbf5113882345fe25de3d",
-            "reference": "e8c639af26be6ce38b0bbf5113882345fe25de3d",
-            "shasum": ""
-        },
-        "require": {
-            "ext-curl": "*",
-            "yiisoft/yii2": ">=2.0.4"
-        },
-        "time": "2015-08-31 07:56:21",
-        "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "yii\\authclient\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Paul Klimov",
-                "email": "klimov.paul@gmail.com"
-            }
-        ],
-        "description": "External authentication via OAuth and OpenID for the Yii framework",
-        "keywords": [
-            "OpenId",
-            "auth",
-            "oauth",
-            "yii2"
-        ]
-    },
-    {
-        "name": "tinymce/tinymce",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/tinymce/tinymce-dist.git",
-            "reference": "9bdc89da4f72a5f11a3cc6bb1373e1a898876628"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/9bdc89da4f72a5f11a3cc6bb1373e1a898876628",
-            "reference": "9bdc89da4f72a5f11a3cc6bb1373e1a898876628",
-            "shasum": ""
-        },
-        "time": "2015-08-31 07:48:30",
-        "type": "component",
-        "extra": {
-            "component": {
-                "scripts": [
-                    "tinymce.js",
-                    "plugins/*/plugin.js",
-                    "themes/*/theme.js"
-                ],
-                "files": [
-                    "tinymce.min.js",
-                    "plugins/*/plugin.min.js",
-                    "themes/*/theme.min.js",
-                    "skins/**"
-                ]
-            }
-        },
-        "installation-source": "source",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL-2.1"
-        ],
-        "description": "Web based JavaScript HTML WYSIWYG editor control.",
-        "homepage": "http://www.tinymce.com",
-        "keywords": [
-            "editor",
-            "html",
-            "javascript",
-            "richtext",
-            "tinymce",
-            "wysiwyg"
-        ]
-    },
-    {
-        "name": "fortawesome/font-awesome",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/FortAwesome/Font-Awesome.git",
-            "reference": "bf5831dd83fbf587431546d051b978ff7fc5acdf"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/bf5831dd83fbf587431546d051b978ff7fc5acdf",
-            "reference": "bf5831dd83fbf587431546d051b978ff7fc5acdf",
-            "shasum": ""
-        },
-        "require-dev": {
-            "jekyll": "1.0.2",
-            "lessc": "1.4.2"
-        },
-        "time": "2015-08-19 18:38:02",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "4.0.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "OFL-1.1",
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Dave Gandy",
-                "email": "dave@fontawesome.io",
-                "homepage": "http://twitter.com/davegandy",
-                "role": "Developer"
-            }
-        ],
-        "description": "The iconic font and CSS framework",
-        "homepage": "http://fontawesome.io/",
-        "keywords": [
-            "FontAwesome",
-            "awesome",
-            "bootstrap",
-            "font",
-            "icon"
-        ]
-    },
-    {
         "name": "yiisoft/yii2",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/yiisoft/yii2-framework.git",
-            "reference": "140505acd532961ba94c67ccde583454103a943d"
+            "reference": "d9ca44e2eb6b6d35b6517a474d9bfde2900835a6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/140505acd532961ba94c67ccde583454103a943d",
-            "reference": "140505acd532961ba94c67ccde583454103a943d",
+            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/d9ca44e2eb6b6d35b6517a474d9bfde2900835a6",
+            "reference": "d9ca44e2eb6b6d35b6517a474d9bfde2900835a6",
             "shasum": ""
         },
         "require": {
@@ -3988,7 +4146,7 @@
             "php": ">=5.4.0",
             "yiisoft/yii2-composer": "*"
         },
-        "time": "2015-08-28 13:36:29",
+        "time": "2015-08-04 14:08:38",
         "bin": [
             "yii"
         ],
@@ -4048,160 +4206,6 @@
         "homepage": "http://www.yiiframework.com/",
         "keywords": [
             "framework",
-            "yii2"
-        ]
-    },
-    {
-        "name": "kartik-v/bootstrap-fileinput",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-            "reference": "e4906dd5ee852a5333d3ce4d19f69ee855efe844"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/e4906dd5ee852a5333d3ce4d19f69ee855efe844",
-            "reference": "e4906dd5ee852a5333d3ce4d19f69ee855efe844",
-            "shasum": ""
-        },
-        "time": "2015-08-26 18:42:44",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "kartik\\plugins\\fileinput\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Kartik Visweswaran",
-                "email": "kartikv2@gmail.com",
-                "homepage": "http://www.krajee.com/"
-            }
-        ],
-        "description": "An enhanced HTML 5 file input for Bootstrap 3.x with features for file preview for many file types, multiple selection, ajax uploads, and more.",
-        "homepage": "https://github.com/kartik-v/bootstrap-fileinput",
-        "keywords": [
-            "ajax",
-            "bootstrap",
-            "delete",
-            "file",
-            "image",
-            "input",
-            "jquery",
-            "multiple",
-            "preview",
-            "progress",
-            "upload"
-        ]
-    },
-    {
-        "name": "yiisoft/yii2-debug",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-debug.git",
-            "reference": "848fb19e123aaf2ea2e535282eed6c6cc781bd9a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/848fb19e123aaf2ea2e535282eed6c6cc781bd9a",
-            "reference": "848fb19e123aaf2ea2e535282eed6c6cc781bd9a",
-            "shasum": ""
-        },
-        "require": {
-            "yiisoft/yii2": ">=2.0.4",
-            "yiisoft/yii2-bootstrap": "*"
-        },
-        "time": "2015-08-23 10:25:10",
-        "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "yii\\debug\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Qiang Xue",
-                "email": "qiang.xue@gmail.com"
-            }
-        ],
-        "description": "The debugger extension for the Yii framework",
-        "keywords": [
-            "debug",
-            "debugger",
-            "yii2"
-        ]
-    },
-    {
-        "name": "yiisoft/yii2-gii",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-gii.git",
-            "reference": "6519954dc8dd16050d886d1266d6248cbae2d14f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/6519954dc8dd16050d886d1266d6248cbae2d14f",
-            "reference": "6519954dc8dd16050d886d1266d6248cbae2d14f",
-            "shasum": ""
-        },
-        "require": {
-            "bower-asset/typeahead.js": "0.10.* | ~0.11.0",
-            "phpspec/php-diff": ">=1.0.2",
-            "yiisoft/yii2": ">=2.0.4",
-            "yiisoft/yii2-bootstrap": "~2.0"
-        },
-        "time": "2015-08-31 23:04:33",
-        "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            },
-            "asset-installer-paths": {
-                "npm-asset-library": "vendor/npm",
-                "bower-asset-library": "vendor/bower"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "yii\\gii\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Qiang Xue",
-                "email": "qiang.xue@gmail.com"
-            }
-        ],
-        "description": "The Gii extension for the Yii framework",
-        "keywords": [
-            "code generator",
-            "gii",
             "yii2"
         ]
     }

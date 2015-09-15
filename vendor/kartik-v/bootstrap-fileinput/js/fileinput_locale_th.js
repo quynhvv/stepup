@@ -33,7 +33,6 @@
         msgFilePreviewError: 'พบปัญหาในการดูตัวอย่างไฟล์ "{name}".',
         msgInvalidFileType: 'ไฟล์ "{name}" เป็นประเภทไฟล์ที่ไม่ถูกต้อง, อนุญาตเฉพาะไฟล์ประเภท "{types}"',
         msgInvalidFileExtension: 'ไฟล์ "{name}" เป็น extension ที่ไมถูกต้อง, อนุญาตเฉพาะไฟล์ extension "{extensions}"',
-        msgUploadAborted: 'อัปโหลดไฟล์ถูกยกเลิก',
         msgValidationError: 'อัพโหลดไฟล์มีปัญหา',
         msgLoading: 'กำลังโหลดไฟล์ {index} จาก {files} &hellip;',
         msgProgress: 'กำลังโหลดไฟล์ {index} จาก {files} - {name} - {percent}%',
@@ -45,12 +44,12 @@
         msgImageHeightLarge: 'ความสูงของไฟล์ภาพ "{name}" ไม่เกิน {size} พิกเซล.',
         dropZoneTitle: 'Drag & drop ไฟล์ตรงนี้ &hellip;',
         fileActionSettings: {
-            removeTitle: 'ลบไฟล์',
-            uploadTitle: 'อัปโหลดไฟล์',
-            indicatorNewTitle: 'ยังไม่ได้อัปโหลด',
-            indicatorSuccessTitle: 'อัพโหลด',
-            indicatorErrorTitle: 'อัปโหลดข้อผิดพลาด',
-            indicatorLoadingTitle: 'อัพโหลด ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

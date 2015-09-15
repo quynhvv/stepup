@@ -33,7 +33,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public $allowedIPs = ['127.0.0.1', '::1'];
     /**
      * @var array the list of hosts that are allowed to access this module.
-     * Each array element is a hostname that will be resolved to an IP address that is compared
+     * Each array element is a hostname that will be resolved to an IP address that is compared 
      * with the IP address of the user. A use case is to use a dynamic DNS (DDNS) to allow access.
      * The default value is `[]`.
      */
@@ -189,10 +189,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
         echo '<div id="yii-debug-toolbar" data-url="' . Html::encode($url) . '" style="display:none" class="yii-debug-toolbar-bottom"></div>';
         /* @var $view View */
         $view = $event->sender;
-
-        // echo is used in order to support cases where asset manager is not available
-        echo '<style>' . $view->renderPhpFile(__DIR__ . '/assets/toolbar.css') . '</style>';
-        echo '<script>' . $view->renderPhpFile(__DIR__ . '/assets/toolbar.js') . '</script>';
+        ToolbarAsset::register($view);
     }
 
     /**

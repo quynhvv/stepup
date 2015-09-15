@@ -13,6 +13,7 @@ var browserify = require('browserify');
 var source     = require('vinyl-source-stream');
 var buffer     = require('vinyl-buffer');
 var wrap       = require('gulp-wrap');
+var qunit      = require('gulp-qunit');
 
 // Lint Task
 gulp.task('lint', function() {
@@ -34,7 +35,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('example'));
 
   // (We don't use minifyCSS since it breaks the ie9 file for some reason)
-  gulp.src(['dev/sweetalert.scss', 'dev/ie9.css'])
+  gulp.src(['dev/sweetalert.scss', 'dev/ie9.css', 'dev/loader-animation.css'])
     .pipe(sass())
     .pipe(concat('sweetalert.css'))
     .pipe(gulp.dest('dist'));
@@ -78,6 +79,13 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('dist')); // User version
 });
 
+gulp.task('test', function() {
+  return gulp.src('./test/index.html')
+    .pipe(qunit({
+      timeout: 20
+    }));
+});
+
 // Watch Files For Changes
 gulp.task('watch', function() {
   gulp.watch(['dev/*.js', 'dev/*/*.js'], ['lint', 'scripts']);
@@ -86,4 +94,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'test']);

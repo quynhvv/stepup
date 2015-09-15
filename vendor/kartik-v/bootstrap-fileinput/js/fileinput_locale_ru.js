@@ -34,7 +34,6 @@
         msgFilePreviewError: 'Произошла ошибка при чтении файла "{name}".',
         msgInvalidFileType: 'Запрещенный тип файла для "{name}". Только "{types}" разрешены.',
         msgInvalidFileExtension: 'Запрещенное расширение для файла "{name}". Только "{extensions}" разрешены.',
-        msgUploadAborted: 'Выгрузка файла прервана',
         msgValidationError: 'Ошибка при загрузке файла',
         msgLoading: 'Загрузка файла {index} из {files} &hellip;',
         msgProgress: 'Загрузка файла {index} из {files} - {name} - {percent}% завершено.',
@@ -46,12 +45,12 @@
         msgImageHeightLarge: 'Высота изображения "{name}" не может превышать {size} px.',
         dropZoneTitle: 'Перетащите файлы сюда &hellip;',
         fileActionSettings: {
-            removeTitle: 'Удалить файл',
-            uploadTitle: 'Загрузить файл',
-            indicatorNewTitle: 'Еще не загружен',
-            indicatorSuccessTitle: 'Загружен',
-            indicatorErrorTitle: 'Ошибка загрузки',
-            indicatorLoadingTitle: 'Загрузка ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

@@ -487,9 +487,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                     $styles     = array();
                     $cellStyles = array();
                     $xpath = self::getArrayItem($relsWorkbook->xpath("rel:Relationship[@Type='http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles']"));
-                    $xmlStyles = simplexml_load_string($this->securityScan($this->getFromZipArchive($zip, "$dir/$xpath[Target]")), 'SimpleXMLElement', PHPExcel_Settings::getLibXmlLoaderOptions());
-                    //~ http://schemas.openxmlformats.org/spreadsheetml/2006/main");
-
+                    $xmlStyles = simplexml_load_string($this->securityScan($this->getFromZipArchive($zip, "$dir/$xpath[Target]")), 'SimpleXMLElement', PHPExcel_Settings::getLibXmlLoaderOptions()); //~ http://schemas.openxmlformats.org/spreadsheetml/2006/main");
                     $numFmts = null;
                     if ($xmlStyles && $xmlStyles->numFmts[0]) {
                         $numFmts = $xmlStyles->numFmts[0];
@@ -510,10 +508,7 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                                     }
                                 }
 
-                                // We shouldn't override any of the built-in MS Excel values (values below id 164)
-                                //  But there's a lot of naughty homebrew xlsx writers that do use "reserved" id values that aren't actually used
-                                //  So we make allowance for them rather than lose formatting masks
-                                if ((int)$xf["numFmtId"] < 164 && PHPExcel_Style_NumberFormat::builtInFormatCodeIndex((int)$xf["numFmtId"]) !== false) {
+                                if ((int)$xf["numFmtId"] < 164) {
                                     $numFmt = PHPExcel_Style_NumberFormat::builtInFormatCode((int)$xf["numFmtId"]);
                                 }
                             }
@@ -521,6 +516,8 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
                             if (isset($xf["quotePrefix"])) {
                                 $quotePrefix = (boolean) $xf["quotePrefix"];
                             }
+                            //$numFmt = str_replace('mm', 'i', $numFmt);
+                            //$numFmt = str_replace('h', 'H', $numFmt);
 
                             $style = (object) array(
                                 "numFmt" => $numFmt,

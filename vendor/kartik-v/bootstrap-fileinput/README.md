@@ -370,7 +370,7 @@ _object_ the templates configuration for rendering each part of the layout. You 
 - `icon`: the icon to render before the caption text.
 - `caption`: the template for rendering the caption.
 - `modal`: the template for rendering the modal (for text file preview zooming).
-- `progress`: the template for the progress bar when upload is in progress (for batch/mass uploads and within each preview thumbnail for async/single uploads). The upload progress bar when displayed within each thumbnail will be wrapped inside a container having a CSS class of `file-thumb-progress`. The following tags will be parsed and replaced automatically: 
+- `progress`: the template for the progress bar when upload is in progress (for batch/mass uploads). The following tags will be parsed and replaced automatically:
     - `{percent}`: will be replaced with the upload progress percentage.
 - `footer`: the template for the footer section of each file preview thumbnail. The following tags will be parsed and replaced automatically:
     - `{actions}`: will be replaced with the output of the `actions` template.
@@ -437,9 +437,6 @@ The `layoutTemplates` if not set will default to:
         '   <span class="file-caption-ellipsis">&hellip;</span>\n' +
         '   <div class="file-caption-name"></div>\n' +
         '</div>',
-    btnDefault: '<button type="{type}" tabindex="500" title="{title}" class="{css}"{status}>{icon}{label}</button>',
-    btnLink: '<a href="{href}" tabindex="500" title="{title}" class="{css}"{status}>{icon}{label}</a>',
-    btnBrowse: '<div tabindex="500" class="{css}"{status}>{icon}{label}</div>',
     modal: '<div id="{id}" class="modal fade">\n' +
         '  <div class="modal-dialog modal-lg">\n' +
         '    <div class="modal-content">\n' +
@@ -463,7 +460,7 @@ The `layoutTemplates` if not set will default to:
         '</div>',
     footer: '<div class="file-thumbnail-footer">\n' +
         '    <div class="file-caption-name" style="width:{width}">{caption}</div>\n' +
-        '    {progress} {actions}\n' +
+        '    {actions}\n' +
         '</div>',
     actions: '<div class="file-actions">\n' +
         '    <div class="file-footer-buttons">\n' +
@@ -505,21 +502,7 @@ The following tags will be parsed and replaced in each of the templates:
 - `{zoomInd}`: currently applicable only for text file previews. This will be replaced with the `zoomIndicator` property. This is the title that is displayed on hover of the zoom button (which on clicking will display the text file).
 - `{heading}`: currently applicable only for text file previews. This represents the modal dialog heading title. This will be replaced with the `msgZoomModalHeading` property. 
 
-The following templates will be used in rendering the main buttons for upload, remove, cancel, and browse.
-
-- `btnDefault`: The template for upload, remove, and cancel buttons
-- `btnLink`: The template for upload button when used with ajax (i.e. when `uploadUrl` is set).
-- `btnBrowse`: The template for the browse button.
-
-The following tags will be parsed and auto replaced in the above button templates:
-
-- `{type}`: the HTML button type, defaults to `button` for most buttons and `submit` for form based uploads
-- `{title}`: the title to display on button hover.
-- `{css}`: the CSS class for the button. This is derived from settings for `uploadClass` or `removeClass` or `cancelClass` or `browseClass`.
-- `{status}`: the disabled status for the button if available (else will be blank).
-- `{icon}`: the button icon as identified by `uploadIcon` or `removeIcon` or `cancelIcon` or `browseIcon`.
-- `{label}`: the button label as identified by `uploadLabel` or `removeLabel` or `cancelLabel` or `browseLabel`.
-- `{href}`: applicable only for Upload button for ajax uploads and will be replaced with the `uploadUrl` property.
+As noted, if you are coming from an earlier release (before v2.4.0), all preview templates have now been combined into one property, instead of separate templates for image, text etc. 
 
 The `previewTemplates` if not set will default to:
 
@@ -530,7 +513,7 @@ The `previewTemplates` if not set will default to:
         '   {footer}\n' +
         '</div>\n',
     html: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}">\n' +
-        '    <object class="file-object" data="{data}" type="{type}" width="{width}" height="{height}">\n' +
+        '    <object data="{data}" type="{type}" width="{width}" height="{height}">\n' +
         '       ' + DEFAULT_PREVIEW + '\n' +
         '    </object>\n' + 
         '   {footer}\n' +
@@ -561,13 +544,13 @@ The `previewTemplates` if not set will default to:
         '   {footer}\n' +
         '</div>\n',
     flash: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}" title="{caption}" ' + STYLE_SETTING + '>\n' +
-        '   <object class="file-object" type="application/x-shockwave-flash" width="{width}" height="{height}" data="{data}">\n' +
+        '   <object type="application/x-shockwave-flash" width="{width}" height="{height}" data="{data}">\n' +
         OBJECT_PARAMS + '       ' + DEFAULT_PREVIEW + '\n' +
         '   </object>\n' + 
         '   {footer}\n' +
         '</div>\n',
     object: '<div class="file-preview-frame" id="{previewId}" data-fileindex="{fileindex}" title="{caption}" ' + STYLE_SETTING + '>\n' +
-        '    <object class="file-object" data="{data}" type="{type}" width="{width}" height="{height}">\n' +
+        '    <object data="{data}" type="{type}" width="{width}" height="{height}">\n' +
         '      <param name="movie" value="{caption}" />\n' +
         OBJECT_PARAMS + '           ' + DEFAULT_PREVIEW + '\n' +
         '   </object>\n' + 
@@ -998,9 +981,6 @@ where:
 - `{name}`: will be replaced by the file name being uploaded
 - `{extensions}`: will be replaced by the comma separated list of extensions defined in `allowedFileExtensions`.
 
-### msgUploadAborted
-_string_ the message to be displayed when an ongoing ajax file upload is aborted by pressing the **Cancel** button. Defaults to `The file upload was aborted`. If this is set to null or empty, the internal ajax error message will be displayed.
-
 ### msgValidationError
 _string_ the exception message to be displayed within the caption container (instead of `msgFilesSelected`), 
 when a validation error is encountered. Defaults to `File Upload Error`.
@@ -1107,13 +1087,6 @@ Files other than `image` or `text` will be displayed as a thumbnail with the fil
 
 ### zoomIndicator
 _string_ the icon for zooming the file content in a new modal dialog.  This is currently applicable only for text file previews. Defaults to `<i class="glyphicon glyphicon-zoom-in"></i>`.  The following variables will be replaced:
-
-### errorCloseButton
-_string_ the markup for the button to close the error container block. Note this button indicator must include the CSS class `kv-error-close`. If not set, this defaults to:
-
-```html
-<span class="close kv-error-close">&times;</span>
-```
 
 ### elErrorContainer
 _string_ the identifier for the container element displaying the error (e.g. `'#id'`). If not set, will default to the container with CSS class `kv-fileinput-error` inside the preview container (identified by `elPreviewContainer`). The `msgErrorClass` will be automatically appended to this container before displaying the error.
@@ -1325,34 +1298,6 @@ This event is triggered when the upload process is completed (successfully or wi
 $('#input-id').on('fileunlock', function(event, filestack, extraData) {
     var fstack = filestack.filter(function(n){ return n != undefined });
     console.log('Files selected - ' + fstack.length);
-});
-```
-
-#### filepreremove
-This event is triggered before removal of each thumbnail file in ajax upload mode. This is different than `filepredelete` in the sense, that this is NOT applicable for thumbnails set via `initialPreview`. The additional parameters available with this event are:
-
-- `previewId`: the identifier of the preview thumbnail container.
-- `index`: the zero-based index of the file in the preview container.
-
->Note: You can call `event.preventDefault()` or `return false;` to abort the removal process.
-
-```js
-$('#input-id').on('filepreremove', function(event, id, index) {
-    if (!window.confirm('Do you wish to remove?')) {
-        event.preventDefault();
-    }
-});
-```
-
-#### fileremoved
-This event is triggered after removal of each thumbnail file in ajax upload mode. This is different than `filedeleted` in the sense, that this is NOT applicable for thumbnails set via `initialPreview`. The additional parameters available with this event are:
-
-- `previewId`: the identifier of the preview thumbnail container.
-- `index`: the zero-based index of the file in the preview container.
-
-```js
-$('#input-id').on('fileremoved', function(event, id, index) {
-    console.log('fileremoved id = ' + id);
 });
 ```
 

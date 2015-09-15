@@ -33,7 +33,6 @@
         msgFilePreviewError: 'Wystąpił błąd w czasie odczytu pliku "{name}".',
         msgInvalidFileType: 'Nieznny typ pliku "{name}". Tylko następujące rodzaje plików "{types}", są obsługiwane.',
         msgInvalidFileExtension: 'Złe rozszerzenie dla pliku "{name}". Tylko następujące rozszerzenia plików "{extensions}", są obsługiwane.',
-        msgUploadAborted: 'Plik przesyłanie zostało przerwane',
         msgValidationError: 'Błąd podczas przesyłania pliku.',
         msgLoading: 'Wczytywanie pliku {index} z {files} &hellip;',
         msgProgress: 'Wczytywanie pliku {index} z {files} - {name} - {percent}% zakończone.',
@@ -45,12 +44,12 @@
         msgImageHeightLarge: 'Wysokość pliku obrazu "{name}" nie może przekraczać {size} px.',
         dropZoneTitle: 'Przeciągnij i upuść pliki tu &hellip;',
         fileActionSettings: {
-            removeTitle: 'Usuń plik',
-            uploadTitle: 'przesyłanie pliku',
-            indicatorNewTitle: 'Jeszcze nie przesłanych',
-            indicatorSuccessTitle: 'Dodane',
-            indicatorErrorTitle: 'Prześlij błąd',
-            indicatorLoadingTitle: 'Zamieszczanie ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

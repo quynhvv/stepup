@@ -33,7 +33,6 @@
         msgFilePreviewError: 'Ocorreu um erro ao ler o ficheiro "{name}".',
         msgInvalidFileType: 'Tipo inválido para o ficheiro "{name}". Apenas ficheiros "{types}" são suportados.',
         msgInvalidFileExtension: 'Extensão inválida para o ficheiro "{name}". Apenas ficheiros "{extensions}" são suportados.',
-        msgUploadAborted: 'O upload do arquivo foi abortada',
         msgValidationError: 'Erro de carregamento de ficheiro',
         msgLoading: 'A carregar ficheiro {index} de {files} &hellip;',
         msgProgress: 'A carregar ficheiro {index} de {files} - {name} - {percent}% completo.',
@@ -45,12 +44,12 @@
         msgImageHeightLarge: 'Altura do arquivo de imagem "{name}" não pode exceder {size} px.',
         dropZoneTitle: 'Arrastar e largar ficheiros aqui &hellip;',
         fileActionSettings: {
-            removeTitle: 'Remover arquivo',
-            uploadTitle: 'Carregar arquivo',
-            indicatorNewTitle: 'Ainda não carregou',
-            indicatorSuccessTitle: 'Carregado',
-            indicatorErrorTitle: 'Carregar Erro',
-            indicatorLoadingTitle: 'A carregar ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

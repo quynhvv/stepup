@@ -33,7 +33,6 @@
         msgFilePreviewError: 'Hiba lépett fel a "{name}" fájl olvasása közben.',
         msgInvalidFileType: 'Nem megengedett fájl "{name}". Csak a "{types}" fájl típusok támogatottak.',
         msgInvalidFileExtension: 'Nem megengedett kiterjesztés / fájltípus "{name}". Csak a "{extensions}" kiterjesztés(ek) / fájltípus(ok) támogatottak.',
-        msgUploadAborted: 'A fájl feltöltés megszakítva',
         msgValidationError: 'Fájl ellenörzési hiba.',
         msgLoading: '{index} / {files} töltése &hellip;',
         msgProgress: 'Feltöltés: {index} / {files} - {name} - {percent}% kész.',
@@ -45,12 +44,12 @@
         msgImageHeightLarge: 'Magassága image file "{name}" nem haladhatja meg a {size} px.',
         dropZoneTitle: 'Fájlok húzása ide &hellip;',
         fileActionSettings: {
-            removeTitle: 'A fájl eltávolítása',
-            uploadTitle: 'fájl feltöltése',
-            indicatorNewTitle: 'Nem feltöltve',
-            indicatorSuccessTitle: 'Feltöltött',
-            indicatorErrorTitle: 'Feltöltés Error',
-            indicatorLoadingTitle: 'Feltöltése ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

@@ -381,18 +381,16 @@ tinymce.PluginManager.add('charmap', function(editor) {
 		});
 	}
 
-	editor.addCommand('mceShowCharmap', showDialog);
-
 	editor.addButton('charmap', {
 		icon: 'charmap',
 		tooltip: 'Special character',
-		cmd: 'mceShowCharmap'
+		onclick: showDialog
 	});
 
 	editor.addMenuItem('charmap', {
 		icon: 'charmap',
 		text: 'Special character',
-		cmd: 'mceShowCharmap',
+		onclick: showDialog,
 		context: 'insert'
 	});
 });

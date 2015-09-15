@@ -77,12 +77,14 @@ trait SchemaBuilderTrait
 
     /**
      * Creates a text column.
+     * @param integer $length column size definition i.e. the maximum text length.
+     * This parameter will be ignored if not supported by the DBMS.
      * @return ColumnSchemaBuilder the column instance which can be further customized.
      * @since 2.0.6
      */
-    public function text()
+    public function text($length = null)
     {
-        return $this->getDb()->getSchema()->createColumnSchemaBuilder(Schema::TYPE_TEXT);
+        return $this->getDb()->getSchema()->createColumnSchemaBuilder(Schema::TYPE_TEXT, $length);
     }
 
     /**

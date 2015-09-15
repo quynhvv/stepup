@@ -28,7 +28,7 @@ tinymce.ThemeManager.add('modern', function(editor) {
 	var defaultToolbar = "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | " +
 		"bullist numlist outdent indent | link image";
 
-	function createToolbar(items, size) {
+	function createToolbar(items) {
 		var toolbarItems = [], buttonGroup;
 
 		if (!items) {
@@ -88,7 +88,12 @@ tinymce.ThemeManager.add('modern', function(editor) {
 				buttonGroup = null;
 			} else {
 				if (Factory.has(item)) {
-					item = {type: item, size: size};
+					item = {type: item};
+
+					if (settings.toolbar_items_size) {
+						item.size = settings.toolbar_items_size;
+					}
+
 					toolbarItems.push(item);
 					buttonGroup = null;
 				} else {
@@ -107,7 +112,10 @@ tinymce.ThemeManager.add('modern', function(editor) {
 						}
 
 						item.type = item.type || 'button';
-						item.size = size;
+
+						if (settings.toolbar_items_size) {
+							item.size = settings.toolbar_items_size;
+						}
 
 						item = Factory.create(item);
 						buttonGroup.items.push(item);
@@ -132,15 +140,14 @@ tinymce.ThemeManager.add('modern', function(editor) {
 	/**
 	 * Creates the toolbars from config and returns a toolbar array.
 	 *
-	 * @param {String} size Optional toolbar item size.
 	 * @return {Array} Array with toolbars.
 	 */
-	function createToolbars(size) {
+	function createToolbars() {
 		var toolbars = [];
 
 		function addToolbar(items) {
 			if (items) {
-				toolbars.push(createToolbar(items, size));
+				toolbars.push(createToolbar(items));
 				return true;
 			}
 		}
@@ -663,7 +670,7 @@ tinymce.ThemeManager.add('modern', function(editor) {
 				border: 1,
 				items: [
 					settings.menubar === false ? null : {type: 'menubar', border: '0 0 1 0', items: createMenuButtons()},
-					createToolbars(settings.toolbar_items_size)
+					createToolbars()
 				]
 			});
 
@@ -740,7 +747,7 @@ tinymce.ThemeManager.add('modern', function(editor) {
 			border: 1,
 			items: [
 				settings.menubar === false ? null : {type: 'menubar', border: '0 0 1 0', items: createMenuButtons()},
-				createToolbars(settings.toolbar_items_size),
+				createToolbars(),
 				{type: 'panel', name: 'iframe', layout: 'stack', classes: 'edit-area', html: '', border: '1 0 0 0'}
 			]
 		});

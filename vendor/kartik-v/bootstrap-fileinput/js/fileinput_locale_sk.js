@@ -33,7 +33,6 @@
         msgFilePreviewError: 'Nastala chyba pri načítaní súboru "{name}".',
         msgInvalidFileType: 'Neplatný typ súboru "{name}". Iba "{types}" súborov sú podporované.',
         msgInvalidFileExtension: 'Neplatná extenzia súboru "{name}". Iba "{extensions}" súborov sú podporované.',
-        msgUploadAborted: 'Súbor nahrávania bol prerušený',
         msgValidationError: 'Chyba nahratia súboru.',
         msgLoading: 'Nahrávanie súboru {index} z {files} &hellip;',
         msgProgress: 'Nahrávanie súboru {index} z {files} - {name} - {percent}% dokončené.',
@@ -45,12 +44,12 @@
         msgImageHeightLarge: 'Výška súboru obrazu "{name}" nesmie presiahnuť {size} px.',
         dropZoneTitle: 'Tiahni a pusť súbory tu &hellip;',
         fileActionSettings: {
-            removeTitle: 'odstrániť súbor',
-            uploadTitle: 'nahrať súbor',
-            indicatorNewTitle: 'Ešte nenahral',
-            indicatorSuccessTitle: 'nahral',
-            indicatorErrorTitle: 'nahrať Chyba',
-            indicatorLoadingTitle: 'nahrávanie ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

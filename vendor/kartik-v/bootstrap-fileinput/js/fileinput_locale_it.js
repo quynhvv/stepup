@@ -35,7 +35,6 @@
         msgFilePreviewError: 'Errore durante la lettura del file "{name}".',
         msgInvalidFileType: 'Tipo non valido per il file "{name}". Sono ammessi solo file di tipo "{types}".',
         msgInvalidFileExtension: 'Estensione non valida per il file "{name}". Sono ammessi solo file con estensione "{extensions}".',
-        msgUploadAborted: 'Il caricamento del file è stata interrotta',
         msgValidationError: 'Errore caricamento file',
         msgLoading: 'Caricamento file {index} di {files}&hellip;',
         msgProgress: 'Caricamento file {index} di {files} - {name} - {percent}% completato.',
@@ -47,12 +46,12 @@
         msgImageHeightLarge: 'Altezza di file immagine "{name}" non può superare {size} px.',
         dropZoneTitle: 'Trascina i file qui&hellip;',
         fileActionSettings: {
-            removeTitle: 'Rimuovere il file',
-            uploadTitle: 'Caricare un file',
-            indicatorNewTitle: 'Non ancora caricato',
-            indicatorSuccessTitle: 'Caricati',
-            indicatorErrorTitle: 'Carica Errore',
-            indicatorLoadingTitle: 'Caricamento ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

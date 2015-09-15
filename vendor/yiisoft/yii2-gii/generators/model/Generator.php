@@ -67,7 +67,7 @@ class Generator extends \yii\gii\Generator
             [['db', 'ns', 'tableName', 'baseClass', 'queryNs', 'queryBaseClass'], 'required'],
             [['db', 'modelClass', 'queryClass'], 'match', 'pattern' => '/^\w+$/', 'message' => 'Only word characters are allowed.'],
             [['ns', 'baseClass', 'queryNs', 'queryBaseClass'], 'match', 'pattern' => '/^[\w\\\\]+$/', 'message' => 'Only word characters and backslashes are allowed.'],
-            [['tableName'], 'match', 'pattern' => '/^([\w ]+\.)?([\w\* ]+)$/', 'message' => 'Only word characters, and optionally spaces, an asterisk and/or a dot are allowed.'],
+            [['tableName'], 'match', 'pattern' => '/^(\w+\. )?([\w\* ]+)$/', 'message' => 'Only word characters, and optionally spaces, an asterisk and/or a dot are allowed.'],
             [['db'], 'validateDb'],
             [['ns', 'queryNs'], 'validateNamespace'],
             [['tableName'], 'validateTableName'],
@@ -97,7 +97,6 @@ class Generator extends \yii\gii\Generator
             'queryNs' => 'ActiveQuery Namespace',
             'queryClass' => 'ActiveQuery Class',
             'queryBaseClass' => 'ActiveQuery Base Class',
-            'useSchemaName' => 'Use Schema Name',
         ]);
     }
 
@@ -295,10 +294,9 @@ class Generator extends \yii\gii\Generator
             $rules[] = "[['" . implode("', '", $columns) . "'], 'string', 'max' => $length]";
         }
 
-        $db = $this->getDbConnection();
-
         // Unique indexes rules
         try {
+            $db = $this->getDbConnection();
             $uniqueIndexes = $db->getSchema()->findUniqueIndexes($table);
             foreach ($uniqueIndexes as $uniqueColumns) {
                 // Avoid validating auto incremental columns
@@ -321,13 +319,7 @@ class Generator extends \yii\gii\Generator
 
         // Exist rules for foreign keys
         foreach ($table->foreignKeys as $refs) {
-            $refTable = $refs[0];
-            $refTableSchema = $db->getTableSchema($refTable);
-            if ($refTableSchema === null) {
-                // Foreign key could point to non-existing table: https://github.com/yiisoft/yii2-gii/issues/34
-                continue;
-            }
-            $refClassName = $this->generateClassName($refTable);
+            $refClassName = $this->generateClassName($refs[0]);
             unset($refs[0]);
             $attributes = implode("', '", array_keys($refs));
             $targetAttributes = [];
@@ -415,10 +407,6 @@ class Generator extends \yii\gii\Generator
                 foreach ($table->foreignKeys as $refs) {
                     $refTable = $refs[0];
                     $refTableSchema = $db->getTableSchema($refTable);
-                    if ($refTableSchema === null) {
-                        // Foreign key could point to non-existing table: https://github.com/yiisoft/yii2-gii/issues/34
-                        continue;
-                    }
                     unset($refs[0]);
                     $fks = array_keys($refs);
                     $refClassName = $this->generateClassName($refTable);

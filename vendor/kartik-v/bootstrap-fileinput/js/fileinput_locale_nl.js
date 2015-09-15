@@ -33,7 +33,6 @@
         msgFilePreviewError: 'Er is een fout opgetreden met lezen van "{name}".',
         msgInvalidFileType: 'Geen geldig bestand "{name}". Alleen "{types}" zijn toegestaan.',
         msgInvalidFileExtension: 'Geen geldige extensie "{name}". Alleen "{extensions}" zijn toegestaan.',
-        msgUploadAborted: 'Het uploaden van bestanden is afgebroken',
         msgValidationError: 'Bestand upload fout',
         msgLoading: 'Bestanden laden {index} van de {files} &hellip;',
         msgProgress: 'Bestanden laden {index} van de {files} - {name} - {percent}% compleet.',
@@ -45,12 +44,12 @@
         msgImageHeightLarge: 'Hoogte van het beeld bestand "{name}" kan niet hoger zijn dan {size} px.',
         dropZoneTitle: 'Drag & drop bestanden hier &hellip;',
         fileActionSettings: {
-            removeTitle: 'Verwijder bestand',
-            uploadTitle: 'bestand uploaden',
-            indicatorNewTitle: 'Nog niet geupload',
-            indicatorSuccessTitle: 'geupload',
-            indicatorErrorTitle: 'uploaden Error',
-            indicatorLoadingTitle: 'uploaden ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

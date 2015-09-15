@@ -34,7 +34,6 @@
         msgFilePreviewError: 'در هنگام خواندن فایل "{name}" خطایی رخ داد.',
         msgInvalidFileType: 'نوع فایل "{name}" معتبر نیست. فقط "{types}" پشیبانی می‌شود.',
         msgInvalidFileExtension: 'پسوند فایل "{name}" معتبر نیست. فقط "{extensions}" پشتیبانی می‌شود.',
-        msgUploadAborted: 'The file upload was aborted',
         msgValidationError: 'خطا در بارگزاری فایل',
         msgLoading: 'بارگیری فایل {index} از {files} &hellip;',
         msgProgress: 'بارگیری فایل {index} از {files} - {name} - {percent}% تمام شد.',
@@ -46,12 +45,12 @@
         msgImageHeightLarge: 'ارتفاع فایل تصویر "{name}" نمی‌تواند از {size} پیکسل بیشتر باشد.',
         dropZoneTitle: 'فایل‌ها را بکشید و در اینجا رها کنید &hellip;',
         fileActionSettings: {
-            removeTitle: 'حذف فایل',
-            uploadTitle: 'آپلود فایل',
-            indicatorNewTitle: 'آپلود نشده است',
-            indicatorSuccessTitle: 'آپلود شده',
-            indicatorErrorTitle: 'بارگذاری خطا',
-            indicatorLoadingTitle: 'آپلود ...'
+            removeTitle: 'Remove file',
+            uploadTitle: 'Upload file',
+            indicatorNewTitle: 'Not uploaded yet',
+            indicatorSuccessTitle: 'Uploaded',
+            indicatorErrorTitle: 'Upload Error',
+            indicatorLoadingTitle: 'Uploading ...'
         }
     };
 })(window.jQuery);

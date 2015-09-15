@@ -1,19 +1,8 @@
 Yii Framework 2 Change Log
 ==========================
 
-2.0.7 under development
+2.0.6 under development
 -----------------------
-
-- Bug #8723: Fixed `yii\helpers\VarDumper::export()` unable to export circle referenced objects with `Closure` (klimov-paul)
-- Bug #9108: Negative number resulted in no formatting when using `Formatter::asSize()` or `Formatter::asShortSize` (nxnx, cebe)
-- Bug #9415: Fixed regression in 2.0.6 where on Oracle DB `PDO::ATTR_CASE = PDO::CASE_LOWER` did not work anymore (cebe)
-- Bug #9442: Fixed `yii\db\Migration::renameTable()` caused fatal error when using SQLite driver (fetus-hina)
-- Chg #9369: `Yii::$app->user->can()` now returns `false` instead of erroring in case `authManager` component is not configured (creocoder)
-- Chg #9411: `DetailView` now automatically sets container tag ID in case it's not specified (samdark)
-
-
-2.0.6 August 05, 2015
----------------------
 
 - Bug #4763: Fixed display issue with overlapping call stack item on exception display page (cebe)
 - Bug #7305: Logging of Exception objects resulted in failure of the logger i.e. no logs being written (cebe)
@@ -26,12 +15,12 @@ Yii Framework 2 Change Log
 - Bug #8483: Sequence name in `Schema::getLastInsertId()` was not properly quoted (nineinchnick)
 - Bug #8506: Cleaning of output buffer in `Widget::run()` conflicts with `Pjax` widget which did the cleanup itself (cebe, joester89)
 - Bug #8544: Fixed `yii\db\ActiveRecord` does not update attribute specified at `optimisticLock()` after save (klimov-paul)
-- Bug #8549: Fixed `yii\caching\FileCache` doesn't lock cache files when reading (iworker)
-- Bug #8551: `yii\pgsql\QueryBuilder::batchInsert()` may cause "undefined index" error (arkhamvm)
+- Bug #8551: `yii\pgsql\QueryBuilder::batchInsert()` may cause "undefined index" error (arkhamvm) 
 - Bug #8585: Fixed `yii\helpers\Html::activeTextarea()` does not allow value overriding via options (klimov-paul)
 - Bug #8592: Fixed `yii\db\Command::getRawSql()` unable to parse params specified without colon (':') (klimov-paul)
 - Bug #8593: Fixed `yii\db\ActiveQuery` produces incorrect SQL for aggregations, when `sql` field is set (klimov-paul)
 - Bug #8595: Fixed `yii\rbac\DbManager::checkAccessFromCache()` to check against auth items loaded in cache recursively (achretien, qiangxue)
+- Bug #8549: Fixed `yii\caching\FileCache` doesn't lock cache files when reading (iworker)
 - Bug #8606: Fixed `yii\web\Response::xSendFile()` does not reset format (vyants)
 - Bug #8627: Fixed `yii\db\Migration` produces incorrect results due to table schema caching (klimov-paul)
 - Bug #8661: Fixed `yii.activeForm.js` scrolling to top (nkovacs)
@@ -59,7 +48,7 @@ Yii Framework 2 Change Log
 - Enh #7259: Added `errorAttributes` parameter to ActiveForm `afterValidate` event. Made scrolling to first error optional (nkovacs)
 - Enh #8070: `yii\console\controllers\MessageController` now sorts created messages, even if there is no new one, while saving to PHP file (klimov-paul)
 - Enh #8286: `yii\console\controllers\MessageController` improved allowing extraction of nested translator calls (klimov-paul)
-- Enh #8373: Check also `post_max_size` parameter in `yii\validators\FileValidator::getSizeLimit()` (maxxer)
+- Ehn #8373: Check also `post_max_size` parameter in `yii\validators\FileValidator::getSizeLimit()` (maxxer)
 - Enh #8415: `yii\helpers\Html` allows correct rendering of conditional comments containing `!IE` (salaros, klimov-paul)
 - Enh #8444: Added `yii\widgets\LinkPager::$linkOptions` to allow configuring HTML attributes of the `a` tags (zinzinday)
 - Enh #8486: Added support to automatically set the `maxlength` attribute for `Html::activeTextArea()` and `Html::activePassword()` (klimov-paul)
@@ -80,7 +69,6 @@ Yii Framework 2 Change Log
 - Enh #9249: Added `hashCallback` in `yii\web\AssetManager` to allow custom hash generation for asset directory (petrabarus)
 - Enh #9263: Avoid extra DB query in RBAC DbManager in case auth item name is empty (samdark)
 - Enh #9268: Improved display of boolean parameters in logged SQL queries (arkhamvm, samdark)
-- Enh: Improved Console helper progress bar ETA time estimation, updated only once per second to avoid flapping (cebe)
 - Chg #6354: `ErrorHandler::logException()` will now log the whole exception object instead of only its string representation (cebe)
 - Chg #8556: Extracted `yii\web\User::getAuthManager()` method (samdark)
 - Chg #9181: `yii\helpers\BaseStringHelper::truncateHtml()` is now using `runtime` directory for `HTMLPurifier` cache (webdevsega)
