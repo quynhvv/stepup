@@ -207,7 +207,7 @@ Icon::map($this, Icon::FA);
 <?= $content; ?>
                 <div class="footer">
                     <div>
-                        <strong>Copyright</strong> Stepup Careers &copy; 2015 - <?= date('Y') ?>
+                        <strong>Copyright</strong> Stepup Careers &copy; <?= date('Y') ?>
                     </div>
 <!--                    <div class="pull-right">
                         10GB of <strong>250GB</strong> Free.
