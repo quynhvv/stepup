@@ -99,6 +99,7 @@ class SeekerController extends FrontendController
             $model->_id = Yii::$app->user->id;
             $model->nationality = $modelUserJob->seeker_nationality;
             $model->salary = $modelUserJob->seeker_salary;
+            $model->candidate_id = UserJob::getNextSequence('seeker');
         }
         
         $employments = UserJobSeekerEmployment::find()->where(['seeker_id' => Yii::$app->user->id])->indexBy('_id')->all();
@@ -122,12 +123,26 @@ class SeekerController extends FrontendController
                 $modelUserJob->seeker_nationality = $model->nationality;
                 $modelUserJob->seeker_salary = $model->salary;
                 $modelUserJob->save();
-
+                
                 if (!is_array($employments)) {
                     $employments->save();
+                    //update latest company and position for seeker resume document
+                    $model->latest_company = $employments->company_name;
+                    $model->latest_position = $employments->position;
+                    $model->save(false);
+                        
                 } else if (isset($employmentsValidate) && $employmentsValidate == true) {
+                    $i = 1;
+                    $max = sizeof($employments);
                     foreach ($employments as $employment) {
                         $employment->save(false);
+                        if ($i == $max){ // is latest employment iformation
+                            //update latest company and position for seeker resume document
+                            $model->latest_company = $employment->company_name;
+                            $model->latest_position = $employment->position;
+                            $model->save(false);
+                        }
+                        $i++;
                     }
                 }
 
@@ -212,6 +227,14 @@ class SeekerController extends FrontendController
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
 
         $this->render('pricing');
+    }
+    
+    public function actionUpgradeAccount()
+    {
+        Yii::$app->view->title = Yii::t($this->module->id, 'Upgrade Account');
+        Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+        
+        $this->render('upgrade-account', []);
     }
 
 }

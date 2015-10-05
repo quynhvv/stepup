@@ -8,7 +8,7 @@ use yii\filters\VerbFilter;
 use app\modules\job\models\User;
 use app\modules\job\models\UserJob;
 use app\modules\job\models\Project;
-
+use app\modules\job\models\UserJobSeekerResume;
 
 class RecruiterController extends FrontendController
 {
@@ -25,8 +25,34 @@ class RecruiterController extends FrontendController
     {
         Yii::$app->view->title = Yii::t($this->module->id, 'Recruiter');
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+        
+        $searchModel = new UserJobSeekerResume();
+        $dataProvider1 = UserJob::getHighPotentialCandidate(Yii::$app->user->identity->_id);
+        $dataProvider2 = $searchModel->search(Yii::$app->request->getQueryParams());
 
-        $this->render('index');
+        $this->render('index', ['searchModel' => $searchModel, 'dataProvider1' => $dataProvider1, 'dataProvider2' => $dataProvider2]);
+    }
+    
+    public function actionHighPotentialCandidate()
+    {
+        Yii::$app->view->title = Yii::t($this->module->id, 'High Potential Candidates');
+        Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+        
+        $searchModel = new UserJobSeekerResume();
+        $dataProvider = UserJob::getHighPotentialCandidate(Yii::$app->user->identity->_id);
+
+        $this->render('high-potential-candidate', ['searchModel' => $searchModel, 'dataProvider' => $dataProvider]);
+    }
+    
+    public function actionNewCandidate()
+    {
+        Yii::$app->view->title = Yii::t($this->module->id, 'Newest Candidates');
+        Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+        
+        $searchModel = new UserJobSeekerResume();
+        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
+
+        $this->render('new-candidate', ['searchModel' => $searchModel, 'dataProvider' => $dataProvider]);
     }
 
     public function actionDashboard() {
@@ -108,5 +134,13 @@ class RecruiterController extends FrontendController
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
         
         $this->render('edit-profile', ['model'=> $model, 'jobModel' => $jobModel]);
+    }
+    
+    public function actionUpgradeAccount()
+    {
+        Yii::$app->view->title = Yii::t($this->module->id, 'Upgrade Account');
+        Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+        
+        $this->render('upgrade-account', []);
     }
 }

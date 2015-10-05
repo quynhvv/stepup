@@ -7,6 +7,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+use app\modules\job\models\UserJobSeekerResume;
 
 class UserJob extends BaseUserJob
 {
@@ -156,7 +157,7 @@ class UserJob extends BaseUserJob
         return '';
     }
 
-    public static function getRecruiterTypeOptions() {
+    public static function getAgentTypeOptions() {
         return [
             '1' => Yii::t('account', 'Recruiter'),
             '2' => Yii::t('account', 'Hiring Manager'),
@@ -164,8 +165,8 @@ class UserJob extends BaseUserJob
     }
 
     public function getRecruiterTypeText() {
-        if (array_key_exists($this->agent_type, self::getRecruiterTypeOptions()))
-            return self::getRecruiterTypeOptions()[$this->agent_type];
+        if (array_key_exists($this->agent_type, self::getAgentTypeOptions()))
+            return self::getAgentTypeOptions()[$this->agent_type];
 
         return '';
     }
@@ -198,13 +199,13 @@ class UserJob extends BaseUserJob
 
     public static function checkAccess($name) {
         if (Yii::$app->user->isGuest) {
-            header('Location: '.Url::to(['/job/account/login', 'role' => $name]));
+            header('Location: '.Url::to(['/job/account/login', 'role' => $name]));exit();
             //return Yii::$app->response->redirect(Url::to(['/job/account/login', 'role' => $name]));
         } else if (self::getRole() != $name) {
-            header('Location: '.Url::to(['/job/account/logout', 'role' => $name]));
+            header('Location: '.Url::to(['/job/account/logout', 'role' => $name]));exit();
             //return Yii::$app->response->redirect(Url::to(['/job/account/logout', 'role' => $name]));
         } else if ($name == 'seeker' && Yii::$app->controller->action->id != 'resume' && Yii::$app->session->get('jobAccountResume') != 1) {
-            header('Location: '.Url::to(['/job/seeker/resume']));
+            header('Location: '.Url::to(['/job/seeker/resume']));exit();
         }
     }
 
@@ -220,5 +221,52 @@ class UserJob extends BaseUserJob
         return (in_array($role, self::$roleAllows))
             ? Url::to(["/job/{$role}/view-profile"])
             : Url::to(['/account/default/dashboard']);
+    }
+    
+    public static function getNextSequence($name){
+        $collection = Yii::$app->mongodb->getCollection('job_counter');
+        $retval = $collection->findAndModify(
+             array('_id' => $name),
+             array('$inc' => array("next_seq" => 1)),
+             null,
+             array(
+                "new" => true,
+            )
+        );
+        if ($name == 'seeker'){
+            $retval['next_seq'] = "c".$retval['next_seq'];
+        }
+        
+        return $retval['next_seq'];
+    }
+    
+    public static function getHighPotentialCandidate($agentId = null) {
+        $dataProvider = null;
+        //get agent functions
+        $agent = UserJob::findOne(['role' => 'recruiter', '_id' => $agentId]);
+        if ($agent){
+            //get seekers fit to agent
+            $model = new UserJobSeekerResume();
+            $model->functions = $agent->agent_job_function;
+            $model->industries = $agent->agent_job_industry;
+            $dataProvider = $model->search(Yii::$app->request->getQueryParams());
+        }
+        
+        return $dataProvider;
+    }
+    
+    public static function canView(){
+        return false;
+    }
+    
+    public static function getUpgradeUrl() {
+        $role = self::getRole();
+        return (in_array($role, self::$roleAllows))
+            ? Url::to(["/job/{$role}/upgrade-account"])
+            : Url::to([Yii::$app->defaultRoute]);
+    }
+    
+    public static function getApplyUrl() {
+        return Url::to(["/job/seeker/apply-job"]);
     }
 }

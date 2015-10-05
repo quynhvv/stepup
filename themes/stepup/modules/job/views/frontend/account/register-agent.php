@@ -40,7 +40,7 @@ $jobModel->agent_type = ($jobModel->role == 'recruiter') ? '1' : '2'
                     ]);
                     ?>
                     <?= $form->field($jobModel, 'role')->hiddenInput()->label(false); ?>
-                    <?= $form->field($jobModel, 'agent_type')->inline(true)->radioList(\app\modules\job\models\UserJob::getRecruiterTypeOptions()) ?>
+                    <?= $form->field($jobModel, 'agent_type')->inline(true)->radioList(\app\modules\job\models\UserJob::getAgentTypeOptions()) ?>
                     <?= $form->field($model, 'first_name')->textInput(['placeholder' => Yii::t('account', 'First Name')]) ?>
                     <?= $form->field($model, 'last_name')->textInput(['placeholder' => Yii::t('account', 'Last Name')]) ?>
                     <?= $form->field($jobModel, 'agent_company_name')->textInput(['placeholder' => Yii::t('account', 'Company Name')]) ?>

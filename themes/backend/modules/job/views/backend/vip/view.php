@@ -41,13 +41,18 @@ use yii\bootstrap\Html;
                         'attributes' => [
 
 							'_id',
-							'creator',
+                            [
+                                'attribute'=>'role',
+                                'value' => ArrayHelper::getValue(\app\modules\job\models\UserJob::getRoleOptions(), ArrayHelper::getValue($model, 'role'))
+                            ],
+                            'title',
 							'days',
 							'editor',
+                            'creator',
 							'price',
 							'sort',
 							'status',
-							'title',
+							
                             [
                                 'attribute' => 'create_time',
                                 'value' => Yii::$app->formatter->asDatetime($model->create_time->sec)

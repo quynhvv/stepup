@@ -11,7 +11,8 @@ $moxieManagerConfig['general.temp_dir'] = '';
 $moxieManagerConfig['general.allow_override'] = 'hidden_tools,disabled_tools';
 
 // Filesystem
-$moxieManagerConfig['filesystem.rootpath'] = __DIR__ . "/../../../uploads";  ///webroot/uploads';
+$dir = substr(__DIR__, 0, -21);
+$moxieManagerConfig['filesystem.rootpath'] = $dir . "/uploads/editor";  ///webroot/uploads';
 $moxieManagerConfig['filesystem.include_directory_pattern'] = '';
 $moxieManagerConfig['filesystem.exclude_directory_pattern'] = '/^mcith$/i';
 $moxieManagerConfig['filesystem.include_file_pattern'] = '';

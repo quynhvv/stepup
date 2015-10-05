@@ -85,6 +85,7 @@ Icon::map($this, Icon::FA);
                     <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
                         <div class="navbar-header">
                             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                            <a class="minimalize-styl-2 btn btn-primary " href="<?= Url::to(['/common/default/cache']) ?>"><i class="fa fa-refresh"></i> </a>
 <!--                            <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
                                 <div class="form-group">
                                     <input type="text" placeholder="Nhập từ khóa tìm kiếm..." class="form-control" name="top-search" id="top-search">

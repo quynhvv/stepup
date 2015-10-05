@@ -4,16 +4,18 @@ namespace app\modules\common\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\Html;
 
 /**
  * ContactForm is the model behind the contact form.
  */
 class ContactForm extends Model
 {
-    public $name;
+    public $fullname;
     public $email;
+    public $phone;
     public $subject;
-    public $body;
+    public $content;
     public $verifyCode;
 
     /**
@@ -23,11 +25,11 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
+            [['fullname', 'email', 'phone', 'subject', 'content'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            ['verifyCode', 'captcha', 'captchaAction' => '/common/frontend/default/captcha'],
         ];
     }
 
@@ -51,9 +53,9 @@ class ContactForm extends Model
     {
         return Yii::$app->mailer->compose()
             ->setTo($email)
-            ->setFrom([$this->email => $this->name])
-            ->setSubject($this->subject)
-            ->setTextBody($this->body)
+            ->setFrom([$this->email => $this->fullname])
+            ->setSubject("{$this->subject} - {$this->phone}")
+            ->setTextBody($this->content)
             ->send();
     }
 }

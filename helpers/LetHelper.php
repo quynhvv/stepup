@@ -205,4 +205,11 @@ class LetHelper {
         }
         return $result;
     }
+
+    public static function getLanguageOptions() {
+        return [
+            'vi' => Yii::t('common', 'Vietnamese'),
+            'en' => Yii::t('common', 'English'),
+        ];
+    }
 }

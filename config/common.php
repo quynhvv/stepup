@@ -14,7 +14,7 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'suffix' => '.html',
+//            'suffix' => '.html',
 
         ],
         'authManager' => [

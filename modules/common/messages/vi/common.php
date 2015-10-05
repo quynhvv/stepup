@@ -13,6 +13,8 @@ return [
     'Login' => 'Đăng nhập',
     'Logout' => 'Thoát',
     'Register' => 'Đăng ký',
+    'Verification Code' => 'Mã xác nhận',
+    'Send' => 'Gửi',
     
     'Setting' => 'Tùy chỉnh',
     'Create a setting' => 'Tạo một tùy chỉnh',
@@ -26,4 +28,9 @@ return [
     'All' => 'Tất cả',
     'Read More' => 'Chi tiết',
     'Recent Posts' => 'Bài viết mới',
+
+    //
+    'Contact Form' => 'Liên hệ',
+    'Company Info' => 'Thông tin doanh nghiệp',
+    'Business Hours' => 'Giờ làm việc',
 ];

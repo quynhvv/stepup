@@ -16,7 +16,7 @@ class UserVipPackage extends BaseUserVipPackage
     public function scenarios()
     {
         return array_merge(Model::scenarios(), [
-            'search' => ['_id', 'title', 'days', 'price', 'sort', 'status', 'creator', 'create_time', 'editor', 'update_time'],
+            'search' => ['_id', 'role', 'title', 'days', 'price', 'sort', 'status', 'creator', 'create_time', 'editor', 'update_time'],
         ]);
     }
 
@@ -38,6 +38,7 @@ class UserVipPackage extends BaseUserVipPackage
 
         // condition here
         $query->andFilterWhere(['like', '_id', $this->_id])
+            ->andFilterWhere(['like', 'role', $this->role])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'days', $this->days])
             ->andFilterWhere(['like', 'price', $this->price])

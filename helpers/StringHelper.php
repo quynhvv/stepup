@@ -60,4 +60,15 @@ class StringHelper extends \yii\helpers\StringHelper {
         return $phone;
     }
 
+    public static function parseYoutubeId($url) {
+        $result = null;
+        $matches = array();
+        preg_match('#(\.be/|/embed/|/v/|/vi/|/1/|/5/|/watch\?v=|/?v=|/watch\?vi=|/?vi=)([A-Za-z0-9_-]{5,11})#', $url, $matches);
+        if (isset($matches[2]) && $matches[2] != '') {
+            $result = $matches[2];
+        }
+
+        return $result;
+    }
+
 }

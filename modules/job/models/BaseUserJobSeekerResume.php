@@ -8,6 +8,9 @@ use Yii;
  * This is the model class for collection "user_job_seeker_resume".
  *
  * @property \MongoId|string $_id
+ * @property mixed $candidate_id
+ * @property mixed $latest_company
+ * @property mixed $latest_position
  * @property mixed $nationality
  * @property mixed $location
  * @property mixed $phone_country
@@ -48,6 +51,9 @@ class BaseUserJobSeekerResume extends \app\components\ActiveRecord
     {
         return [
             '_id',
+            'candidate_id',
+            'latest_company',
+            'latest_position',
             'nationality',
             'location',
             'phone_country',
@@ -74,7 +80,7 @@ class BaseUserJobSeekerResume extends \app\components\ActiveRecord
     public function rules()
     {
         return [
-            [['nationality', 'location', 'phone_country', 'phone_number', 'social_linkedin', 'social_facebook', 'social_twitter', 'experience', 'functions', 'industries', 'salary', 'education_name', 'education_degree', 'education_study', 'education_month', 'education_year', 'language_ability'], 'safe']
+            [['candidate_id', 'nationality', 'latest_company', 'latest_position', 'location', 'phone_country', 'phone_number', 'social_linkedin', 'social_facebook', 'social_twitter', 'experience', 'functions', 'industries', 'salary', 'education_name', 'education_degree', 'education_study', 'education_month', 'education_year', 'language_ability'], 'safe']
         ];
     }
 
@@ -85,6 +91,9 @@ class BaseUserJobSeekerResume extends \app\components\ActiveRecord
     {
         return [
             '_id' => Yii::t('job', 'ID'),
+            'candidate_id' => Yii::t('job', 'Candidate ID'),
+            'latest_company' => Yii::t('job', 'Latest Company'),
+            'latest_position' => Yii::t('job', 'Latest Position'),
             'nationality' => Yii::t('job', 'Nationality'),
             'location' => Yii::t('job', 'Location'),
             'phone_country' => Yii::t('job', 'Phone Country'),

@@ -41,6 +41,7 @@ use app\helpers\LetHelper;
                     ['class' => 'kartik\grid\CheckboxColumn'],
 
                     '_id',
+                    'role',
                     'title',
                     [
                         'attribute' => 'create_time',

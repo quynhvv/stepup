@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for collection "user_vip_package".
  *
  * @property \MongoId|string $_id
+ * @property mixed $role
  * @property mixed $title
  * @property mixed $days
  * @property mixed $price
@@ -40,6 +41,7 @@ class BaseUserVipPackage extends \app\components\ActiveRecord
     {
         return [
             '_id',
+            'role',
             'title',
             'days',
             'price',
@@ -58,7 +60,7 @@ class BaseUserVipPackage extends \app\components\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'days', 'price', 'sort', 'status', 'creator', 'create_time', 'editor', 'update_time'], 'safe']
+            [['title', 'role', 'days', 'price', 'sort', 'status', 'creator', 'create_time', 'editor', 'update_time'], 'safe']
         ];
     }
 
@@ -70,6 +72,7 @@ class BaseUserVipPackage extends \app\components\ActiveRecord
         return [
             '_id' => Yii::t('account', 'ID'),
             'title' => Yii::t('account', 'Title'),
+            'role' => Yii::t('role', 'Member Role'),
             'days' => Yii::t('account', 'Days'),
             'price' => Yii::t('account', 'Price'),
             'sort' => Yii::t('account', 'Sort'),

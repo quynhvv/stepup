@@ -1,6 +1,9 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\helpers\ArrayHelper;
+use app\modules\job\models\Job;
+use app\modules\job\models\UserJob;
 ?>
 
 <!-- MAIN -->
@@ -27,7 +30,7 @@ use yii\helpers\Url;
                                     </tr>
                                     <tr>
                                         <td colspan="2">Salary Range</td>
-                                        <td>US$3000 to US$5000</td>
+                                        <td><?= Html::encode(ArrayHelper::getValue(\app\modules\job\models\JobSalary::getOptions(), ArrayHelper::getValue($model, 'annual_salary_from')). ' to ' . ArrayHelper::getValue(\app\modules\job\models\JobSalary::getOptions(), ArrayHelper::getValue($model, 'annual_salary_to'))) ?></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">Job Title</td>
@@ -35,30 +38,45 @@ use yii\helpers\Url;
                                     </tr>
                                     <tr>
                                         <td colspan="2">Location</td>
-                                        <td>Sydney Australia</td>
+                                        <td><?php echo ArrayHelper::getValue(\app\modules\job\models\JobLocation::getOptions(), ArrayHelper::getValue($model, 'country_id')); ?></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">Jobs Industry</td>
-                                        <td>Real Estate, Property Management </td>
+                                        <td><?php echo $model->getIndustryNames(); ?></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">Company Info</td>
                                         <td>
-                                            <a href="<?= Url::to(['pricing']) ?>">Upgrade here to view this information</a>
+                                            <?php if (UserJob::canView()):?>
+                                                <h3><?php echo $model->company_name; ?></h3>
+                                                <div><?php echo $model->company_description; ?></div>
+                                            <?php else: ?>
+                                                <a href="<?= UserJob::getUpgradeUrl() ?>">Upgrade here to view this information</a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
-
                                     <tr>
                                         <td colspan="2">Job Description</td>
                                         <td>
-                                            <?= $model->description ?>
-                                            <br><strong><a href="<?= Url::to(['pricing']) ?>">... Want to know more? Upgrade to Premium!</a></strong> </td>
+                                            <?php if (UserJob::canView()):?>
+                                                <?= $model->description ?>
+                                            <?php else: ?>
+                                                <div><?php echo Job::subStrWords($model->description, 200); ?></div>
+                                                <br/><strong><a href="<?= UserJob::getUpgradeUrl() ?>">... Want to know more? Upgrade to Premium!</a></strong> 
+                                            <?php endif; ?>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="text-center" colspan="3">
-                                            <a href="#" class="button button-lg button-secondary button-long">
-                                                <span>Upgrade to Apply</span>
-                                            </a>
+                                            <?php if (UserJob::canView()):?>
+                                                <a href="<?= UserJob::getApplyUrl() ?>" class="button button-lg button-secondary button-long">
+                                                    <span>Apply Now</span>
+                                                </a>
+                                            <?php else: ?>
+                                                <a href="<?= UserJob::getUpgradeUrl() ?>" class="button button-lg button-secondary button-long">
+                                                    <span>Upgrade to Apply</span>
+                                                </a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -72,6 +90,9 @@ use yii\helpers\Url;
                                 </table>
                             </div>
                             <div class="table-responsive">
+                                <?php 
+                                    $userJob = $model->getUserJobPosted();
+                                ?>
                                 <table class="table table-bordered table-striped table-hover">
                                     <tbody>
                                     <tr>
@@ -82,33 +103,47 @@ use yii\helpers\Url;
                                         <td colspan="2"><a href="#">View Detail</a></td>
                                     </tr>
                                     <tr>
-                                        <td rowspan="5"><img width="100" height="100" class="avatar avatar-100 photo" src="" alt=""></td>
+                                        <td rowspan="5">
+                                            <?= Html::img(\app\helpers\LetHelper::getFileUploaded($userJob->user->image), ['class' => 'avatar avatar-100 photo', 'width' => '100', 'height' => '100']) ?>
+                                        </td>
                                         <td>Recruiter Name</td>
                                         <td colspan="2">
-                                            <a href="<?= Url::to(['pricing']) ?>">Upgrade here to view this information </a>
+                                            <?php if (UserJob::canView()):?>
+                                                <span><?=$userJob->getDisplayName()?></span>
+                                            <?php else: ?>
+                                                <a href="<?= UserJob::getUpgradeUrl() ?>">Upgrade here to view this information </a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Company</td>
                                         <td colspan="2">
-                                            <a href="<?= Url::to(['pricing']) ?>">Upgrade here to view this information </a>
+                                            <?php if (UserJob::canView()):?>
+                                                <span><?=$userJob->agent_company_name?></span>
+                                            <?php else: ?>
+                                                <a href="<?= UserJob::getUpgradeUrl() ?>">Upgrade here to view this information </a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Position/Dept.</td>
                                         <td colspan="2">
-                                            <a href="<?= Url::to(['pricing']) ?>">Upgrade here to view this information </a>
+                                            <?php if (UserJob::canView()):?>
+                                                <span><?=$userJob->agent_position?></span>
+                                            <?php else: ?>
+                                                <a href="<?= UserJob::getUpgradeUrl() ?>">Upgrade here to view this information </a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Industry Coverage</td>
                                         <td colspan="2">
-                                            Business Services, Consumer Goods, Food, Clothing, Electronics, Semiconductor, Automotive
+                                            <?= Html::encode($userJob->getJobIndustryCoverageTitle()); ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Location</td>
-                                        <td colspan="2">Sydney Australia</td>
+                                        <td colspan="2"><?=Html::encode(app\modules\job\models\JobLocation::findOne(['_id' => $userJob->agent_office_location])->title)?></td>
                                     </tr>
                                     </tbody>
                                 </table>

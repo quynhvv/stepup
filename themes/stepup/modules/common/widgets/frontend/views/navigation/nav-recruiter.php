@@ -18,8 +18,8 @@ use yii\helpers\Url;
         <ul class="sub-menu">
             <li><a href="#">Advance Search</a></li>
             <li><a href="#">Saved Search</a></li>
-            <li><a href="#">High Potentials</a></li>
-            <li><a href="#">New Candidates</a></li>
+            <li><a href="<?= Url::to(['/job/recruiter/high-potential-candidate']) ?>">High Potentials</a></li>
+            <li><a href="<?= Url::to(['/job/recruiter/new-candidate']) ?>">New Candidates</a></li>
             <li><a href="#">Favorites List</a></li>
         </ul>
     </li>

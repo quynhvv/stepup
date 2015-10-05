@@ -26,4 +26,16 @@ class DefaultController extends BackendController
         Yii::$app->view->title = Yii::t('common', 'Dashboard');
         return $this->render('index');
     }
+
+    public function actionCache()
+    {
+        Yii::$app->cache->flush();
+        Yii::$app->getSession()->setFlash('flash', [
+            'type' => 'success',
+            'title' => Yii::t('common', 'Message'),
+            'message' => Yii::t('common', 'You\'ve successfully cleared the system cache'),
+            'duration' => 10000
+        ]);
+        return $this->redirect(['index']);
+    }
 }

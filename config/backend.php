@@ -97,7 +97,7 @@ $config = [
 
 // Merge data config
 $configs = array_replace_recursive(
-        require(__DIR__ . '/common.php'), require(__DIR__ . '/modules.php'), require(__DIR__ . '/db.php'), require(__DIR__ . '/params.php'), $config, require(__DIR__ . '/local.php')
+    require(__DIR__ . '/common.php'), require(__DIR__ . '/modules.php'), require(__DIR__ . '/db.php'), require(__DIR__ . '/params.php'), $config
 );
 
 if (YII_ENV_DEV) {

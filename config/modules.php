@@ -15,7 +15,7 @@ return [
             'class' => 'app\modules\account\Module',
             'additionBlocks' => [
                 'user_extra' => 'app\modules\account\models\UserExtra',
-                'user_job' => 'app\modules\account\models\UserJob',
+                //'user_job' => 'app\modules\account\models\UserJob',
             ],
         ],
         
@@ -43,6 +43,7 @@ return [
     'components' => [
         'i18n' => [
             'translations' => [
+                '*' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/messages'],
                 'common' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/common/messages'],
             	'category' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/category/messages'],
                 'account' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/account/messages'],

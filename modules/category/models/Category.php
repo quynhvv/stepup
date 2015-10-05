@@ -114,13 +114,34 @@ class Category extends BaseCategory
         else
             $alias = '';
         $alias = StringHelper::asUrl($alias);
-        
+
         if (empty($alias))
             $alias = '/danh-muc/' . $id;
         else
             $alias = '/danh-muc/' . $alias . '-' . $id;
-        
         return $this->url = Url::to([$alias]);
+    }
+
+    public function buildUrl($id = NULL, $title = NULL) {
+        $attributes = array_keys($this->getAttributes());
+
+        if (empty($id))
+            $id = $this->primaryKey;
+
+        $routes = ['/category/frontend/default/list', 'id' => $id, 'module' => $this->module];
+
+        $slug = '';
+        if (!empty($title)) {
+            $slug = $title;
+        } elseif (in_array('seo_title', $attributes) AND !empty($this->seo_title)) {
+            $slug = $this->seo_title;
+        } elseif (in_array('name', $attributes) AND !empty($this->name)) {
+            $slug = $this->name;
+        }
+
+        $routes['slug'] = StringHelper::asUrl($slug);
+
+        return Url::to($routes);
     }
     
     public static function getCategoryBACKUP($module = '', $prefix = '') {
@@ -140,7 +161,7 @@ class Category extends BaseCategory
         return $categorys;
     }
 
-    public static function getCategory($module = '', $prefix = '', $parent = null) {
+    public static function getCategory($module = '', $prefix = '', $parent = null, $toArray = true) {
         $categorys = array();
         if (empty($module) OR !in_array($module, self::getModules()))
             $data = self::find()->addOrderBy('lft')->all();
@@ -162,9 +183,15 @@ class Category extends BaseCategory
 
             $data = $model->children()->all();
         }
+
+        if ($toArray !== true) {
+            return $data;
+        }
+
         foreach ($data as $category) {
             $categorys[(string)$category->_id] = str_repeat($prefix, ($category->depth)) . $category->name;
         }
+
         return $categorys;
     }
     

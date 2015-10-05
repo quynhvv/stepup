@@ -29,6 +29,7 @@
         "kartik-v/bootstrap-fileinput": "*",
         "kartik-v/dependent-dropdown": "*",
         "kartik-v/yii2-widgets": "*",
+	"kartik-v/yii2-widget-select2": "v2.0.2",
         "kartik-v/yii2-icons": "dev-master",
         "kartik-v/yii2-slider": "*",
         "kartik-v/yii2-money": "*",

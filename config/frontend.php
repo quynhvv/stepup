@@ -1,21 +1,18 @@
 <?php
 $host = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '';
-if ($host == 'xemnghe.vn') {
-	$project = 'letvideo';
-} elseif ($host == 'tuvan.bibomart.com.vn') {
-	$project = 'bibomart_tuvan';
-} elseif ($host == 'bizo.bibomart.com.vn') {
-	$project = 'bibomart_bizo';
-} elseif ($host == 'stepup.goldsea.vn') {
+if ($host == 'let.vn') {
+	$project = 'let';
+} elseif (in_array($host, ['stepup.local', '70.39.250.20'])) {
 	$project = 'stepup';
 } else {
-	$project = 'bibomart_tuvan';
+//	$project = 'bibomart_tuvan';
 //	$project = 'bibomart_hoidap';
 //	$project = 'bibomart_website';
 //	$project = 'letvideo';
 //	$project = 'letphim';
 //	$project = 'stepup';
     $project = 'let';
+//    $project = 'babymallcare';
 }
 
 if (isset($_GET['project']))
@@ -57,21 +54,6 @@ $config = [
 		'urlManager' => [ 
 			'enablePrettyUrl' => true,
 			'showScriptName' => false,
-			'rules' => [
-				// Global
-				'tag/<keyword>' => 'common/frontend/tag/index',
-                
-                // Category
-                'danh-muc/<id:\w+>' => 'question/frontend/default/list',   
-				'danh-muc/<title>-<id:\w+>' => 'question/frontend/default/list',
-                
-                '<module:\w+>-<id:\w+>' => '<module>/frontend/detail/index',   
-				'<title>-<module:\w+>-<id:\w+>' => '<module>/frontend/detail/index',
-                
-        		'<module:\w+>/<controller:\w+>' => '<module>/frontend/<controller>/index',
-                '<module:\w+>/<controller:\w+>/<action>' => '<module>/frontend/<controller>/<action>',
-//				'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/frontend/<controller>/<action>' 
-			] 
 		],
     ],
 ];
@@ -84,8 +66,24 @@ $configs = array_replace_recursive(
     require(__DIR__ . '/db.php'),
     require(__DIR__ . '/params.php'),
     $config,
-    require(__DIR__ . '/local.php'),
-    require(__DIR__ . '/project/'.$project.'.php')
+    require(__DIR__ . '/project/'.$project.'.php'),
+    [
+        'components' => [
+            'urlManager' => [
+                'rules' => [
+                    // Global
+                    'tag/<keyword>' => 'common/frontend/tag/index',
+
+                    '<module:\w+>-<id:\w+>' => '<module>/frontend/detail/index',   
+                    '<title>-<module:\w+>-<id:\w+>' => '<module>/frontend/detail/index',
+
+                    '<module:\w+>/<controller:\w+>' => '<module>/frontend/<controller>/index',
+                    '<module:\w+>/<controller:\w+>/<action>' => '<module>/frontend/<controller>/<action>',
+                ] 
+
+            ]
+        ]
+    ]
 );
 
 if (YII_ENV_DEV) {

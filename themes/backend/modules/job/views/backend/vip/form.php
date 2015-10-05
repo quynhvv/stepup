@@ -55,7 +55,7 @@ $buttons .= Html::button(Yii::t('common', 'Save'), [
                     
                     echo Html::hiddenInput('save_type', 'save');
 
-                    
+                    echo $form->field($model, 'role')->dropDownList(\app\modules\job\models\UserJob::getRoleOptions(), []);
                     
 					echo $form->field($model, 'title');
 					echo 

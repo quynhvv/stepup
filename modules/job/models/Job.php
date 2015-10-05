@@ -308,4 +308,36 @@ class Job extends BaseJob
         return implode('<br/>', $items);
     }
     
+    /**
+     * Get sub string from string with limit length
+     *
+     * @param $text
+     * @param $maxchar
+     * @param string $end
+     * @return string
+     */
+    public static function subStrWords($text, $maxchar, $end = '...') {
+        if (strlen($text) > $maxchar) {
+            $words = explode(" ", $text);
+            $output = '';
+            $i = 0;
+            while (1) {
+                $length = (strlen($output) + strlen($words[$i]));
+                if ($length > $maxchar) {
+                    break;
+                } else {
+                    $output = $output . " " . $words[$i];
+                    ++$i;
+                };
+            };
+        } else {
+            $output = $text;
+        }
+
+        return $output . $end;
+    }
+    
+    public function getUserJobPosted(){
+        return \app\modules\job\models\UserJob::findOne(['_id' => $this->created_by]);
+    }
 }

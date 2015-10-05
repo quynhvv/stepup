@@ -102,7 +102,7 @@ $buttons .= Html::button(Yii::t('common', 'Save'), [
                         $tabs[] = [
                             'label' => Yii::t('common', 'Extra information'),
                             'content' =>
-                                $form->field($modelUserJob, 'recruiter_type')->dropDownList(\app\modules\job\models\UserJob::getRecruiterTypeOptions()) .
+                                $form->field($modelUserJob, 'recruiter_type')->dropDownList(\app\modules\job\models\UserJob::getAgentTypeOptions()) .
                                 $form->field($modelUserJob, 'recruiter_company_name') .
                                 $form->field($modelUserJob, 'recruiter_position') .
                                 $form->field($modelUserJob, 'recruiter_office_location')->dropDownList(\app\modules\job\models\JobLocation::getOptions(), ['prompt' => '---']) .

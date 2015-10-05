@@ -4,10 +4,11 @@ $ssh = getHostByName(getHostName());
 $mongodb = '';
 if (in_array($host, ['api.bibomart.com.vn', 'tuvan.bibomart.com.vn', 'bizo.bibomart.com.vn']) OR $ssh == '123.30.186.13') {
     $mongodb = 'mongodb://bibomart:bibomartcomvn@tuvan.bibomart.com.vn:27017/bibomart';
-} elseif (in_array($host, ['stepup.goldsea.vn'])) {
-    $mongodb = 'mongodb://letyii:letyii@let.vn:27017/letyii';
+} elseif (in_array($host, ['stepup.local'])) {
+    $mongodb = 'mongodb://letyii:letyii@localhost:27017/letyii';
 } else {
     $mongodb = 'mongodb://letyii:letyii@localhost:27017/letyii';
+    $mongodb = 'mongodb://letyii:letyii@let.vn:27017/letyii';
 }
 
 return [

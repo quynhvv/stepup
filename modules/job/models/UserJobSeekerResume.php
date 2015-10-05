@@ -28,7 +28,7 @@ class UserJobSeekerResume extends BaseUserJobSeekerResume
     public function scenarios()
     {
         return array_merge(Model::scenarios(), [
-            'search' => ['_id', 'nationality', 'location', 'phone_country', 'phone_number', 'social_linkedin', 'social_facebook', 'social_twitter', 'experience', 'functions', 'industries', 'salary', 'education_name', 'education_degree', 'education_study', 'education_month', 'education_year', 'language_ability'],
+            'search' => ['_id', 'candidate_id', 'latest_company', 'latest_position', 'nationality', 'location', 'phone_country', 'phone_number', 'social_linkedin', 'social_facebook', 'social_twitter', 'experience', 'functions', 'industries', 'salary', 'education_name', 'education_degree', 'education_study', 'education_month', 'education_year', 'language_ability'],
         ]);
     }
 
@@ -42,32 +42,22 @@ class UserJobSeekerResume extends BaseUserJobSeekerResume
                 'pageSize' => $pageSize,
             ],
         ]);
-
-        $this->load($params);
-        if (!$this->validate()) {
-            return $dataProvider;
+        
+        if (!empty($this->functions)){
+            $query = \app\helpers\LetHelper::addFilter($query, 'functions', $this->functions, 'in');
+        }
+        
+        if (!empty($this->industries)){
+            $query = \app\helpers\LetHelper::addFilter($query, 'industries', $this->industries);
         }
 
-        // condition here
-        $query->andFilterWhere(['like', '_id', $this->_id])
-            ->andFilterWhere(['like', 'nationality', $this->nationality])
-            ->andFilterWhere(['like', 'location', $this->location])
-            ->andFilterWhere(['like', 'phone_country', $this->phone_country])
-            ->andFilterWhere(['like', 'phone_number', $this->phone_number])
-            ->andFilterWhere(['like', 'social_linkedin', $this->social_linkedin])
-            ->andFilterWhere(['like', 'social_facebook', $this->social_facebook])
-            ->andFilterWhere(['like', 'social_twitter', $this->social_twitter])
-            ->andFilterWhere(['like', 'experience', $this->experience])
-            ->andFilterWhere(['like', 'functions', $this->functions])
-            ->andFilterWhere(['like', 'industries', $this->industries])
-            ->andFilterWhere(['like', 'salary', $this->salary])
-            ->andFilterWhere(['like', 'education_name', $this->education_name])
-            ->andFilterWhere(['like', 'education_degree', $this->education_degree])
-            ->andFilterWhere(['like', 'education_study', $this->education_study])
-            ->andFilterWhere(['like', 'education_month', $this->education_month])
-            ->andFilterWhere(['like', 'education_year', $this->education_year])
-            ->andFilterWhere(['like', 'language_ability', $this->language_ability]);
-
+        if (\app\helpers\ArrayHelper::getValue($params, 'sort') == NULL) {
+            $query->orderBy('candidate_id DESC');
+        }
+        
+        if (!($this->load($params) AND $this->validate())) {
+            return $dataProvider;
+        }
 
         return $dataProvider;
     }
