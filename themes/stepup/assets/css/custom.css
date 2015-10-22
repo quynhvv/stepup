@@ -13,3 +13,5 @@
 .help-block{float: left;}
 .help-block.help-block-error{float:left !important;}
 
+a.un-favourites{color: #444;}
+a.un-favourites:hover{color: #ff0000;}

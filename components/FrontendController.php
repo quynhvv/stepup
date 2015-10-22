@@ -21,13 +21,14 @@ class FrontendController extends Controller
             $lang = $_GET['lang'];
             Yii::$app->language = $lang;
 
-            Yii::$app->session->set('lang', $lang);
-            Yii::$app->response->cookies->add(new Cookie(['name' => 'lang', 'value' => $lang]));
-        } else if (Yii::$app->request->cookies->has('lang')) {
-            Yii::$app->language = Yii::$app->request->cookies->getValue('lang');
-        } else if (Yii::$app->session->has('lang')) {
-            Yii::$app->language = Yii::$app->session->get('lang');
+//            Yii::$app->session->set('lang', $lang);
+//            Yii::$app->response->cookies->add(new Cookie(['name' => 'lang', 'value' => $lang]));
         }
+//        else if (Yii::$app->request->cookies->has('lang')) {
+//            Yii::$app->language = Yii::$app->request->cookies->getValue('lang');
+//        } else if (Yii::$app->session->has('lang')) {
+//            Yii::$app->language = Yii::$app->session->get('lang');
+//        }
 
         return parent::beforeAction($action);
     }

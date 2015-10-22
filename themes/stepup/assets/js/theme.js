@@ -1,7 +1,10 @@
 jQuery(document).ready(function(){
     // Top toolbar
     var $btn = jQuery('.top-toolbar-trigger');
-    $btn.click(function(){
+//    $btn.click(function(){
+//        jQuery(this).closest('.top-toolbar-container').toggleClass('active');
+//    });
+    $btn.on('mouseenter', function(){
         jQuery(this).closest('.top-toolbar-container').toggleClass('active');
     });
     jQuery('body').on('click',function(e){
@@ -58,6 +61,30 @@ function delEmploymentInfo($obj) {
                     }
                 });
             }
+        }
+    });
+}
+
+function favourite($obj){
+    $.ajax({
+        url: $obj.attr('href'),
+        type: 'post',
+        dataType: 'json',
+        data: {
+            object_id: $obj.attr('data-id'), 
+            object_type: $obj.attr('data-type')
+        },
+        beforeSend: function(){
+          $obj.addClass('loading');
+        },
+        success: function (result) {
+            $obj.removeClass('loading');
+            if (result.status === 'ok' && result.action === 'add') {
+                $obj.removeClass('un-favourites').addClass('favourites');
+            }else if (result.status === 'ok' && result.action === 'remove') {
+                $obj.removeClass('favourites').addClass('un-favourites');
+            }
+            bootbox.alert(result.message);
         }
     });
 }

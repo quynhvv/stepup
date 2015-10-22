@@ -4,7 +4,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\account\models\User */
 
-$resetLink = Yii::$app->urlManager->createAbsoluteUrl(['/account/auth/passwordreset', 'token' => $user->password_reset_token]);
+$resetLink = Yii::$app->urlManager->createAbsoluteUrl(['/account/frontend/recovery/reset', 'token' => $user->password_reset_token]);
 ?>
 <div class="password-reset">
     <p>Hello <?= Html::encode($user->email) ?>,</p>

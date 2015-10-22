@@ -29,7 +29,7 @@ use yii\helpers\Url;
                                 ],
                             ]);
                             ?>
-
+                            <?= $form->field($model, 'display_name')->textInput(['placeholder' => Yii::t('account', 'Display Name')]) ?>
                             <?= $form->field($model, 'first_name')->textInput(['placeholder' => Yii::t('account', 'First Name')]) ?>
                             <?= $form->field($model, 'last_name')->textInput(['placeholder' => Yii::t('account', 'Last Name')]) ?>
                             <?= $form->field($jobModel, 'agent_company_name')->textInput(['placeholder' => Yii::t('account', 'Company Name')]) ?>

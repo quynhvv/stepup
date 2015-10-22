@@ -18,10 +18,13 @@ use Yii;
  * @property mixed $class
  * @property mixed $skin
  * @property mixed $description
+ * @property mixed $content
  * @property mixed $seo_url
  * @property mixed $seo_title
  * @property mixed $seo_desc
  * @property mixed $seo_keyword
+ * @property mixed $slug
+ * @property mixed $slug_prefix
  * @property mixed $promotion
  * @property mixed $status
  */
@@ -57,10 +60,13 @@ class BaseCategory extends \app\components\ActiveRecord
             'class',
             'skin',
             'description',
+            'content',
             'seo_url',
             'seo_title',
             'seo_desc',
             'seo_keyword',
+            'slug',
+            'slug_prefix',
             'promotion',
             'status',
         ];
@@ -72,7 +78,7 @@ class BaseCategory extends \app\components\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'tree', 'lft', 'rgt', 'depth', 'module', 'image', 'class', 'skin', 'description', 'seo_url', 'seo_title', 'seo_desc', 'seo_keyword', 'promotion', 'status'], 'safe']
+            [['name', 'tree', 'lft', 'rgt', 'depth', 'module', 'image', 'class', 'skin', 'description', 'content', 'seo_url', 'seo_title', 'seo_desc', 'seo_keyword', 'slug', 'slug_prefix', 'promotion', 'status'], 'safe']
         ];
     }
 
@@ -93,10 +99,13 @@ class BaseCategory extends \app\components\ActiveRecord
             'class' => Yii::t('category', 'Class'),
             'skin' => Yii::t('category', 'Skin'),
             'description' => Yii::t('category', 'Description'),
+            'content' => Yii::t('category', 'Content'),
             'seo_url' => Yii::t('category', 'Seo Url'),
             'seo_title' => Yii::t('category', 'Seo Title'),
             'seo_desc' => Yii::t('category', 'Seo Desc'),
             'seo_keyword' => Yii::t('category', 'Seo Keyword'),
+            'slug' => Yii::t('category', 'Slug'),
+            'slug_prefix' => Yii::t('category', 'Slug Prefix'),
             'promotion' => Yii::t('category', 'Promotion'),
             'status' => Yii::t('category', 'Status'),
         ];

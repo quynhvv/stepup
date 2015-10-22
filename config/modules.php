@@ -19,6 +19,9 @@ return [
             ],
         ],
         
+        'message' => [
+            'class' => 'app\modules\message\Module',
+        ],
     	'category' => [
             'class' => 'app\modules\category\Module',
         ],
@@ -47,6 +50,7 @@ return [
                 'common' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/common/messages'],
             	'category' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/category/messages'],
                 'account' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/account/messages'],
+                'message' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/message/messages'],
             	'job' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/job/messages'],
             	'classified' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/classified/messages'],
             	'location' => ['class' => 'yii\i18n\PhpMessageSource', 'basePath' => '@app/modules/location/messages'],

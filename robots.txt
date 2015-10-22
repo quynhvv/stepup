@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /assetbundle
+Disallow: /commands
+Disallow: /components
+Disallow: /config
+Disallow: /export
+Disallow: /helpers
+Disallow: /messages
+Disallow: /modules
+Disallow: /plugins
+Disallow: /rbac
+Disallow: /runtime
+Disallow: /statics
+Disallow: /vendor
+
+Disallow: /debug
+
+user-agent: AhrefsBot
+disallow: /

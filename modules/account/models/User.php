@@ -41,6 +41,7 @@ class User extends BaseUser implements IdentityInterface
     {
         $data = parent::attributeLabels();
         $data['password'] = Yii::t('account', 'Password');
+        $data['rememberMe'] = Yii::t('account', 'Remember');
         return $data;
     }
 

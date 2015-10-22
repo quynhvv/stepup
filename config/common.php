@@ -8,7 +8,7 @@ return [
         ],
         'request' => [
             'enableCookieValidation' => true,
-            'enableCsrfValidation' => false,
+            'enableCsrfValidation' => true,
             'cookieValidationKey' => 'letyii@!$(!&@',
         ],
         'urlManager' => [
@@ -47,16 +47,18 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
+//                'username' => 'noreply@let.vn',
+//                'password' => 'Byy>*93R',
                 'username' => 'sendmail0193@gmail.com',
                 'password' => 'locdinhky',
                 'port' => '465',
                 'encryption' => 'ssl',
-                'plugins' => [
-                    [
-                        'class' => 'Swift_Plugins_LoggerPlugin',
-                        'constructArgs' => [new Swift_Plugins_Loggers_EchoLogger],
-                    ],
-                ],
+//                'plugins' => [
+//                    [
+//                        'class' => 'Swift_Plugins_LoggerPlugin',
+//                        'constructArgs' => [new Swift_Plugins_Loggers_EchoLogger],
+//                    ],
+//                ],
             ],
         ],
         'assetManager' => [

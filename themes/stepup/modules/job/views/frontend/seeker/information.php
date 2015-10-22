@@ -30,6 +30,10 @@ use yii\helpers\Url;
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hovered table-striped" id="table-basic-infomation">
                                             <tbody>
+                                            <tr>
+                                                <th><?= Yii::t('job', 'Avatar Image') ?></th>
+                                                <td><?= Html::img(\app\helpers\LetHelper::getFileUploaded(Yii::$app->user->identity->image), ['class' => 'media-object', 'width' => '100']) ?></td>
+                                            </tr>
                                             <?php if (($latestEmployer = $model->getLatestEmployer()) != null) : ?>
                                             <tr>
                                                 <th><?= Yii::t('job', 'Latest Employer') ?></th>

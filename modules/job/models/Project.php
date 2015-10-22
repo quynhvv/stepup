@@ -151,15 +151,6 @@ class Project extends BaseProject
     }
     
     public static function getCandidatesOptions(){
-        //will update this later
-        $rs = array(
-            '227' => 'C227',
-            '198' => 'C98',
-            '55' => 'C198',
-            '56' => 'C56',
-            '55' => 'C58'
-        );
-        
-        return $rs;
+        return ArrayHelper::map(UserJobSeekerResume::find()->where([])->asArray()->all(), '_id', 'candidate_id');
     }
 }

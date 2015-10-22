@@ -14,47 +14,13 @@ use app\components\GridView;
                     <div class="row">
                         <div class="col-xs-12 col-sm-9 col-main">
                             <div class="section-gap">
-                                <style type="text/css">
-                                    .ibox-title, .kv-panel-before{display: none;}
-                                </style>
                                 <span>
                                     <strong>High Potential Candidate </strong>
                                     <span title="Mid-Level Plus (ML+) candidates are members which are just underour US $70,000 minimum salary requirement to qualify for StepupCareers membership. These are high potential candidates who typically have less experience,but are ready to level up their career" class="question">?</span>
                                     <?php echo Html::a(Yii::t('job', 'View full list'), ['high-potential-candidate']); ?>
                                 </span>
                                 <div class="table-responsive">
-                                <?php 
-                                    echo GridView::widget([
-                                        'panel' => [
-                                            'heading' => Yii::t(Yii::$app->controller->module->id, 'High Potential Candidate').': ',
-                                            'tableOptions' => [
-                                                'id' => 'listCandidate',
-                                            ],
-                                        ],
-                                        'pjax' => true,
-                                        'dataProvider' => $dataProvider1,
-                                        //'filterModel' => $searchModel,
-                                        'columns' => [
-                                            [
-                                                'attribute' => 'candidate_id',
-                                            ],
-                                            [
-                                                'attribute' => 'latest_company',
-                                            ],
-                                            [
-                                                'attribute' => 'latest_position',
-                                            ],
-                                            [
-                                                'attribute' => 'location',
-                                                'value' => function($model, $key, $index, $widget){
-                                                    return ArrayHelper::getValue(\app\modules\job\models\JobLocation::getOptions(), ArrayHelper::getValue($model, 'location'));
-                                                },
-                                            ],
-                                        ],
-                                        'responsive' => true,
-                                        'hover' => true,
-                                    ]);
-                                ?>
+                                    <?= $this->render('_seeker-gridview', ['dataProvider' => $dataProvider1]) ?>
                                 </div>
                             </div>
                             <div class="section-gap">
@@ -64,38 +30,7 @@ use app\components\GridView;
                                     <?php echo Html::a(Yii::t('job', 'View full list'), ['new-candidate']); ?>
                                 </span>
                                 <div class="table-responsive">
-                                    <?php 
-                                        echo GridView::widget([
-                                            'panel' => [
-                                                'heading' => Yii::t(Yii::$app->controller->module->id, 'Newest Members List').': ',
-                                                'tableOptions' => [
-                                                    'id' => 'listNewMembers',
-                                                ],
-                                            ],
-                                            'pjax' => true,
-                                            'dataProvider' => $dataProvider2,
-                                            //'filterModel' => $searchModel,
-                                            'columns' => [
-                                                [
-                                                    'attribute' => 'candidate_id',
-                                                ],
-                                                [
-                                                    'attribute' => 'latest_position',
-                                                ],
-                                                [
-                                                    'attribute' => 'latest_company',
-                                                ],
-                                                [
-                                                    'attribute' => 'location',
-                                                    'value' => function($model, $key, $index, $widget){
-                                                        return ArrayHelper::getValue(\app\modules\job\models\JobLocation::getOptions(), ArrayHelper::getValue($model, 'location'));
-                                                    },
-                                                ],
-                                            ],
-                                            'responsive' => true,
-                                            'hover' => true,
-                                        ]);
-                                    ?>
+                                    <?= $this->render('_seeker-gridview', ['dataProvider' => $dataProvider2]) ?>
                                 </div>
                             </div>
                         </div>

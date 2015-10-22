@@ -48,10 +48,9 @@ class Category extends BaseCategory
     {
         return new CategoryQuery(get_called_class());
     }
-    
+
     /**
      * Get ra thong tin cua 1 row
-     * 
      * @param string $id
      * @return Object|false
      */
@@ -64,10 +63,19 @@ class Category extends BaseCategory
         }
         return $cache;
     }
-    
+
+    /**
+     * Get ra thong tin cua 1 row tu slug
+     * @param string $id
+     * @return Object|false
+     */
+    public static function getBySlug($slug) {
+        $model = self::findOne(['slug' => $slug]);
+        return $model;
+    }
+
     /**
      * Get ra thong tin cua 1 attribute trong row
-     * 
      * @param string $id
      * @param string $attribute
      * @return value|false
@@ -193,6 +201,10 @@ class Category extends BaseCategory
         }
 
         return $categorys;
+    }
+
+    public static function getCategoryById($id) {
+        return self::findOne($id);
     }
     
     public static function createRootIfNotExist($module) {

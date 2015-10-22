@@ -35,7 +35,7 @@ class SeekerController extends FrontendController
         Yii::$app->view->title = Yii::t($this->module->id, 'Seeker');
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
 
-        $this->render('index', [
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel
         ]);
@@ -51,13 +51,23 @@ class SeekerController extends FrontendController
         $searchModel->scenario = 'search';
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams(), 20);
 
-        Yii::$app->view->title = Yii::t($this->module->id, 'Seeker');
+        Yii::$app->view->title = Yii::t($this->module->id, 'Search Jobs');
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
 
-        $this->render('job-search', [
+        return $this->render('job-search', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel
         ]);
+    }
+    
+    public function actionFavouritesJob()
+    {
+        Yii::$app->view->title = Yii::t($this->module->id, 'Favourite Jobs');
+        Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+        
+        $dataProvider = UserJob::getFavouriteJob(Yii::$app->user->id);
+
+        return $this->render('favourites-job', ['dataProvider' => $dataProvider]);
     }
 
     /**
@@ -71,6 +81,22 @@ class SeekerController extends FrontendController
         $model = Job::findOne($id);
         if ($model === null) {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+        
+        //update hits
+        $cookieName = "job_".Yii::$app->user->getId()."_{$id}";
+        if (!Yii::$app->request->cookies->has($cookieName)){
+            //update hits
+            $model->hits = ++$model->hits;
+            $model->update();
+
+            //make a cookie
+            $cookies = Yii::$app->response->cookies;
+            $cookies->add(new \yii\web\Cookie([
+                'name' => $cookieName,
+                'value' => $model->hits,
+                'expire' => time() + 86400 * 1, // one day
+            ]));
         }
 
         Yii::$app->view->title = $model->title;
@@ -109,6 +135,10 @@ class SeekerController extends FrontendController
         }
 
         if ($model->load(Yii::$app->request->post()) && $modelUser->load(Yii::$app->request->post())) {
+            // Sync data
+            $model->phone_number = $modelUser->phone; // UserJobSeekerResume::search() có dùng đến phone_number nên cần đồng bộ chỗ này
+
+
             $modelValidate = $model->validate();
             $modelUserValidate = $modelUser->validate();
 
@@ -160,7 +190,7 @@ class SeekerController extends FrontendController
         Yii::$app->view->title = Yii::t($this->module->id, 'Resume');
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
 
-        $this->render('resume', [
+        return $this->render('resume', [
             'model' => $model,
             'modelUser' => $modelUser,
             'employments' => $employments
@@ -207,7 +237,29 @@ class SeekerController extends FrontendController
         Yii::$app->view->title = Yii::t($this->module->id, 'Information');
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
 
-        $this->render('information', ['model' => $model]);
+        return $this->render('information', ['model' => $model]);
+    }
+    
+    public function actionProfileViews()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['/job/account/login', 'role' => 'seeker']);
+        }
+
+        $searchModel = new \app\modules\job\models\UserJobProfileViewLog();
+        $searchModel->setScenario('search');
+
+        $params = Yii::$app->request->getQueryParams();
+        $params['UserJobProfileViewLog']['user_id'] = Yii::$app->user->id;
+        $dataProvider = $searchModel->search($params, 20);
+
+        Yii::$app->view->title = Yii::t($this->module->id, 'My Profile Views');
+        Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+
+        return $this->render('my-profile-views', [
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel
+        ]);
     }
     
     public function actionViewProfile()
@@ -219,22 +271,22 @@ class SeekerController extends FrontendController
         Yii::$app->view->title = Yii::t($this->module->id, 'Dashboard');
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
 
-        $this->render('dashboard');
+        return $this->render('dashboard');
     }
 
     public function actionPricing() {
         Yii::$app->view->title = Yii::t($this->module->id, 'Pricing – Job Seeker');
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
 
-        $this->render('pricing');
+        return $this->render('pricing');
     }
     
     public function actionUpgradeAccount()
     {
         Yii::$app->view->title = Yii::t($this->module->id, 'Upgrade Account');
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
-        
-        $this->render('upgrade-account', []);
+
+        return $this->render('upgrade-account', []);
     }
 
 }

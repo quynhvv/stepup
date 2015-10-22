@@ -17,36 +17,9 @@ use app\helpers\ArrayHelper;
                                     <h2 class="title">Job search</h2>
                                 </div>
                                 <div class="box-content">
-                                    <?php $form = ActiveForm::begin([
-                                        'method' => 'GET',
-                                        'action' => ['job-search'],
-                                        'options' => [
-                                            'id' => 'jobsearch-form',
-                                            'name' => 'jobsearch-form'
-                                        ]
-                                    ]) ?>
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-striped table-hover">
-                                                <tbody>
-                                                <tr>
-                                                    <td colspan="3">
-                                                        <?= $form->field($searchModel, 'search')->textInput(['class' => 'form-control full-width', 'placeholder' => 'Enter job title, company name / information etc.'])->label(false) ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Select Job Category:</th>
-                                                    <td>
-                                                        <?= $form->field($searchModel, 'category_ids')->dropDownList($searchModel->getCategoryOptions(), ['class' => 'form-control', 'prompt' => '---'])->label(false) ?>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <input type="Submit" class="button button-primary" name="jobsearch_submit1" id="candidate_home_search_button" value="Search">
-                                                    </td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    <?php ActiveForm::end(); ?>
-
+                                    
+                                    <?= $this->render('_form-search-job', ['searchModel' => $searchModel]) ?>
+                                    
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-striped table-hover">
                                             <tbody>

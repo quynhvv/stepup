@@ -13,29 +13,29 @@ use app\modules\article\models\Article;
 
 class DefaultController extends FrontendController
 {
-    public function actionIndex($id)
-    {
-        $id = Yii::$app->request->get('id');
-        
-        
-        $row = Category::find()
-            ->where(['_id' => $id])
-            ->one();  
-        if($row != NULL)
-        {
-            //Lấy danh sách bài viết
-            $article = Article::find()
-                ->where(['category' => $row->_id])
-                ->all();
-        }
-        else
-            throw new NotFoundHttpException('The requested page does not exist.');
-            
-        return $this->render('index', ['row' => $row, 'article' => $article]);
-        
-    }
+//    public function actionIndex($id)
+//    {
+//        $id = Yii::$app->request->get('id');
+//
+//
+//        $row = Category::find()
+//            ->where(['_id' => $id])
+//            ->one();
+//        if($row != NULL)
+//        {
+//            //Lấy danh sách bài viết
+//            $article = Article::find()
+//                ->where(['category' => $row->_id])
+//                ->all();
+//        }
+//        else
+//            throw new NotFoundHttpException('The requested page does not exist.');
+//
+//        return $this->render('index', ['row' => $row, 'article' => $article]);
+//
+//    }
 
-    public function actionList($module, $id)
+    public function actionIndex($module, $id)
     {
         $modelClassName = ucfirst($module);
         $modelClass = "\\app\\modules\\{$module}\\models\\{$modelClassName}";
@@ -64,7 +64,7 @@ class DefaultController extends FrontendController
             ],
         ]);
 
-        return $this->render('list', [
+        return $this->render('index', [
             'category' => $category,
             'dataProvider' => $dataProvider
         ]);

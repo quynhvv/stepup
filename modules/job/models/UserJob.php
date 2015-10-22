@@ -199,13 +199,12 @@ class UserJob extends BaseUserJob
 
     public static function checkAccess($name) {
         if (Yii::$app->user->isGuest) {
-            header('Location: '.Url::to(['/job/account/login', 'role' => $name]));exit();
-            //return Yii::$app->response->redirect(Url::to(['/job/account/login', 'role' => $name]));
+            //header('Location: '.Url::to(['/job/account/login', 'role' => $name]));exit();
+            return Yii::$app->response->redirect(Url::to(['/job/account/login', 'role' => $name]));
         } else if (self::getRole() != $name) {
-            header('Location: '.Url::to(['/job/account/logout', 'role' => $name]));exit();
-            //return Yii::$app->response->redirect(Url::to(['/job/account/logout', 'role' => $name]));
+            return Yii::$app->response->redirect(Url::to(['/job/account/logout', 'role' => $name]));
         } else if ($name == 'seeker' && Yii::$app->controller->action->id != 'resume' && Yii::$app->session->get('jobAccountResume') != 1) {
-            header('Location: '.Url::to(['/job/seeker/resume']));exit();
+            return Yii::$app->response->redirect(Url::to(['/job/seeker/resume']));
         }
     }
 
@@ -213,6 +212,13 @@ class UserJob extends BaseUserJob
         $role = self::getRole();
         return (in_array($role, self::$roleAllows))
             ? Url::to(["/job/{$role}/index"])
+            : Url::to(['/account/default/dashboard']);
+    }
+    
+    public static function getPostJobUrl() {
+        $role = self::getRole();
+        return (in_array($role, self::$roleAllows))
+            ? Url::to(["/job/{$role}/post-job"])
             : Url::to(['/account/default/dashboard']);
     }
     
@@ -250,6 +256,55 @@ class UserJob extends BaseUserJob
             $model->functions = $agent->agent_job_function;
             $model->industries = $agent->agent_job_industry;
             $dataProvider = $model->search(Yii::$app->request->getQueryParams());
+        }
+        
+        return $dataProvider;
+    }
+    
+    public static function getFavouriteCandidate($agentId = null) {
+        
+        //get candidate ids favourites by current agent
+        $favourites = UserFavourite::findAll(['object_type' => 'seeker', 'created_by' => $agentId]);
+        $ids = array();
+        if ($favourites){
+            foreach ($favourites as $favourite){
+                $ids[] = $favourite->object_id;
+            }
+        }
+        
+        //search candidate by ids
+        $dataProvider = null;
+        if ($ids){
+            $model = new UserJobSeekerResume();
+            $model->_ids = $ids;
+            $model->search_mode = 'AND';
+            $dataProvider = $model->search(Yii::$app->request->getQueryParams(), 20);
+        }
+        
+        return $dataProvider;
+    }
+    
+    public static function getFavouriteJob($seekerId = null) {
+        
+        //get job ids favourites by current seeker
+        $favourites = UserFavourite::findAll(['object_type' => 'job', 'created_by' => $seekerId]);
+        $ids = array();
+        if ($favourites){
+            foreach ($favourites as $favourite){
+                $ids[] = $favourite->object_id;
+            }
+        }
+        
+        //search candidate by ids
+        $dataProvider = null;
+        if ($ids){
+            $model = new Job();
+            $model->setScenario('search');
+
+            $params = Yii::$app->request->getQueryParams();
+            $params['Job']['_ids'] = $ids;
+            
+            $dataProvider = $model->search($params, 20);
         }
         
         return $dataProvider;

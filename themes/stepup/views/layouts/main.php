@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use kartik\widgets\ActiveForm;
 ?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?php echo Yii::$app->language ?>">
 <head>
@@ -39,6 +40,7 @@ use kartik\widgets\ActiveForm;
     $this->registerJsFile($this->theme->baseUrl . '/assets/js/bootbox.min.js', ['depends' => \yii\web\JqueryAsset::className()]);
     $this->registerJsFile($this->theme->baseUrl . '/assets/js/theme.js', ['depends' => \yii\web\JqueryAsset::className()]);
     ?>
+    
     <?php $this->head(); ?>
 </head>
 <body class="logged_in home-page">
@@ -64,7 +66,7 @@ use kartik\widgets\ActiveForm;
                                             <div class="media author">
                                                 <div class="media-left text-center">
                                                     <a href="#">
-                                                        <?= Html::img(\app\helpers\LetHelper::getFileUploaded(Yii::$app->user->identity->image), ['class' => 'media-object', 'width' => '64', 'height' => '64']) ?>
+                                                        <?= \app\helpers\LetHelper::getAvatar(Yii::$app->user->id, \app\helpers\LetHelper::IMAGE, false, 48, ['class' => 'media-object', 'width' => '64', 'height' => '64']) ?>
                                                     </a>
                                                 </div>
                                                 <div class="media-body">
@@ -72,7 +74,7 @@ use kartik\widgets\ActiveForm;
                                                     <ul class="list-inline list-separator">
                                                         <li><a href="<?= \app\modules\job\models\UserJob::getDashboardUrl() ?>">Dashboard</a></li>
                                                         <li><a href="<?= \app\modules\job\models\UserJob::getProfileUrl() ?>">Profile</a></li>
-                                                        <li><a href="<?= Url::to(['/account/default/logout']) ?>">Logout</a></li>
+                                                        <li><a href="<?= Url::to(['/account/auth/logout']) ?>">Logout</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -90,7 +92,7 @@ use kartik\widgets\ActiveForm;
                                                 </div>
                                                 <div class="form-group">
                                                     <p><?= Html::a(Yii::t('account', 'Sign up'), ['/job/account/register']) ?></p>
-                                                    <p><?= Html::a(Yii::t('account', 'Forgot your password?'), ['/account/auth/passwordrequest']) ?></p>
+                                                    <p><?= Html::a(Yii::t('account', 'Forgot your password?'), ['/account/recovery/request']) ?></p>
                                                 </div>
                                                 <?php ActiveForm::end(); ?>
 

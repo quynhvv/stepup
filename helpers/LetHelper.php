@@ -76,7 +76,8 @@ class LetHelper {
      */
     public static function getAvatarDir($user_id) {
         $md5FileName = md5($user_id);
-        $dir = 'account' . DIRECTORY_SEPARATOR . substr($md5FileName, 0, 2) . DIRECTORY_SEPARATOR . substr($md5FileName, 2, 2) . DIRECTORY_SEPARATOR . substr($md5FileName, 4, 2);
+        $dir = 'account' . '/' . substr($md5FileName, 0, 2) . '/' . substr($md5FileName, 2, 2) . '/' . substr($md5FileName, 4, 2);
+        //$dir = 'account' . DIRECTORY_SEPARATOR . substr($md5FileName, 0, 2) . DIRECTORY_SEPARATOR . substr($md5FileName, 2, 2) . DIRECTORY_SEPARATOR . substr($md5FileName, 4, 2);
         return $dir;
     }
     

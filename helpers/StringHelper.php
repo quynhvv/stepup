@@ -2,6 +2,8 @@
 
 namespace app\helpers;
 
+use Yii;
+
 class StringHelper extends \yii\helpers\StringHelper {
 
     public static function asUrl($str = '') {
@@ -69,6 +71,18 @@ class StringHelper extends \yii\helpers\StringHelper {
         }
 
         return $result;
+    }
+
+    public static $encryptKey = 'gy4eQY6ESy';
+
+    public static function encrypt($data)
+    {
+        return base64_encode(Yii::$app->security->encryptByKey(json_encode($data), self::$encryptKey));
+    }
+
+    public static function decrypt($data)
+    {
+        return json_decode(Yii::$app->getSecurity()->decryptByKey(base64_decode($data), self::$encryptKey), true);
     }
 
 }

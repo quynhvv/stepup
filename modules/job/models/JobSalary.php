@@ -45,7 +45,7 @@ class JobSalary extends BaseJobSalary
         // condition here
         $query->andFilterWhere(['like', '_id', $this->_id])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'value', $this->title])
+            ->andFilterWhere(['like', 'value', $this->value])
             ->andFilterWhere(['like', 'sort', $this->sort])
             ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'creator', $this->creator])

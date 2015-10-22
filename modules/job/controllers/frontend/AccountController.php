@@ -11,6 +11,8 @@ use yii\helpers\Url;
 use app\modules\job\models\User;
 use app\modules\job\models\UserJob;
 use app\modules\job\models\UserJobSeekerResume;
+use app\modules\job\models\UserJobProfileViewLog;
+use app\modules\job\models\UserFavourite;
 
 class AccountController extends FrontendController {
 
@@ -29,7 +31,6 @@ class AccountController extends FrontendController {
     public function beforeAction($action)
     {
         // check logined & role
-
         return parent::beforeAction($action);
     }
 
@@ -123,28 +124,14 @@ class AccountController extends FrontendController {
 
         $model = new User();
         $model->scenario = 'login';
+        $model->role = $role;
 
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            $modelJob = UserJob::find()->where(['_id' => Yii::$app->user->id, 'role' => $role])->one();
-            if ($modelJob != null) {
-
-                // Kiem tra xem Seeker da co day du thong tin Resume chua?
-                if ($role == 'seeker' && ($modelUserJobSeekerResume = UserJobSeekerResume::findOne($modelJob->_id)) != null) {
-                    Yii::$app->session->set('jobAccountResume', 1);
-                }
-
-                Yii::$app->session->set('jobAccountRole', $modelJob->role);
-                return $this->redirect(["/job/{$modelJob->role}/index"]);
+            if (isset($_GET['return'])) {
+                return $this->redirect($_GET['return']);
             }
 
-            // Neu kiem tra role khong hop le thi logout roi yeu cau login lai
-            Yii::$app->getSession()->setFlash('flash', [
-                'type' => 'error',
-                'title' => Yii::t('account', 'Login Error'),
-                'message' => Yii::t('account', 'You are not allowed to access this page.'),
-                'duration' => 10000
-            ]);
-            return $this->redirect(['/job/account/logout', 'role' => $role]);
+            return $this->redirect(["/job/{$role}/index"]);
         }
 
         Yii::$app->view->title = Yii::t($this->module->id, 'Sign in');
@@ -155,6 +142,56 @@ class AccountController extends FrontendController {
             'role' => $role
         ]);
     }
+
+//    public function actionLoginBackup() {
+//        if (!Yii::$app->user->isGuest) {
+//            return $this->goHome();
+//        }
+//
+//        $role = Yii::$app->request->getQueryParam('role', UserJob::$roleDefault);
+//        if (!in_array($role, UserJob::$roleAllows)) {
+//            $role = UserJob::$roleDefault;
+//        }
+//
+//        $model = new User();
+//        $model->scenario = 'login';
+//        $model->role = $role;
+//
+//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            if (isset($_GET['return'])) {
+//                return $this->redirect($_GET['return']);
+//            }
+//
+//            $modelJob = UserJob::find()->where(['_id' => Yii::$app->user->id, 'role' => $role])->one();
+//            if ($modelJob != null) {
+//
+//                // Kiem tra xem Seeker da co day du thong tin Resume chua?
+//                if ($role == 'seeker' && ($modelUserJobSeekerResume = UserJobSeekerResume::findOne($modelJob->_id)) != null) {
+//                    Yii::$app->session->set('jobAccountResume', 1);
+//                }
+//
+//                Yii::$app->session->set('jobAccountRole', $modelJob->role);
+//                return $this->redirect(["/job/{$modelJob->role}/index"]);
+//            }
+//
+//            // Neu kiem tra role khong hop le thi logout roi yeu cau login lai
+//            Yii::$app->getSession()->setFlash('flash', [
+//                'type' => 'error',
+//                'title' => Yii::t('account', 'Login Error'),
+//                'message' => Yii::t('account', 'You are not allowed to access this page.'),
+//                'duration' => 10000
+//            ]);
+//            return $this->redirect(['/job/account/logout', 'role' => $role]);
+//        }
+//
+//        Yii::$app->view->title = Yii::t($this->module->id, 'Sign in');
+//        Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+//
+//        return $this->render('login', [
+//            'model' => $model,
+//            'role' => $role
+//        ]);
+//    }
 
     public function actionRegister() {
         if (!Yii::$app->user->isGuest) {
@@ -191,6 +228,9 @@ class AccountController extends FrontendController {
             if ($modelValidate && $jobModelValidate) {
                 $model->status = User::STATUS_ACTIVE;
                 $jobModel->email = $model->email;
+                
+                //set user display name from email, and user can change later
+                $model->display_name = substr($model->email, 0, strpos($model->email, '@'));
 
                 if ($oauth === true && !empty($oauthData)) {
                     $model->openids = [$oauthData['provider'] => $oauthData['uid']];
@@ -243,17 +283,79 @@ class AccountController extends FrontendController {
         ]);
     }
 
-    public function actionProfile() {
-        Yii::$app->view->title = Yii::t($this->module->id, 'Profile');
-        Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+    public function actionPublicProfile() {
+        
+        $displayName = Yii::$app->request->getQueryParam('display_name');
+        $user = User::find()->where(['display_name' => $displayName])->one();
+        if ($displayName AND $user){
+            
+            // Log view for user
+            if (UserJob::checkRole('recruiter') OR UserJob::checkRole('employer')){
+                $log = UserJobProfileViewLog::find()->where(['user_id' => $user->_id, 'view_by_user_id' => Yii::$app->user->id])->one();
+                if (!$log){
+                    $log = new UserJobProfileViewLog();
+                    $log->user_id = $user->_id;
+                    $log->view_by_user_id = Yii::$app->user->id;
+                    $log->hits = 1;
+                    $log->last_view_date = new \MongoDate();
+                }else{
+                    $log->hits = $log->hits + 1;
+                    $log->last_view_date = new \MongoDate();
+                }
+                $log->save();
+            }
+            
+            Yii::$app->view->title = Yii::t($this->module->id, ucfirst($displayName) . "'s Profile");
+            Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
+                
+            return $this->render("public_profile_{$user->userJob->role}", ['user' => $user]);
+        } else{
+            return $this->goHome();
+        }
+        
+    }
+    
+    public function actionFavourite() {
+        Yii::$app->response->format = 'json';
 
-        $this->render('profile');
+        $params = Yii::$app->request->post();
+        $result = array();
+        
+        $model = UserFavourite::findOne(['object_id' => $params['object_id'], 'object_type' => $params['object_type'], 'created_by' => Yii::$app->user->id]);
+        if (!$model){
+            $model = new UserFavourite();
+            $model->setScenario('create');
+            $model->object_id = $params['object_id'];
+            $model->object_type = $params['object_type'];
+            $model->created_by = Yii::$app->user->id;
+            $model->created_time = new \MongoDate();
+            if ($model->save()){
+                $result['status'] = 'ok';
+                $result['action'] = 'add';
+                $result['message'] = Yii::t('job', 'Added to favourites list successfully.');
+            } else{
+                $result['status'] = 'fail';
+                $result['message'] = Yii::t('job', 'There is a error. Please try a gain.');
+            }
+        } else{
+            //unfavourite
+            if ($model->delete()){
+                $result['status'] = 'ok';
+                $result['action'] = 'remove';
+                $result['message'] = Yii::t('job', 'Removed from favourites list successfully.');
+            } else {
+                $result['status'] = 'fail';
+                $result['message'] = Yii::t('job', 'There is a error. Please try a gain.');
+            }
+        }
+
+        return $result;
     }
     
     public function actionUpgrade(){
         Yii::$app->view->title = Yii::t($this->module->id, 'Upgrade Level');
         Yii::$app->view->params['breadcrumbs'][] = Yii::$app->view->title;
 
-        $this->render('upgrade');
+        return $this->render('upgrade');
     }
 }

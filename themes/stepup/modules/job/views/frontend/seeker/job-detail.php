@@ -4,8 +4,10 @@ use yii\helpers\Url;
 use app\helpers\ArrayHelper;
 use app\modules\job\models\Job;
 use app\modules\job\models\UserJob;
+use app\components\ActiveForm;
 ?>
 
+<?php $form = ActiveForm::begin([])?>
 <!-- MAIN -->
 <main id="main" class="main-container">
     <!-- SECTION 1 -->
@@ -19,7 +21,19 @@ use app\modules\job\models\UserJob;
                                 <table id="jobdetail" class="table table-bordered table-striped table-hover">
                                     <tbody>
                                     <tr>
-                                        <th colspan="2">New job post</th>
+                                        <th colspan="2">
+                                            <?php
+                                                if (\app\modules\job\models\UserFavourite::isFavourite($model->_id, 'job', Yii::$app->user->id)){
+                                                     $class = "favourites";
+                                                     $title = Yii::t('job', 'Remove from favourites list?');
+                                                 }
+                                                 else {
+                                                     $class = "un-favourites";
+                                                     $title = Yii::t('job', 'Add to favourites list?');
+                                                 }
+                                                 echo Html::a('<i class="fa fa-star"></i>', ['account/favourite'], ['title' => $title, 'class' => $class, 'onclick'=> 'js:favourite($(this)); return false', 'data-id' => $model->_id, 'data-type' => 'job']);
+                                             ?>
+                                        </th>
                                         <th class="text-center"><a href="javascript:history.back()">Back</a></th>
                                     </tr>
                                     <tr>
@@ -35,6 +49,10 @@ use app\modules\job\models\UserJob;
                                     <tr>
                                         <td colspan="2">Job Title</td>
                                         <td><?= Html::encode($model->title) ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">Job Code</td>
+                                        <td><?= Html::encode($model->code) ?></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2">Location</td>
@@ -99,8 +117,10 @@ use app\modules\job\models\UserJob;
                                         <td>
                                             <span class="text-uppercase">Posted by this approved recruiter</span>
                                         </td>
-                                        <td><a href="#">View All Jobs</a></td>
-                                        <td colspan="2"><a href="#">View Detail</a></td>
+                                        <td>
+                                            <?= Html::a(Yii::t('job', 'View All Jobs'), ['job-search', 'Job[created_by]' => $userJob->_id], ['class' => '']) ?>
+                                        </td>
+                                        <td colspan="2"><?= Html::a(Yii::t('job', 'View Detail'), ['account/public-profile', 'display_name' => (string) $userJob->user->display_name]) ?></td>
                                     </tr>
                                     <tr>
                                         <td rowspan="5">
@@ -160,3 +180,4 @@ use app\modules\job\models\UserJob;
     <!-- # SECTION 1 -->
 </main>
 <!-- # MAIN -->
+<?php ActiveForm::end(); ?>

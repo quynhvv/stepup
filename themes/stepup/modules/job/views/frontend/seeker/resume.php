@@ -58,7 +58,7 @@ use yii\helpers\Url;
                                                     <?= $form->field($model, 'phone_country', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->dropDownList($model->getCountryCodeOptions(), ['prompt' => Yii::t('job', 'Country Code')])->label(false) ?>
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <?= $form->field($model, 'phone_number', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->textInput(['placeholder' => Yii::t('job', '999-999-999')])->label(false) ?>
+                                                    <?= $form->field($modelUser, 'phone', ['template' => '{label}<div class="col-sm-12">{input}{error}{hint}</div>'])->textInput(['placeholder' => Yii::t('job', '999-999-999')])->label(false) ?>
                                                 </div>
                                             </div>
 
@@ -108,7 +108,7 @@ use yii\helpers\Url;
                                                 ],
                                             ]) ?>
                                             <?= $form->field($model, 'industries')->widget(Select2::classname(), [
-                                                'data' => \app\modules\job\models\Job::getCategoryOptions(),
+                                                'data' => \app\modules\job\models\JobIndustry::getOptions(),
                                                 'options' => ['placeholder' => Yii::t('job', 'Select Industries'), 'multiple' => 'multiple'],
                                                 'pluginOptions' => [
                                                     'allowClear' => true

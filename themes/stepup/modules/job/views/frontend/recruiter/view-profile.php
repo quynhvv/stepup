@@ -19,10 +19,12 @@ use yii\helpers\Url;
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading"><?= Html::encode($userJob->getDisplayName()) ?></h4>
-                                    <p><a href="<?= Url::to(['/job/default']) ?>"><?= Yii::t('job', 'Review my posted jobs'); ?></a></p>
+                                    <p><a href="<?= Url::to(['list-job']) ?>"><?= Yii::t('job', 'Review my posted jobs'); ?></a></p>
                                 </div>
                             </div>
                             <dl class="row information">
+                                <dt class="col-xs-12 col-sm-4">Display Name:</dt>
+                                <dd class="col-xs-12 col-sm-8"><?= Html::encode($userJob->getDisplayName()) ?></dd>
                                 <dt class="col-xs-12 col-sm-4">Company Name:</dt>
                                 <dd class="col-xs-12 col-sm-8"><?= ($userJob->agent_company_name) ? Html::encode($userJob->agent_company_name) : Yii::t('common', 'Not set') ?></dd>
                                 <dt class="col-xs-12 col-sm-4">Position:</dt>

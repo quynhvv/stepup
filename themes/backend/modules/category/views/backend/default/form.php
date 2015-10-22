@@ -78,6 +78,39 @@ $buttons .= Html::button(Yii::t('common', 'Save'), [
                                 $form->field($model, 'class')->textInput() .
                                 $form->field($model, 'skin')->textInput() .
                                 $form->field($model, 'image')->widget(FileInput::classname(), $imageConfig) .
+                                $form->field($model, 'content')->widget(letyii\tinymce\Tinymce::className(), [
+                                    'options' => [
+                                        'style' => 'height: 400px;',
+                                    ],
+                                    'configs' => [
+                                        'plugins' => 'moxiemanager advlist autolink lists link image charmap print preview hr anchor pagebreak '
+                                            . 'searchreplace wordcount visualblocks visualchars code fullscreen '
+                                            . 'insertdatetime media nonbreaking save table contextmenu directionality '
+                                            . 'emoticons template paste textcolor colorpicker textpattern',
+                                        'toolbar1' => 'insertfile undo redo | styleselect | fontselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                                        'toolbar2' => 'print preview media | forecolor backcolor emoticons',
+                                        'moxiemanager_image_settings' => [
+                                            'moxiemanager_title' => 'Images',
+                                            'moxiemanager_extensions' => 'jpg,png,gif',
+                                            'moxiemanager_rootpath' => '/uploads/editor',
+                                            'moxiemanager_view' => 'thumbs',
+                                        ],
+                                        'external_plugins' => [
+                                            'moxiemanager' => Url::base() . '/plugins/moxiemanager/plugin.min.js'
+                                        ],
+                                        'entity_encoding' => 'raw',
+                                        'force_p_newlines' => true,
+                                        'force_br_newlines' => false,
+                                        'auto_cleanup_word' => false,
+                                        'relative_urls' => true,
+                                        'convert_urls' => false,
+                                        'remove_script_host' => true,
+                                        'verify_html' => false,
+                                        'forced_root_block' => false,
+                                        'content_css' => 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
+                                        'templates' => Url::to(['template'])
+                                    ],
+                                ]) .
                                 $form->field($model, 'description')->textarea () .
                                 $form->field($model, 'promotion')->widget(SwitchInput::className([
                                     'type' => SwitchInput::RADIO,
@@ -90,10 +123,12 @@ $buttons .= Html::button(Yii::t('common', 'Save'), [
                         [
                             'label' => 'Seo',
                             'content' =>
-                            $form->field($model, 'seo_url')->textInput() .
-                            $form->field($model, 'seo_title')->textInput() .
-                            $form->field($model, 'seo_desc')->textInput(),
-                            $form->field($model, 'seo_keyword')->textInput(),
+                                $form->field($model, 'slug')->textInput() .
+                                $form->field($model, 'slug_prefix')->textInput() .
+                                $form->field($model, 'seo_url')->textInput() .
+                                $form->field($model, 'seo_title')->textInput() .
+                                $form->field($model, 'seo_desc')->textInput(),
+                                $form->field($model, 'seo_keyword')->textInput(),
                         ],
                     ];
                     echo Html::hiddenInput('save_type', 'save');

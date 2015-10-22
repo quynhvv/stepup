@@ -20,9 +20,9 @@ class Module extends \app\components\Module
         $this->backendMenu = [
             [
                 'label' => Yii::t('job', 'Manage Job'),
-                'url' => ['/job/default'],
+                'url' => ['/job/job'],
                 'access' => [
-                    'job/backend/default/*',
+                    'job/backend/job/*',
                 ],
             ],
             [

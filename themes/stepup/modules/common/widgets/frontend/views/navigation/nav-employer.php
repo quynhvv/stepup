@@ -17,10 +17,15 @@ use yii\helpers\Url;
     <li class="menu-item-has-children active">
         <a href="#"><?= Yii::t('job', 'Jobs')?></a>
         <ul class="sub-menu">
-            <li><a href="<?= Url::to(['/job/default/post']) ?>"><?= Yii::t('job', 'Post New Jobs')?></a></li>
-            <li><a href="<?= Url::to(['/job/default']) ?>"><?= Yii::t('job', 'Manage Jobs')?></a></li>
+            <li><a href="<?= Url::to(['/job/employer/post-job']) ?>"><?= Yii::t('job', 'Post New Jobs')?></a></li>
+            <li><a href="<?= Url::to(['/job/employer/list-job']) ?>"><?= Yii::t('job', 'Manage Jobs')?></a></li>
         </ul>
     </li>
-    
-    <li>Updating...</li>
+    <li class="menu-item-has-children">
+        <a href="<?= Url::to(['/message/frontend/default/index']) ?>">My messages <span class="label label-danger"><?= \app\modules\message\models\Message::countMessageUnread() ?></span></a>
+        <ul class="sub-menu">
+            <li><a href="<?= Url::to(['/message/frontend/default/index', 'type' => \app\modules\message\models\Message::TYPE_INBOX]) ?>">Inbox</a></li>
+            <li><a href="<?= Url::to(['/message/frontend/default/index', 'type' => \app\modules\message\models\Message::TYPE_SENT]) ?>">Outbox</a></li>
+        </ul>
+    </li>
 </ul>

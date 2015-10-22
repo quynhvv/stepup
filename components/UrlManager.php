@@ -17,16 +17,17 @@ class UrlManager extends \yii\web\UrlManager {
 
         if (Yii::$app->params['multilingual'] && !isset($params['lang'])) {
 
-            if (Yii::$app->request->cookies->has('lang')) {
-                Yii::$app->language = Yii::$app->request->cookies->getValue('lang');
-            } else if (Yii::$app->session->has('lang')) {
-                Yii::$app->language = Yii::$app->session->get('lang');
-            }
+//            if (Yii::$app->request->cookies->has('lang')) {
+//                Yii::$app->language = Yii::$app->request->cookies->getValue('lang');
+//            } else if (Yii::$app->session->has('lang')) {
+//                Yii::$app->language = Yii::$app->session->get('lang');
+//            }
 
             $params[$this->languageParam] = Yii::$app->language;
         }
 
-        return parent::createUrl($params);
+        return str_replace('%2F', '/', parent::createUrl($params));
+        //return parent::createUrl($params);
     }
 
 }
